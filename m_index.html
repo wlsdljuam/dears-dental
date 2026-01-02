@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+        <!-- <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=인증번호"></script> -->
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="js/gsap.min.js"></script>
+        <script src="js/ScrollTrigger.min.js"></script>
+        <script src="js/swiper-bundle.min.js"></script>
+        <style>
+            @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css');
+            * {
+                box-sizing: border-box;
+                scroll-behavior: smooth;
+                letter-spacing: -0.05em;
+            }
+            body {
+                position: relative;
+                overflow-x: hidden;
+                font-family: 'Pretendard', sans-serif;
+                margin: 0 auto !important;
+                box-sizing: border-box;
+                -webkit-font-smoothing: antialiased;
+                word-break: keep-all;
+                color: #222;
+                max-width: 768px;
+            }
+
+            .menu circle {
+                fill-opacity: 0;
+            }
+            a {
+                color: #222;
+                text-decoration: none;
+            }
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0px;
+            }
+            li {
+                list-style: none;
+            }
+            img {
+                vertical-align: middle;
+                max-width: 100%;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            span,
+            strong {
+                margin: 0;
+            }
+            .center {
+                max-width: 350px;
+                width: 100%;
+                margin: 0 auto;
+            }
+            .t26r {
+                font-weight: 400;
+                font-size: 26px;
+                line-height: 34px;
+                letter-spacing: -1.5px;
+            }
+            .t18r {
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 24px;
+                letter-spacing: -1px;
+            }
+            .b16r {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 26px;
+                letter-spacing: -0.5px;
+            }
+            .b16s {
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 26px;
+                letter-spacing: -0.5px;
+            }
+            .b14r {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 20px;
+                letter-spacing: -0.5px;
+            }
+            .b14s {
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 20px;
+                letter-spacing: -1px;
+            }
+            .main_review {
+                overflow: hidden;
+            }
+
+            /* header */
+            header {
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                padding: 0px 20px;
+                z-index: 103;
+                transition: all 0.5s;
+            }
+            .headroom--not-top {
+                background-color: #fff;
+            }
+            .header a img.active {
+                filter: brightness(100) !important;
+            }
+            .headroom--not-top .nav_btn span {
+                background: #3e3a39;
+            }
+            header.fixed {
+                background-color: #fff;
+            }
+            header.fixed .logo_off {
+                display: none;
+            }
+            header.fixed .logo_on {
+                display: inline-block;
+            }
+            header > nav {
+                display: flex;
+                justify-content: space-between;
+                height: 60px;
+                align-items: center;
+            }
+
+            .nav_btn {
+                width: 22px;
+                height: 17px;
+                background-color: transparent;
+                border: none;
+                z-index: 100;
+                cursor: pointer;
+                transition: opacity 0.25s ease;
+                position: relative;
+            }
+            .nav_btn.active .nav_btn_top {
+                transform: translateY(11px) translateX(0) rotate(45deg);
+                background: #fff !important;
+                top: -5px;
+            }
+            .nav_btn.active .nav_btn_middle {
+                opacity: 0;
+                background: #3e3a39;
+            }
+            .nav_btn.active .nav_btn_bottom {
+                transform: translateY(-11px) translateX(0) rotate(-45deg);
+                background: #fff !important;
+                top: 17px;
+            }
+            .nav_btn span {
+                background: #fff;
+                border: none;
+                height: 2px;
+                width: 22px;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                transition: all 0.35s ease;
+                cursor: pointer;
+            }
+            .nav_btn span:nth-of-type(2) {
+                top: 7px;
+            }
+            .nav_btn span:nth-of-type(3) {
+                top: 14px;
+            }
+
+            .overlay {
+                position: fixed;
+                background-color: #3e3a39;
+                top: -89px;
+                left: 0;
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+                width: 100%;
+                height: 0px;
+                z-index: 102;
+                overflow: hidden;
+                padding-left: 30px;
+                padding-right: 20px;
+                padding-top: 89px;
+                transition: all 0.5s;
+            }
+            .overlay.open1 {
+                height: 548px;
+                top: 0px;
+            }
+            .overlay.open1 li {
+                animation: fadeInRight 0.5s ease forwards;
+                animation-delay: 0.35s;
+                opacity: 0;
+            }
+            .overlay.open1 li:nth-of-type(2) {
+                animation-delay: 0.4s;
+            }
+            .overlay.open1 li:nth-of-type(3) {
+                animation-delay: 0.45s;
+            }
+            .overlay.open1 li:nth-of-type(4) {
+                animation-delay: 0.5s;
+            }
+            .overlay.open1 li:nth-of-type(5) {
+                animation-delay: 0.55s;
+            }
+            .overlay.open1 li:nth-of-type(6) {
+                animation-delay: 0.6s;
+            }
+            .overlay.open1 li:nth-of-type(7) {
+                animation-delay: 0.65s;
+            }
+            .overlay.open1 li:nth-of-type(8) {
+                animation-delay: 0.7s;
+            }
+            .overlay > div > ul {
+                list-style: none;
+                padding: 0;
+                margin: 0 auto;
+                display: inline-block;
+                position: relative;
+                height: 100%;
+                width: 100%;
+                margin-bottom: 38px;
+            }
+            @keyframes fadeInRight {
+                0% {
+                    opacity: 0;
+                    left: 20%;
+                }
+                100% {
+                    opacity: 1;
+                    left: 0;
+                }
+            }
+
+            .main_menu > li > a {
+                font-size: 16px;
+                font-weight: 300;
+                display: block;
+                color: #fff;
+                transition: all 0.2s;
+                line-height: 50px;
+                border-bottom: 1px solid #424242;
+            }
+            .overlay-menu {
+                width: 100%;
+            }
+            .hd_sns > a {
+                margin-right: 14px;
+                transition: all 0.2s;
+            }
+            .hd_sns > a:last-child {
+                margin-right: 0px;
+            }
+
+            /* main_doctor */
+            .main_doctor {
+                padding: 384px 0px 80px;
+                background-image: url(img/m/main_doctor_bg.jpg);
+                background-size: cover;
+                background-repeat: no-repeat;
+                text-align: center;
+            }
+            .main_doctor_wrap {
+                max-width: 270px;
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .main_doctor_wrap h2 {
+                margin: 4px auto 24px;
+            }
+            .main_doctor_con {
+                position: relative;
+                border-radius: 12px;
+                overflow: hidden;
+                border: 0.5px solid rgba(255, 255, 255, 0.6);
+                background: rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(20px);
+            }
+            .main_doctor_con h4 {
+                position: absolute;
+                left: 50%;
+                bottom: 84px;
+                transform: translateX(-50%);
+                color: #fff;
+            }
+            .main_doctor_con h4 > span {
+                margin-right: 4px;
+            }
+            .main_doctor_con > span {
+                position: absolute;
+                left: 50%;
+                bottom: 28px;
+                transform: translateX(-50%);
+                color: #fff;
+                align-items: center;
+                border: 0.5px solid rgba(255, 255, 255, 0.6);
+                background: rgba(255, 255, 255, 0.08);
+                backdrop-filter: blur(20px);
+                border-radius: 100px;
+                display: inline-flex;
+                padding: 16px 30px;
+                gap: 2px;
+                cursor: pointer;
+            }
+
+            .scene_sect {
+                position: relative;
+                overflow: hidden;
+                z-index: 12;
+            }
+            .scene_sect .fixed_txt {
+                z-index: 15;
+            }
+            .fixed_txt {
+                position: fixed;
+                left: 50%;
+                top: 30%;
+                transform: translate(-50%, 0%);
+                max-width: 100%;
+                z-index: 10;
+                opacity: 0;
+                pointer-events: none;
+                width: 100%;
+            }
+            .scene_sect .in {
+                top: 40%;
+            }
+            .in {
+                position: relative;
+            }
+            .scene_sect .fixed_txt .sect_tit {
+                color: #fff;
+            }
+            .fixed_txt .sect_tit {
+                color: #000;
+                z-index: 10;
+                background-color: transparent;
+                height: calc(3.5rem * 1.5 + 30px + 11.5rem);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+            .sect_tit {
+                position: relative;
+                color: rgba(0, 0, 0, 0.05);
+                transition: color 0.3s ease-in-out;
+            }
+            .fixed_txt .sect_tit .tit {
+                background: transparent;
+            }
+            .sect_tit .tit {
+                position: relative;
+                display: inline-block;
+                margin-top: 4px;
+            }
+            .scene_sect .scene_cont {
+                height: 100vh;
+                color: #000;
+                transition: color 0.3s ease-in-out;
+                background-image: url(img/scene_sect.jpg);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+            .scene_sect .cont {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                text-align: center;
+                opacity: 0;
+                transition: opacity 0.5s;
+                color: #fff;
+            }
+            .scene_sect.type1 .cont .left {
+                opacity: 0;
+            }
+            .scene_sect .cont .line {
+                flex: 0;
+                margin: 0;
+                position: relative;
+                opacity: 0;
+            }
+            .scene_sect.type1 .cont .right {
+                transform: translateX(-50%);
+                opacity: 0;
+                will-change: transform;
+            }
+            .scene_sect.type1 .cont .en {
+                opacity: 0.05;
+            }
+            .scene_sect.type1 .cont .tit {
+                opacity: 0.05;
+            }
+            .scene_sect .cont .tit {
+                margin-top: 4px;
+            }
+            .scene_sect.type1 .cont .line .before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .scene_sect .cont .line .before {
+                position: absolute;
+                top: 50%;
+                width: 0;
+                height: 1px;
+                background: #fff;
+            }
+            .fixed_txt.active {
+                opacity: 0.05;
+            }
+            .fixed_txt.bk .sect_tit {
+                color: #000;
+            }
+            .fixed_txt.type2 .sect_tit .tit {
+                text-align: right;
+            }
+            .scene_sect.type2 .cont .left {
+                transform: translateX(0%);
+                opacity: 0;
+            }
+            .scene_sect.type2 .cont .right {
+                transform: translateX(-50%);
+                opacity: 0;
+            }
+            .scene_sect.type2 .cont .line {
+                flex: 1;
+                opacity: 1;
+                margin: 0 10rem;
+            }
+            .scene_sect.type2 .cont .line .before {
+                left: 0;
+            }
+            .scene_sect .start {
+                position: absolute;
+                top: 70%;
+                left: 0;
+                width: 100%;
+            }
+            .scene_sect .fixed_txt.type2 .in {
+                justify-content: flex-end;
+            }
+            .sect_tit .desc p {
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+            }
+            .sect_tit .desc p span {
+                transform: translateY(100%);
+                transition: transform 0.75s cubic-bezier(0.68, 0.03, 0.33, 1);
+                display: inline-block;
+            }
+            .sect_tit.active .desc p span {
+                transform: none;
+            }
+
+            /* material_sect wisdom */
+            .material_sect {
+                margin-top: 80px;
+                padding: 0px 20px 148px;
+                overflow: hidden;
+            }
+            .material_sect .sect_tit {
+                opacity: 1;
+                transition: opacity 0.5s;
+                text-align: center;
+            }
+            .material_sect.active .sect_tit {
+                opacity: 1;
+            }
+            .sect_tit .tit span {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                color: transparent;
+                white-space: nowrap;
+                letter-spacing: -2px;
+                transition: width 0.7s ease-in-out, background-color 0.3s ease-in-out;
+            }
+            .sect_tit.active .tit span {
+                color: #000;
+            }
+            .sect_tit.active .desc {
+                color: #000;
+                transition: color 0.3s ease-in-out;
+            }
+            .wisdom_swiper {
+                margin-top: 24px;
+            }
+            .wisdom_swiper h3 {
+                margin: 20px 0px 12px;
+                color: #222;
+            }
+            .wisdom_swiper p {
+                color: #777;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <nav class="hd_top">
+                <a href="/index.php"><img src="img/hd_logo.svg" alt="바른선택치과" class="logo_off" style="width: 134px" /></a>
+                <button class="nav_btn" id="m_menu_btn">
+                    <span class="nav_btn_top"></span>
+                    <span class="nav_btn_middle"></span>
+                    <span class="nav_btn_bottom"></span>
+                </button>
+            </nav>
+            <nav class="overlay" id="overlay">
+                <ul class="main_menu">
+                    <li>
+                        <a href="#page1">의료진 소개</a>
+                    </li>
+                    <li>
+                        <a href="#page2">사랑니 발치</a>
+                    </li>
+                    <li>
+                        <a href="#page3">턱관절 진료</a>
+                    </li>
+                    <li>
+                        <a href="#page4">진료 철학</a>
+                    </li>
+                    <li>
+                        <a href="#page5">치료 전후</a>
+                    </li>
+                    <li>
+                        <a href="#page6">오시는 길 · 진료시간</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section class="main_doctor" id="page01">
+            <div class="main_doctor_wrap">
+                <h3 class="b14r">믿고 선택할 수 있는</h3>
+                <h2 class="t26r">
+                    사랑니랑 턱이랑<br />
+                    탁월한 의료진
+                </h2>
+                <div class="main_doctor_con">
+                    <img src="img/main_doctor_img.png" alt="대표원장 프로필" />
+                    <h4 class="b16r"><span class="b16s">최영진</span>대표원장</h4>
+                    <span class="b14s viewMore case_btn" id="doctor_pop">자세히 보기<img src="img/main_doctor_btn.svg" alt="자세히 보기" /></span>
+                </div>
+            </div>
+        </section>
+        <section class="scene_sect type1" id="page02">
+            <div class="scene_cont">
+                <div class="in">
+                    <div class="cont">
+                        <div class="left">
+                            <p class="en b14r">사랑니 특화 치과, 3분 발치</p>
+                            <p class="tit t26r">사랑니가 아프신가요?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="start"></div>
+            </div>
+            <div class="fixed_txt type1">
+                <div class="in">
+                    <div class="sect_tit">
+                        <p class="en"></p>
+                        <p class="tit t26r">사랑니가 아프신가요?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="fixed_txt type1 back">
+            <div class="in">
+                <div class="sect_tit">
+                    <p class="en"></p>
+                    <p class="tit t26r">사랑니가 아프신가요?</p>
+                </div>
+            </div>
+        </div>
+        <section class="material_sect wisdom">
+            <div class="sect_tit">
+                <div class="desc">
+                    <p class="b14r"><span>사랑니 특화 치과, 3분 발치</span></p>
+                </div>
+                <p class="tit t26r" tit_name="사랑니가 아프신가요?">
+                    사랑니가 아프신가요?
+                    <span>사랑니가 아프신가요?</span>
+                </p>
+            </div>
+            <div class="wisdom_swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="img/m/wisdom_swiper01.png" alt="1만 5천 건 이상의 사랑니 발치 경험" />
+                        <h3 class="t18r">1만 5천 건 이상의 사랑니 발치 경험</h3>
+                        <p class="b14r">숫자가 증명하는 전문성,<br />검증된 임상 경험으로 빠른 회복과<br />안전을 보장합니다.</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/m/wisdom_swiper02.png" alt="당일 발치, 일요일 발치 가능" />
+                        <h3 class="t18r">당일 발치, 일요일 발치 가능</h3>
+                        <p class="b14r">
+                            일요일에도 열려있는 치과,<br />
+                            아픈 하루를 더 견디지 않도록<br />
+                            당일 발치로 빠르게 해결하세요.
+                        </p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/m/wisdom_swiper03.png" alt="3~5분 발치로 적은 통증과 빠른 회복" />
+                        <h3 class="t18r">3~5분 발치로 적은 통증과 빠른 회복</h3>
+                        <p class="b14r">
+                            절개를 최소화한 빠른 발치 방식으로 통증과 붓기를 줄이고 회복 기간을 단축합니다. 평균 3~5분 내의 신속한 발치로, 불필요한 조직 손상을 최소화하여 다음 날부터도 편안한<br />
+                            일상으로 복귀할 수 있도록 돕습니다.
+                        </p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/m/wisdom_swiper04.png" alt="발치 특화, 구강악안면외과 전문의" />
+                        <h3 class="t18r">발치 특화, 구강악안면외과 전문의</h3>
+                        <p class="b14r">통증이 적은 사랑니 발치와 외과적 수술이 특화된 구강악안면외과 전문의 대표원장이 처음부터 끝까지 직접 책임집니다.</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/m/wisdom_swiper05.png" alt="대학병원 의뢰 없이 고난이도 사랑니까지" />
+                        <h3 class="t18r">
+                            대학병원 의뢰 없이<br />
+                            고난이도 사랑니까지
+                        </h3>
+                        <p class="b14r">난이도 높은 사랑니 발치도, 정밀 CT 진단과 숙련된 수술 경험으로 대학병원 의뢰 없이 한 공간에서 바로 진행합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="scene_sect type2" id="page03">
+            <div class="scene_cont">
+                <div class="in">
+                    <div class="cont">
+                        <div class="left">
+                            <p class="en b14r">사랑니 특화 치과, 3분 발치</p>
+                            <p class="tit t26r">사랑니가 아프신가요?</p>
+                        </div>
+                        <div class="line">
+                            <div class="before"></div>
+                        </div>
+                        <div class="right">
+                            <p class="en b14r">근본적인 원인을 없애는 턱관절 치료</p>
+                            <p class="tit t26r">턱관절이 아프신가요?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="start"></div>
+            </div>
+            <div class="fixed_txt type1">
+                <div class="in">
+                    <div class="sect_tit">
+                        <p class="en"></p>
+                        <p class="tit t26r">사랑니가 아프신가요?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="fixed_txt type2">
+                <div class="in">
+                    <div class="sect_tit">
+                        <p class="en"></p>
+                        <p class="tit t26r">턱관절이 아프신가요?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="fixed_txt type2 bk">
+            <div class="in">
+                <div class="sect_tit">
+                    <p class="en"></p>
+                    <p class="tit t26r">턱관절이 아프신가요?</p>
+                </div>
+            </div>
+        </div>
+        <section class="material_sect jaw">
+            <div class="sect_tit">
+                <div class="desc">
+                    <p class="b16r"><span>근본적인 원인을 없애는 턱관절 치료</span></p>
+                </div>
+                <p class="tit t26r" tit_name="사랑니가 아프신가요?">
+                    턱관절이 아프신가요?
+                    <span>턱관절이 아프신가요?</span>
+                </p>
+                <span class="jaw_btn b14s viewMore case_btn" id="jaw_pop">자세히 보기<img src="img/main_doctor_btn.svg" alt="자세히 보기" /></span>
+            </div>
+            <div class="jaw_swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="img/m/main_jaw_con01.png" alt="비수술 턱관절 치료" />
+                        <h3 class="t18r">비수술 턱관절 치료</h3>
+                        <p class="b14r">
+                            약물이나 온열, 초음파와 같은 물리치료 또는<br />
+                            턱관절 안정 장치(스플린트)로 수술 부담 없이<br />회복이 가능합니다.
+                        </p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/m/main_jaw_con01.png" alt="차별화된 선명한 영상으로 정밀 진단" />
+                        <h3 class="t18r">차별화된 선명한 영상으로 정밀 진단</h3>
+                        <p class="b14r">
+                            구강 검진, 촉진, 교합 검사 또는 파노라마,<br />
+                            CBCT, MRI 촬영을 통해 눈에 보이지 않는 부위<br />
+                            까지 선명하게 관절, 디스크 상태를 확인합니다.
+                        </p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/m/main_jaw_con01.png" alt="대한악안면성형재건외과학회 인정의 책임 진료" />
+                        <h3 class="t18r">대한악안면성형재건외과학회 인정의 책임 진료</h3>
+                        <p class="b14r">
+                            공인된 전문 자격과 풍부한 임상 경험을 바탕으로, 처음부터 끝까지<br />
+                            책임 있는 진료를 약속드립니다. 세심한 진단과 계획, 안전을 최우선으로 한 치료 과정을 통해 환자 한<br />분 한 분이 안심하고 치료를 받으실 수 있도록 최선을 다합니다.
+                        </p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/m/main_jaw_con01.png" alt="개인 맞춤형, 원인을 찾는 근본적 치료" />
+                        <h3 class="t18r">개인 맞춤형, 원인을 찾는 근본적 치료</h3>
+                        <p class="b14r">
+                            증상만 완화하는 임시 처방이 아닌,<br />
+                            재발을 최소화하기 위해 원인을 정확히 찾아<br />
+                            환자별 맞춤 치료 계획을 세웁니다.
+                        </p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/m/main_jaw_con01.png" alt="턱의 기능 뿐만 아니라 균형까지" />
+                        <h3 class="t18r">턱의 기능 뿐만 아니라 균형까지</h3>
+                        <p class="b14r">
+                            단순한 기능 개선을 넘어,<br />
+                            턱과 주변 근육·관절의 균형을 맞춰 장기적인<br />
+                            안정과 편안함을 회복합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="main_review" id="page04">
+            <h3 class="b14r">치과 치료, 무서워서 미루고 계시나요?</h3>
+            <h2 class="t26r">
+                공장형 치과와 다릅니다.<br />
+                충분한 설명이 만드는 편안한 치료
+            </h2>
+            <p class="b14r">
+                치료 과정을 미리 알고 이해하면, 통증과 두려움은 훨씬 줄어듭니다.<br />
+                시간이 조금 더 걸리더라도 환자분이 편안함을 느낄 수 있도록<br />
+                충분히 설명하고 진행합니다.
+            </p>
+            <img src="img/m/main_review.png" alt="최영진" />
+            <div class="main_review_swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <h4 class="b14r">김**</h4>
+                        <p class="b14r">구강악안면외과 방문했습니다. 제일 가기 싫은 곳 중 하나가 치과인데.. 발치하면서 많이 걱정하고 긴장했는데 자세한 설명과 도움 주셔서 안심하고 치료 잘 받고 갑니다. 특히 시술중 겁먹은 제 손 꼭 붙잡아주신 위생사님, 정말 감동 받았어요. 손 보다 마음이 더 크게 느껴집니다. 신뢰가 가고 좋은 치과로 선택 잘한 것 같아요!</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <h4 class="b14r">김**</h4>
+                        <p class="b14r">몇 년을 사랑니로 고생하고 무서워서 방치중이였습니다. 그러다 우연하게 최영진 원장님께 검사를 받았는데 너무 친절하게 설명해주시고 안심시켜주셔서 결심하고 발치했습니다. 세심하고 상세한 설명으로 사랑니를 뺄 용기 주셔서 지금은 고통에서 해방되어 잘 지내고 있습니다. 원장님과 같은 분들만 계신다면 막연한 마음을 누그릴 수 있을 것 같습니다. 너무 감사합니다!</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <h4 class="b14r">박**</h4>
+                        <p class="b14r">겁 많고 엄살이 심해서 매복사랑니 발치를 몇 년을 미뤘네요. 그러다 최영진 원장님께 진료 보고 발치했습니다. 넘 친절하시고 발치도 신속하게 해주셨어요! 예전에 다른 병원에서 마취가 덜 되어 잇몸 뜯기는 것 같은 느낌을 겪고 트라우마가 남았는데, 이번에는 느낌 하나도 안나고 좋았어요.</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <h4 class="b14r">양**</h4>
+                        <p class="b14r">교통사고로 인해 치과를 찾았다가 물혹을 발견하고 황망했었는데, 소개로 원장님을 소개 받아 치료와 수술을 무사히 마쳤습니다. 유명하신 원장님 첫 인상이 좋으셔서 마음이 놓였고 곁에 계신 위생사분들의 도움과 훌륭한 수술 실력에 탈 없이 끝났습니다. 고마움을 가슴에 새기며 다음 진료 기다리겠습니다. 감사합니다.</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <h4 class="b14r">최**</h4>
+                        <p class="b14r">저희 아빠가 낭종, 종양으로 의심 소견이 있어서 찾게되었습니다. 원장님께서 걱정하는 딸의 마음을 잘 아시는 것 처럼 너무 친절하게 설명 잘해주시고 아빠가 큰 고통 없이 수술도 안전히 해주셨습니다. 병원 오는 일이 힘들고 어려운 일로만 느껴졌는데 선생님을 만나고 따뜻함을 느낄 수 있었습니다. 더 고생하지 않게 아빠 치료해주신 최영진 원장님 오랫동안 기억에 남을 것 같습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="main_bna" id="page05">
+            <div class="center">
+                <h3 class="b14r">비포 애프터</h3>
+                <h2 class="t26r">건강을 되찾은 치료 사례</h2>
+                <div class="main_bna_con">
+                    <div class="main_bna_con01">
+                        <img src="img/main_bna_con01.png" alt="과잉치" />
+                        <h4 class="t18r"><span class="b14s">Case 01</span>과잉치</h4>
+                        <p class="b14r">정상 치아 외에 불필요한 치아가 더 생기는 현상</p>
+                        <span class="b14s viewMore case_btn" id="main_bna01">자세히 보기<img src="img/main_doctor_btn.svg" alt="자세히 보기" /></span>
+                    </div>
+                    <div class="main_bna_con02">
+                        <img src="img/main_bna_con02.png" alt="잇몸에 생긴 양성 종양" />
+                        <h4 class="t18r"><span class="b14s">Case 02</span>잇몸에 생긴 양성 종양</h4>
+                        <p class="b14r">만성 자극이나 염증으로 잇몸에 혹이 생기는 현상</p>
+                        <span class="b14s viewMore case_btn" id="main_bna02">자세히 보기<img src="img/main_doctor_btn.svg" alt="자세히 보기" /></span>
+                    </div>
+                    <div class="main_bna_con03">
+                        <img src="img/main_bna_con03.png" alt="점액낭종, 하마종" />
+                        <h4 class="t18r"><span class="b14s">Case 03</span>점액낭종, 하마종</h4>
+                        <p class="b14r">침샘이 막혀 입안에 물집이나 부종이 생기는 현상</p>
+                        <span class="b14s viewMore case_btn" id="main_bna03">자세히 보기<img src="img/main_doctor_btn.svg" alt="자세히 보기" /></span>
+                    </div>
+                    <div class="main_bna_con04">
+                        <img src="img/main_bna_con04.png" alt="턱 뼈에 생긴 양성 종양" />
+                        <h4 class="t18r"><span class="b14s">Case 04</span>턱 뼈에 생긴 양성 종양</h4>
+                        <p class="b14r">매복치 주위에 발생하는 함치성 낭종 현상</p>
+                        <span class="b14s viewMore case_btn" id="main_bna04">자세히 보기<img src="img/main_doctor_btn.svg" alt="자세히 보기" /></span>
+                    </div>
+                    <div class="main_bna_con05">
+                        <img src="img/main_bna_con05.png" alt="비구개관 낭종" />
+                        <h4 class="t18r"><span class="b14s">Case 05</span>비구개관 낭종</h4>
+                        <p class="b14r">앞니 사이 입천장 부위에 발생하는 낭종 현상</p>
+                        <span class="b14s viewMore case_btn" id="main_bna05">자세히 보기<img src="img/main_doctor_btn.svg" alt="자세히 보기" /></span>
+                    </div>
+                    <div class="main_bna_con06">
+                        <img src="img/main_bna_con06.png" alt="교정적 견인을 위한 개창술" />
+                        <h4 class="t18r"><span class="b14s">Case 06</span>교정적 견인을 위한 개창술</h4>
+                        <p class="b14r">영구치가 제때 나오지 못하고 잇몸 속에 묻힌 현상</p>
+                        <span class="b14s viewMore case_btn" id="main_bna06">자세히 보기<img src="img/main_doctor_btn.svg" alt="자세히 보기" /></span>
+                    </div>
+                    <div class="main_bna_con07">
+                        <img src="img/main_bna_con07.png" alt="설소대 절제술" />
+                        <h4 class="t18r"><span class="b14s">Case 07</span>설소대 절제술</h4>
+                        <p class="b14r">설소대가 두껍거나 짧아 혀 움직임을 제한하는 현상</p>
+                        <span class="b14s viewMore case_btn" id="main_bna07">자세히 보기<img src="img/main_doctor_btn.svg" alt="자세히 보기" /></span>
+                    </div>
+                    <div class="main_bna_con08">
+                        <img src="img/main_bna_con08.png" alt="구강암과 전암병소" />
+                        <h4 class="t18r"><span class="b14s">Case 08</span>구강암과 전암병소</h4>
+                        <p class="b14r">구강 점막의 이상이 암으로 진행될 수 있는 현상</p>
+                        <span class="b14s viewMore case_btn" id="main_bna08">자세히 보기<img src="img/main_doctor_btn.svg" alt="자세히 보기" /></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="main_info" id="page06">
+            <h3 class="b14r">경기도 부천시 원미구 상동로 79 (부천상동수석프라자) 4층</h3>
+            <h2 class="t26r">상동역 3번 출구 도보 1분</h2>
+            <div class="map_wrap">
+                <div id="map" style="width: 100%; height: 360px; background-color: #f2f2f2"></div>
+                <div class="main_info_con">
+                    <h4 class="t26r">031 ) 000 - 0000</h4>
+                    <ul>
+                        <li class="b16s">
+                            <span class="b16r"><span>월</span>·<span>화</span>·<span>금</span></span
+                            >10:00 ~ 19:00
+                        </li>
+                        <li class="b16s">
+                            <span class="b16r"><span>수</span><span>요</span><span>일</span></span
+                            >14:00 ~ 20:00
+                            <div class="night">야간 진료<img src="img/night.svg" alt="야간 진료" /></div>
+                        </li>
+                        <li class="b16s">
+                            <span class="b16r"><span>목</span><span>요</span><span>일</span></span
+                            >휴진
+                        </li>
+                        <li class="b16s">
+                            <span class="b16r"><span>토</span><span>요</span><span>일</span></span
+                            >9:30 ~ 15:00
+                        </li>
+                        <li class="b16s">
+                            <span class="b16r"><span>일</span><span>요</span><span>일</span></span
+                            >9:30 ~ 15:00
+                        </li>
+                        <li class="b16s">
+                            <span class="b16r"><span>점</span><span>심</span><span>시</span><span>간</span></span
+                            >13:00 ~ 14:30
+                        </li>
+                    </ul>
+                    <p class="b14r">
+                        토 · 일 점심시간 없이 진료<br />
+                        목 · 공휴일 휴진
+                    </p>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <a href="/index.php"><img src="img/ft_logo.svg" alt="사랑니랑턱이랑치과" /></a>
+            <p class="c12r">
+                사랑니랑턱이랑치과의원 대표 : 최영진<br />
+                주소 : 경기도 부천시 원미구 상동로 79, 제4층 401호 일부(상동, 부천상동수석프라자)<br />
+                사업자등록번호 : 189-44-01311<br />
+                Copyright 사랑니랑턱이랑치과의원. All Rights Reserved.<br />
+                Created by THINKLAB
+            </p>
+        </footer>
+        <aside class="quick_menu">
+            <div class="quick_menu_wrap">
+                <a href="" class="b14r">오시는 길<img src="img/quick_menu01.svg" alt="오시는 길" /></a>
+                <a href="" class="b14r">카카오 상담<img src="img/quick_menu02.svg" alt="카카오 상담" /></a>
+                <a href="" class="b14r">공식 블로그<img src="img/quick_menu03.svg" alt="공식 블로그" /></a>
+                <a href="" class="b14r">네이버 예약<img src="img/quick_menu04.svg" alt="네이버 예약" /></a>
+            </div>
+            <span class="b14s quick_menu_btn"><img src="" alt="" />Quick</span>
+        </aside>
+        <script>
+            $('#m_menu_btn').click(function () {
+                $(this).toggleClass('active');
+                $('.header a img').toggleClass('active');
+                $('#header').toggleClass('fixed');
+                $('#overlay').toggleClass('open1');
+                $('.sub_menu').toggleClass('active');
+            });
+        </script>
+        <script>
+            var swiper = new Swiper('.wisdom_swiper', {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                spaceBetween: 8,
+            });
+        </script>
+        <script>
+            function init() {
+                if ('scrollRestoration' in history) {
+                    if (!window.preventScrollReset) {
+                        history.scrollRestoration = 'manual'; // 기본 스크롤 위치 기억 끄기
+                    } else {
+                        history.scrollRestoration = 'auto'; // 기본 스크롤 위치 기억 켜기
+                    }
+                }
+
+                gsap.registerPlugin(ScrollTrigger);
+
+                ScrollTrigger.matchMedia({
+                    '(min-width: 1239px)': function () {
+                        const sceneAni = gsap.timeline({
+                            scrollTrigger: {
+                                trigger: '.scene_sect.type1 .scene_cont',
+                                start: `top top`,
+                                end: 'bottom+=2000px bottom',
+                                scrub: 0,
+                                markers: false,
+                                pin: true,
+                                invalidateOnRefresh: true,
+                                anticipatePin: 1,
+                                onEnter: () => {},
+                                onLeave: () => {
+                                    $(`.fixed_txt.type1`).addClass('active');
+                                },
+                                onLeaveBack: () => {
+                                    $(`.fixed_txt.type1`).removeClass('active');
+                                },
+                                onEnterBack: () => {
+                                    $(`.fixed_txt.type1`).removeClass('active');
+                                },
+                            },
+                        });
+                        sceneAni.to('.scene_sect.type1 .cont', { duration: '0.5', opacity: 1 });
+                        sceneAni.to('.scene_sect.type1 .cont .left', { duration: '0.5', x: 0, opacity: 1 }, '0');
+                        sceneAni.to(
+                            '.scene_sect.type1 .cont .right',
+                            {
+                                duration: 0.5,
+                                x: '0%',
+                                opacity: 1,
+                                transform: 'translate3d(0, 0, 0)',
+                            },
+                            '0'
+                        );
+                        sceneAni.to('.scene_sect.type1 .cont .line', { duration: '0.5', flex: 1, margin: '0 10rem', opacity: 1 }, '0');
+                        sceneAni.to('.scene_sect.type1 .cont .line .before', { width: '100%' }, '>-0.4');
+                        sceneAni.to('.scene_sect.type1 .cont .left .en', { opacity: '1' }, '+=0');
+                        sceneAni.to('.scene_sect.type1 .cont .left .tit', { opacity: '1' }, '<');
+
+                        const sceneOn = gsap.timeline({
+                            scrollTrigger: {
+                                trigger: '.scene_sect.type1 ',
+                                start: 'top-=15% top',
+                                end: 'bottom+=2000px bottom',
+                                scrub: 0,
+                                markers: false,
+                            },
+                        });
+                    },
+                    '(min-width: 768px) and (max-width: 1238px)': function () {
+                        const sceneAni = gsap.timeline({
+                            scrollTrigger: {
+                                trigger: '.scene_sect.type1 .scene_cont',
+                                start: `top top`,
+                                end: 'bottom+=2000px bottom',
+                                scrub: 0,
+                                markers: false,
+                                pin: true,
+                                anticipatePin: 1,
+                                invalidateOnRefresh: true,
+                                onEnter: () => {},
+                                onLeave: () => {
+                                    $(`.fixed_txt.type1`).addClass('active');
+                                },
+                                onLeaveBack: () => {
+                                    $(`.fixed_txt.type1`).removeClass('active');
+                                },
+                                onEnterBack: () => {
+                                    $(`.fixed_txt.type1`).removeClass('active');
+                                },
+                            },
+                        });
+                        sceneAni.to('.scene_sect.type1 .cont', { duration: '0.5', opacity: 1 });
+                        sceneAni.to('.scene_sect.type1 .cont .left', { duration: '0.5', x: 0, opacity: 1 }, '0');
+                        sceneAni.to('.scene_sect.type1 .cont .right', { duration: 0.5, x: '0%', opacity: 1, transform: 'translate3d(0, 0, 0)' }, '0');
+                        sceneAni.to('.scene_sect.type1 .cont .line', { duration: '0.5', flex: 1, margin: '0 3rem', opacity: 1 }, '0');
+                        sceneAni.to('.scene_sect.type1 .cont .line .before', { width: '100%' }, '>-0.4');
+                        sceneAni.to('.scene_sect.type1 .cont .left .en', { opacity: '1' }, '+=0');
+                        sceneAni.to('.scene_sect.type1 .cont .left .tit', { opacity: '1' }, '<');
+
+                        const sceneOn = gsap.timeline({
+                            scrollTrigger: {
+                                trigger: '.scene_sect.type1 .scene_cont',
+                                start: 'top-=50% top',
+                                end: 'bottom+=2000px bottom',
+                                scrub: 0,
+                                markers: false,
+                            },
+                        });
+                    },
+                    '(max-width: 768px)': function () {
+                        const sceneAni = gsap.timeline({
+                            scrollTrigger: {
+                                trigger: '.scene_sect.type1',
+                                start: `center center`,
+                                end: `top top`,
+                                scrub: 1,
+                                markers: false,
+                                pin: false,
+                                onEnter: () => {},
+                                onLeave: () => {
+                                    $(`.fixed_txt.type1`).addClass('active');
+                                },
+                                onLeaveBack: () => {
+                                    $(`.fixed_txt.type1`).removeClass('active');
+                                },
+                                onEnterBack: () => {
+                                    $(`.fixed_txt.type1`).removeClass('active');
+                                },
+                            },
+                        });
+                        sceneAni.to('.scene_sect.type1 .cont', { duration: '0.5', opacity: 1 });
+                        sceneAni.to('.scene_sect.type1 .cont .left', { duration: '0.5', x: 0, opacity: 1 }, '0');
+                        sceneAni.to('.scene_sect.type1 .cont .right', { duration: 0.5, x: '0%', opacity: 1, transform: 'translate3d(0, 0, 0)' }, '0');
+                        sceneAni.to('.scene_sect.type1 .cont .line', { duration: '0.5', flex: 1, margin: '0 3rem', opacity: 1 }, '0');
+                        sceneAni.to('.scene_sect.type1 .cont .line .before', { width: '100%' }, '>-0.4');
+                        sceneAni.to('.scene_sect.type1 .cont .left .en', { opacity: '1' }, '+=0');
+                        sceneAni.to('.scene_sect.type1 .cont .left .tit', { opacity: '1' }, '<');
+
+                        const sceneOn = gsap.timeline({
+                            scrollTrigger: {
+                                trigger: '.scene_sect.type1 ',
+                                start: 'top-=250% top',
+                                end: 'top-=120px top',
+                                scrub: 0,
+                                markers: false,
+                            },
+                        });
+                    },
+                });
+
+                ScrollTrigger.matchMedia({
+                    '(min-width:768px)': function () {
+                        const sceneAni2 = gsap.timeline({
+                            scrollTrigger: {
+                                trigger: '.scene_sect.type2 .scene_cont',
+                                start: `top top`,
+                                end: 'bottom+=1500px bottom',
+                                scrub: 0,
+                                markers: false,
+                                pin: true,
+                                anticipatePin: 1,
+                                onEnter: () => {},
+                                onLeave: () => {
+                                    $(`.fixed_txt.type2`).addClass('active');
+                                    $(`.fixed_txt.type1`).removeClass('active');
+                                },
+                                onLeaveBack: () => {
+                                    $(`.fixed_txt.type2`).removeClass('active');
+                                },
+                                onEnterBack: () => {
+                                    $(`.fixed_txt.type2`).removeClass('active');
+                                },
+                            },
+                        });
+                        sceneAni2.to('.scene_sect.type2 .cont', { duration: '0.3', opacity: 1 }, '>-0.25');
+                        sceneAni2.to('.scene_sect.type2 .cont .left', { opacity: 1 }, '>-0.25');
+                        sceneAni2.to('.scene_sect.type2 .cont .line .before', { width: '100%', duration: 0.5 }, '>-0.3');
+                        sceneAni2.to('.scene_sect.type2 .cont .right', { duration: '0.5', transform: 'translate(0%,0)', opacity: 1 }, '>-0.45');
+                        sceneAni2.to('.scene_sect.type2 .cont .right .en', { opacity: '1' }, '-=0.7');
+                        sceneAni2.to('.scene_sect.type2 .cont .right .tit', { opacity: '1' }, '<');
+
+                        const sceneOn2 = gsap.timeline({
+                            scrollTrigger: {
+                                trigger: '.scene_sect.type2 .scene_cont',
+                                start: 'top bottom',
+                                end: 'bottom+=3000px bottom',
+                                scrub: 0,
+                                markers: false,
+                            },
+                        });
+                    },
+                    '(max-width: 768px)': function () {
+                        const sceneOn2 = gsap.timeline({
+                            scrollTrigger: {
+                                trigger: '.scene_sect.type2 ',
+                                start: `top top`,
+                                end: 'top+=100% top', // 모바일 탑위치
+                                scrub: 0,
+                                markers: false,
+                                autoRefresh: false, // 이 부분 추가
+                                onEnter: () => {},
+                                onLeave: () => {},
+                                onLeaveBack: () => {
+                                    $(`.fixed_txt.type1`).addClass('active');
+                                },
+                                onEnterBack: () => {
+                                    $(`.fixed_txt.type1`).addClass('active');
+                                },
+                            },
+                        });
+                        const sceneAni2 = gsap.timeline({
+                            scrollTrigger: {
+                                trigger: '.scene_sect.type2 .scene_cont',
+                                start: `top top`,
+                                end: 'top+=100% top', // 모바일 탑위치
+                                scrub: 0,
+                                markers: false,
+                                autoRefresh: false,
+                                pin: true,
+                                anticipatePin: 1,
+                                onEnter: () => {},
+                                onLeave: () => {
+                                    if (!$('.learning_sect .sect_tit').hasClass('active')) {
+                                        $(`.fixed_txt.type2`).addClass('active');
+                                    }
+
+                                    $(`.fixed_txt.type1`).removeClass('active');
+                                    $(`.scene_sect.type2 .cont .tit`).addClass('on');
+                                },
+                                onLeaveBack: () => {
+                                    $(`.fixed_txt.type2`).removeClass('active');
+                                },
+                                onEnterBack: () => {
+                                    $(`.fixed_txt.type2`).removeClass('active');
+                                    $(`.scene_sect.type2 .cont .tit`).removeClass('on');
+                                },
+                            },
+                        });
+                        sceneAni2.to('.scene_sect.type2 .cont', { duration: '0.5', opacity: 1 });
+                        sceneAni2.to('.scene_sect.type2 .cont .left', { opacity: 1 });
+                        sceneAni2.to('.scene_sect.type2 .cont .line .before', { width: '100%' }, '>');
+                        sceneAni2.to('.scene_sect.type2 .cont .right', { duration: '0.5', transform: 'translate(0%,0)', opacity: 1 }, '>-0.45');
+                        sceneAni2.to('.scene_sect.type2 .cont .right .en', { opacity: '1' }, '-=0.7');
+                        sceneAni2.to('.scene_sect.type2 .cont .right .tit', { opacity: '1' }, '<');
+                    },
+                });
+
+                function fixedTitActive(cont, titOnOff) {
+                    let sectTit = $(cont);
+                    let contDesc = $(cont).find('.desc');
+                    let contDescSapn = $(cont).find('.desc span');
+                    let contSectTitPd = parseFloat($(sectTit).css('padding-top'));
+                    let contDescSapnHeight = contDescSapn.height();
+                    let viewportHeight = window.innerHeight;
+                    let contTit = document.querySelector(cont + ' .sect_tit .tit');
+                    let computedStyle;
+                    let contTitMt;
+                    let materialSectStart;
+                    let contTitMtNumber;
+                    let contSectStart;
+                    if (contTit) {
+                        computedStyle = window.getComputedStyle(contTit);
+                        contTitMt = computedStyle.marginTop;
+                        contTitMtNumber = parseFloat(contTitMt);
+                        materialSectStart = window.innerHeight * 0.4 - contDescSapnHeight - contTitMtNumber;
+                    }
+
+                    if (titOnOff) {
+                        if (contSectTitPd) {
+                            contSectStart = viewportHeight * 0.3 - contDescSapnHeight - contSectTitPd;
+                        } else {
+                            contSectStart = viewportHeight * 0.3 - contDescSapnHeight;
+                        }
+                    }
+
+                    if (cont == '.wisdom') {
+                        ScrollTrigger.matchMedia({
+                            '(min-width: 769px)': function () {
+                                gsap.timeline({
+                                    scrollTrigger: {
+                                        trigger: cont,
+                                        start: `top-=${materialSectStart} top`,
+                                        end: 'bottom bottom',
+                                        scrub: 0,
+                                        markers: false,
+                                        onEnter: () => {
+                                            $(`${cont} .sect_tit`).addClass('active');
+                                            $(`.fixed_txt.type1`).removeClass('active');
+                                        },
+                                        onLeave: () => {
+                                            if (!$('.fixed_txt.type2').hasClass('active')) {
+                                                $(`.fixed_txt.type1`).addClass('active');
+                                            }
+                                        },
+                                        onLeaveBack: () => {
+                                            $(`${cont} .sect_tit`).removeClass('active');
+                                            $(`.fixed_txt.type1`).addClass('active');
+                                        },
+                                        onEnterBack: () => {
+                                            $(`${cont} .sect_tit`).addClass('active');
+                                            $(`.fixed_txt.type1`).removeClass('active');
+                                            $(`${cont}`).addClass('active');
+                                        },
+                                    },
+                                });
+                            },
+                            '(max-width: 768px)': function () {
+                                gsap.timeline({
+                                    scrollTrigger: {
+                                        trigger: cont,
+                                        start: `top-=${126}px top`,
+                                        end: 'bottom bottom',
+                                        scrub: 0,
+                                        markers: false,
+                                        onEnter: () => {
+                                            $(`${cont} .sect_tit`).addClass('active');
+                                            $(`.fixed_txt.type1`).removeClass('active');
+                                        },
+                                        onLeave: () => {
+                                            if (!$('.fixed_txt.type2').hasClass('active')) {
+                                                $(`.fixed_txt.type1`).addClass('active');
+                                            }
+                                        },
+                                        onLeaveBack: () => {
+                                            $(`${cont} .sect_tit`).removeClass('active');
+                                            $(`.fixed_txt.type1`).addClass('active');
+                                        },
+                                        onEnterBack: () => {
+                                            $(`${cont} .sect_tit`).addClass('active');
+                                            $(`.fixed_txt.type1`).removeClass('active');
+                                            $(`${cont}`).addClass('active');
+                                        },
+                                    },
+                                });
+                            },
+                        });
+                    }
+                    if (cont == '.jaw') {
+                        ScrollTrigger.matchMedia({
+                            '(min-width: 769px)': function () {
+                                gsap.timeline({
+                                    scrollTrigger: {
+                                        trigger: cont,
+                                        start: `top-=${materialSectStart} top`,
+                                        end: 'bottom bottom',
+                                        scrub: 0,
+                                        markers: false,
+                                        onEnter: () => {
+                                            $(`${cont} .sect_tit`).addClass('active');
+                                            $(`.fixed_txt.type1`).removeClass('active');
+                                        },
+                                        onLeave: () => {
+                                            if (!$('.fixed_txt.type2').hasClass('active')) {
+                                                $(`.fixed_txt.type1`).addClass('active');
+                                            }
+                                        },
+                                        onLeaveBack: () => {
+                                            $(`${cont} .sect_tit`).removeClass('active');
+                                            $(`.fixed_txt.type1`).addClass('active');
+                                        },
+                                        onEnterBack: () => {
+                                            $(`${cont} .sect_tit`).addClass('active');
+                                            $(`.fixed_txt.type1`).removeClass('active');
+                                            $(`${cont}`).addClass('active');
+                                        },
+                                    },
+                                });
+                            },
+                            '(max-width: 768px)': function () {
+                                gsap.timeline({
+                                    scrollTrigger: {
+                                        trigger: cont,
+                                        start: `top-=${126}px top`,
+                                        end: 'bottom bottom',
+                                        scrub: 0,
+                                        markers: false,
+                                        onEnter: () => {
+                                            $(`${cont} .sect_tit`).addClass('active');
+                                            $(`.fixed_txt.type1`).removeClass('active');
+                                        },
+                                        onLeave: () => {
+                                            if (!$('.fixed_txt.type2').hasClass('active')) {
+                                                $(`.fixed_txt.type1`).addClass('active');
+                                            }
+                                        },
+                                        onLeaveBack: () => {
+                                            $(`${cont} .sect_tit`).removeClass('active');
+                                            $(`.fixed_txt.type1`).addClass('active');
+                                        },
+                                        onEnterBack: () => {
+                                            $(`${cont} .sect_tit`).addClass('active');
+                                            $(`.fixed_txt.type1`).removeClass('active');
+                                            $(`${cont}`).addClass('active');
+                                        },
+                                    },
+                                });
+                            },
+                        });
+                    }
+                }
+
+                fixedTitActive('.wisdom', false);
+                fixedTitActive('.jaw', false);
+            }
+
+            $(document).ready(function () {
+                init(); // 초기 설정
+                ScrollTrigger.refresh(); // 초기 리프레시
+            });
+
+            function debounce(func, delay) {
+                let timer;
+                return function (...args) {
+                    clearTimeout(timer);
+                    timer = setTimeout(() => func.apply(this, args), delay);
+                };
+            }
+
+            // 리사이즈 이벤트 처리 (주소창 변화 감지 방지
+
+            let prevHeight = window.innerHeight;
+            let prevWidth = window.innerWidth;
+
+            function handleResize() {
+                const currentHeight = window.innerHeight;
+                const currentWidth = window.innerWidth;
+
+                // 폭의 변화가 없고 높이의 변화가 일정 값 이하면 리사이즈를 무시합니다.
+                if (Math.abs(currentHeight - prevHeight) > 100 || Math.abs(currentWidth - prevWidth) > 20) {
+                    prevHeight = currentHeight;
+                    prevWidth = currentWidth;
+
+                    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+                    ScrollTrigger.clearMatchMedia();
+
+                    init();
+
+                    ScrollTrigger.refresh();
+                }
+            }
+        </script>
+    </body>
+</html>

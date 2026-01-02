@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>디어스치과 - Dears Dental Clinic</title>
+        <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+        <script src="js/gsap.min.js"></script>
+        <script src="js/ScrollTrigger.min.js"></script>
+        <script src="js/swiper-bundle.min.js"></script>
+        <style>
+            @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css');
+
+            :root {
+                --color-bg: #f5f4f1;
+                --color-white: #ffffff;
+                --color-gray-900: #333333;
+                --color-gray-800: #999999;
+                --color-gray-700: #cdcdcd;
+                --color-black: #222222;
+                --color-primary: #f1693a;
+                --container-full: 1920px;
+                --container-content: 1760px;
+                --container-center: 1344px;
+            }
+
+            * {
+                box-sizing: border-box;
+                scroll-behavior: smooth;
+                letter-spacing: -0.05em;
+            }
+            body {
+                position: relative;
+                overflow-x: hidden;
+                font-family: 'Pretendard', sans-serif;
+                margin: 0;
+                -webkit-font-smoothing: antialiased;
+                word-break: keep-all;
+                color: var(--color-gray-900);
+                background-color: var(--color-bg);
+            }
+            html.lenis,
+            html.lenis body {
+                height: auto;
+            }
+            .lenis.lenis-smooth {
+                scroll-behavior: auto !important;
+            }
+            .lenis.lenis-smooth [data-lenis-prevent] {
+                overscroll-behavior: contain;
+            }
+            .lenis.lenis-stopped {
+                overflow: hidden;
+            }
+            .lenis.lenis-scrolling iframe {
+                pointer-events: none;
+            }
+
+            a {
+                color: var(--color-gray-900);
+                text-decoration: none;
+            }
+            ul,
+            li {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            img {
+                vertical-align: middle;
+                max-width: 100%;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            span,
+            strong {
+                margin: 0;
+            }
+
+            .center {
+                max-width: var(--container-center);
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+            .content-wrap {
+                max-width: var(--container-content);
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            /* Typography */
+            .t56r {
+                font-size: 56px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2.24px;
+            }
+            .t48r {
+                font-size: 48px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2px;
+            }
+            .t36r {
+                font-size: 36px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2px;
+            }
+            .t28r {
+                font-size: 28px;
+                font-weight: 400;
+                line-height: 148%;
+                letter-spacing: -1.12px;
+            }
+            .t22r {
+                font-size: 22px;
+                font-weight: 400;
+                line-height: 148%;
+                letter-spacing: -0.88px;
+            }
+            .t20r {
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -1px;
+            }
+            .b18r {
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 148%;
+                letter-spacing: -0.72px;
+            }
+            .b16r {
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 162%;
+                letter-spacing: -0.5px;
+            }
+            .b16s {
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 162%;
+                letter-spacing: -0.5px;
+            }
+            .b14r {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 143%;
+                letter-spacing: -0.5px;
+            }
+            .b14s {
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 143%;
+                letter-spacing: -1px;
+            }
+            .c12r {
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 148%;
+                letter-spacing: -0.48px;
+            }
+
+            /* Header */
+            .header {
+                width: 100%;
+                position: fixed;
+                left: 0;
+                top: 0;
+                z-index: 102;
+                transition: all 0.3s;
+            }
+            .hd_wrap {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                max-width: 1920px;
+                width: 100%;
+                margin: 0 auto;
+                background-color: transparent;
+                padding: 15px 60px;
+                height: 73px;
+                transition: all 0.3s;
+            }
+            .hd_logo img {
+                height: 32px;
+                transition: filter 0.3s;
+            }
+            .hd_menu {
+                display: flex;
+                align-items: center;
+                gap: 50px;
+            }
+            .hd_menu > li > a {
+                color: #fff;
+                transition: all 0.2s;
+                display: inline-block;
+                font-size: 18px;
+                font-weight: 400;
+                letter-spacing: -0.72px;
+            }
+            .hd_menu a:hover {
+                color: rgba(255, 255, 255, 0.7);
+            }
+            .hd_menu li a.active {
+                color: var(--color-primary);
+            }
+            .hd_right {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+            }
+            .hd_night {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                color: #fff;
+                font-size: 14px;
+            }
+            .hd_night img {
+                width: 20px;
+                height: 20px;
+            }
+            .hd_menu .diernate-logo {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .hd_menu .diernate-logo img {
+                height: 16px;
+            }
+            .hd_menu .divider {
+                width: 1px;
+                height: 16px;
+                background: var(--color-gray-700);
+                margin: 0 10px;
+            }
+
+            /* Header Hover/Scroll State */
+            .header.scrolled .hd_wrap,
+            .header:hover .hd_wrap {
+                background-color: var(--color-white);
+                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            }
+            .header.scrolled .hd_menu > li > a,
+            .header:hover .hd_menu > li > a {
+                color: var(--color-gray-900);
+            }
+            .header.scrolled .hd_menu a:hover,
+            .header:hover .hd_menu a:hover {
+                color: var(--color-gray-800);
+            }
+            .header.scrolled .hd_menu li a.active,
+            .header:hover .hd_menu li a.active {
+                color: var(--color-primary);
+            }
+            .header.scrolled .hd_night,
+            .header:hover .hd_night {
+                color: var(--color-gray-900);
+            }
+            .header.scrolled .hd_logo img,
+            .header:hover .hd_logo img {
+                filter: brightness(0) saturate(100%);
+            }
+
+            /* Section Title */
+            .section-title {
+                text-align: center;
+                margin-bottom: 60px;
+            }
+            .section-title .sub {
+                font-size: 16px;
+                color: var(--color-gray-800);
+                margin-bottom: 12px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+            .section-title h2 {
+                font-size: 48px;
+                font-weight: 400;
+                letter-spacing: -2px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header (GNB with hover state) -->
+        <header class="header" id="header">
+            <nav class="hd_wrap">
+                <h1 class="hd_logo">
+                    <a href="/"><img src="img/hd_logo.svg" alt="디어스치과" /></a>
+                </h1>
+                <ul class="hd_menu">
+                    <li><a href="#" class="active">디어스치과</a></li>
+                    <li><a href="#page01">의료진 소개</a></li>
+                    <li><a href="#page02">사랑니 발치</a></li>
+                    <li><a href="#page03">턱관절 진료</a></li>
+                    <li><a href="#page04">진료 철학</a></li>
+                    <li><a href="#page05">치료 전후</a></li>
+                    <li><a href="#page06">오시는 길</a></li>
+                </ul>
+                <div class="hd_right">
+                    <div class="hd_night">
+                        <img src="img/night.svg" alt="야간진료" />
+                        <span>야간진료</span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Footer -->
+        <footer id="page06" class="footer">
+            <div class="footer-left">
+                <h2 class="footer-title t22r">오시는 길</h2>
+                <p class="footer-phone">02. 486. 2080</p>
+                <p class="footer-address t28r">
+                    서울시 강동구 양재대로 1625<br />
+                    명일역 사거리 숨결TOWER 3F
+                </p>
+                <p class="footer-parking b18r">건물 뒷편 기계식 주차 : 승합차, 카니발의 경우 주차가 불가하오니 명일동 공영주차장을 이용 바랍니다.</p>
+
+                <div class="footer-divider"></div>
+
+                <div class="footer-clinics">
+                    <div class="clinic-info">
+                        <h3 class="t28r">디어스 치과</h3>
+                        <div class="clinic-hours">
+                            <div class="hour-row t22r">
+                                <span class="day">월 목</span>
+                                <span>09:30 - 20:30</span>
+                            </div>
+                            <div class="hour-row t22r">
+                                <span class="day">화 수 금</span>
+                                <span>09:30 - 18:30</span>
+                            </div>
+                            <div class="hour-row t22r">
+                                <span class="day">토 일</span>
+                                <span>09:30 - 14:00</span>
+                            </div>
+                        </div>
+                        <p class="clinic-note b18r">
+                            일요일 매주 진료<br />
+                            점심 시간 13:00 - 14:00
+                        </p>
+                    </div>
+                    <div class="clinic-info">
+                        <h3 class="t28r">디어스 어린이 치과</h3>
+                        <div class="clinic-hours">
+                            <div class="hour-row t22r">
+                                <span class="day">목</span>
+                                <span>14:00 - 18:30</span>
+                            </div>
+                            <div class="hour-row t22r">
+                                <span class="day">금</span>
+                                <span>09:30 - 18:30</span>
+                            </div>
+                            <div class="hour-row t22r">
+                                <span class="day">토 일</span>
+                                <span>09:30 - 14:00</span>
+                            </div>
+                        </div>
+                        <p class="clinic-note b18r">
+                            일요일 매주 진료<br />
+                            점심 시간 13:00 - 14:00
+                        </p>
+                    </div>
+                </div>
+
+                <div class="footer-caption c12r">
+                    <span>주소 서울시 강동구 천호동 24-2 숨결빌딩 3층</span>
+                    <span>대표자 장재원</span>
+                    <span>사업자번호 110-22-76435</span>
+                    <span>© 2025 디어스치과</span>
+                </div>
+            </div>
+            <div class="footer-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.5!2d127.15!3d37.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDMzJzAwLjAiTiAxMjfCsDA5JzAwLjAiRQ!5e0!3m2!1sko!2skr!4v1234567890" loading="lazy"></iframe>
+            </div>
+        </footer>
+        <script>
+            // Lenis Smooth Scroll
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smoothWheel: true,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            // GSAP ScrollTrigger
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Header Active State & Scroll State
+            document.addEventListener('DOMContentLoaded', function () {
+                const header = document.getElementById('header');
+                const menuLinks = document.querySelectorAll('.hd_menu a');
+                const sections = document.querySelectorAll('section[id^="page"]');
+
+                function updateHeader() {
+                    const scrollY = window.pageYOffset;
+
+                    // Toggle scrolled class for header background
+                    if (scrollY > 100) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+
+                    // Update active menu link
+                    let activeSection = '';
+                    for (let i = sections.length - 1; i >= 0; i--) {
+                        const section = sections[i];
+                        const sectionTop = section.offsetTop - 150;
+
+                        if (scrollY >= sectionTop) {
+                            activeSection = section.getAttribute('id');
+                            break;
+                        }
+                    }
+
+                    menuLinks.forEach((link) => {
+                        const href = link.getAttribute('href');
+                        if (href === '#') return; // Skip home link
+                        link.classList.remove('active');
+                        if (href === `#${activeSection}`) {
+                            link.classList.add('active');
+                        }
+                    });
+
+                    // Keep first link (디어스치과) always highlighted when at top
+                    if (scrollY < 100) {
+                        menuLinks[0].classList.add('active');
+                    }
+                }
+
+                lenis.on('scroll', updateHeader);
+                updateHeader();
+
+                // Philosophy Accordion
+                const philosophyItems = document.querySelectorAll('.philosophy-item');
+                philosophyItems.forEach((item) => {
+                    item.querySelector('.philosophy-header').addEventListener('click', () => {
+                        const isActive = item.classList.contains('active');
+                        philosophyItems.forEach((i) => i.classList.remove('active'));
+                        if (!isActive) {
+                            item.classList.add('active');
+                        }
+                    });
+                });
+
+                // Scroll Top Button
+                document.getElementById('scrollTop').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    lenis.scrollTo(0);
+                });
+
+                // Counter Animation
+                const counters = document.querySelectorAll('.stat-num');
+                const counterObserver = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                const target = entry.target;
+                                const count = target.getAttribute('data-count');
+                                const isFloat = count.includes('.');
+                                const endValue = parseFloat(count);
+                                let startValue = 0;
+                                const duration = 2000;
+                                const startTime = performance.now();
+
+                                function updateCounter(currentTime) {
+                                    const elapsed = currentTime - startTime;
+                                    const progress = Math.min(elapsed / duration, 1);
+                                    const easeProgress = 1 - Math.pow(1 - progress, 3);
+                                    const currentValue = startValue + (endValue - startValue) * easeProgress;
+
+                                    if (isFloat) {
+                                        target.textContent = currentValue.toFixed(1);
+                                    } else {
+                                        target.textContent = Math.floor(currentValue).toLocaleString();
+                                    }
+
+                                    if (progress < 1) {
+                                        requestAnimationFrame(updateCounter);
+                                    }
+                                }
+
+                                requestAnimationFrame(updateCounter);
+                                counterObserver.unobserve(target);
+                            }
+                        });
+                    },
+                    { threshold: 0.5 }
+                );
+
+                counters.forEach((counter) => counterObserver.observe(counter));
+
+                // GSAP Animations
+                gsap.utils.toArray('.wisdom-card').forEach((card, i) => {
+                    gsap.from(card, {
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 80%',
+                        },
+                        y: 60,
+                        opacity: 0,
+                        duration: 0.8,
+                        delay: i * 0.1,
+                    });
+                });
+
+                gsap.utils.toArray('.jaw-card').forEach((card, i) => {
+                    gsap.from(card, {
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 80%',
+                        },
+                        y: 60,
+                        opacity: 0,
+                        duration: 0.8,
+                        delay: i * 0.1,
+                    });
+                });
+
+                gsap.utils.toArray('.section-title').forEach((title) => {
+                    gsap.from(title, {
+                        scrollTrigger: {
+                            trigger: title,
+                            start: 'top 80%',
+                        },
+                        y: 40,
+                        opacity: 0,
+                        duration: 0.8,
+                    });
+                });
+            });
+
+            // Swiper Initialization
+            const reviewSwiper = new Swiper('.review-swiper', {
+                slidesPerView: 'auto',
+                spaceBetween: 24,
+                centeredSlides: true,
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                        centeredSlides: false,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        centeredSlides: false,
+                    },
+                },
+            });
+
+            const bnaSwiper = new Swiper('.bna-swiper', {
+                slidesPerView: 'auto',
+                spaceBetween: 16,
+                freeMode: true,
+            });
+        </script>
+    </body>
+</html>
