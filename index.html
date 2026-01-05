@@ -25,7 +25,13 @@
                 --container-content: 1760px;
                 --container-center: 1344px;
             }
-
+            .primary {
+                color: var(--color-primary);
+            }
+            .primary-bg {
+                background-color: var(--color-primary);
+                color: #fff;
+            }
             * {
                 box-sizing: border-box;
                 scroll-behavior: smooth;
@@ -97,6 +103,20 @@
             }
 
             /* Typography */
+            /* Title 80px - Figma: kor/title/80-regular */
+            .t80r {
+                font-size: 80px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -3.2px;
+            }
+            /* Title 65px - Figma: kor/title/65-regular */
+            .t65r {
+                font-size: 65px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2.6px;
+            }
             .t56r {
                 font-size: 56px;
                 font-weight: 400;
@@ -289,6 +309,33 @@
                 font-weight: 400;
                 letter-spacing: -2px;
             }
+
+            /* main_banner */
+            .main_banner01 h2 {
+                color: rgba(51, 51, 51, 0.4);
+            }
+            .main_banner01 h2 span,
+            .main_banner01 p {
+                color: var(--gray-900, #333);
+            }
+            /* Main Intro Section */
+            .main_intro01 {
+                width: 100%;
+                height: 100vh;
+                background: url('img/main_intro_bg.jpg') center/cover no-repeat;
+                display: flex;
+                align-items: flex-end;
+                justify-content: flex-end;
+            }
+            .main_intro_inner {
+                width: 50%;
+            }
+            .main_intro01 .txt {
+                color: #fff;
+            }
+            .main_intro01 .txt h3 {
+                margin-bottom: 20px;
+            }
         </style>
     </head>
     <body>
@@ -299,23 +346,157 @@
                     <a href="/"><img src="img/hd_logo.svg" alt="디어스치과" /></a>
                 </h1>
                 <ul class="hd_menu">
-                    <li><a href="#" class="active">디어스치과</a></li>
-                    <li><a href="#page01">의료진 소개1</a></li>
-                    <li><a href="#page02">사랑니 발치1</a></li>
-                    <li><a href="#page03">턱관절 진료</a></li>
-                    <li><a href="#page04">진료 철학</a></li>
-                    <li><a href="#page05">치료 전후</a></li>
-                    <li><a href="#page06">오시는 길</a></li>
+                    <li><a href="#" class="b18r">디어스치과</a></li>
+                    <li><a href="#page01" class="b18r">임플란트, 왜 디어스인가?</a></li>
+                    <li><a href="#page02" class="b18r">원데이 임플란트</a></li>
+                    <li>
+                        <a href="#page03"><img src="" alt="디어네이트" /></a>
+                    </li>
+                    <li><a href="#page04" class="b18r">치아 교정</a></li>
+                    <li><a href="#page05" class="b18r">일반 진료</a></li>
+                    <li><a href="#page06" class="b18r">진료 칼럼</a></li>
+                    <li><a href="#page05" class="b18r">어린이 치과</a></li>
+                    <li><a href="#page06" class="b18r">성장기 교정</a></li>
+                    <li><a href="#page06" class="b18r">로그인</a></li>
+                    <span class="primary-bg b18r">디어스 어린이 치과<img src="" alt="" /></span>
                 </ul>
-                <div class="hd_right">
-                    <div class="hd_night">
-                        <img src="img/night.svg" alt="야간진료" />
-                        <span>야간진료</span>
-                    </div>
-                </div>
             </nav>
         </header>
-
+        <section class="main_banner">
+            <div class="main_banner_swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide main_banner01">
+                        <img src="" alt="" />
+                        <div class="center">
+                            <h2 class="t80r">
+                                <span class="primary">일요일 공휴일</span> 진료<br />
+                                <span>평일 야간</span> 진료<br />
+                                <span>분과별 전문의 협진</span>
+                            </h2>
+                            <p class="t22r">
+                                우리 아이의 첫 치료부터 어르신까지 온가족이 함께 다니는 치과.<br />
+                                디어스는 각 분야 전문의의 협진을 바탕으로<br />
+                                진심이 담긴 진료와 신뢰할 수 있는 결과를 약속드립니다.
+                            </p>
+                            <div class="main_banner_nav">
+                                <div class="main_banner_progress"></div>
+                                <div class="main_banner_prev"><img src="" alt="" /></div>
+                                <div class="main_banner_page"></div>
+                                <div class="main_banner_next"><img src="" alt="" /></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide main_banner02">
+                        <img src="" alt="" />
+                        <div class="center">
+                            <h2 class="t80r">
+                                <span class="primary">원데이 임플란트</span><br />
+                                <span>임플란트 식립</span>부터<br />
+                                <span>당일 임시치아</span>까지
+                            </h2>
+                            <p class="t22r">
+                                접착제 없이 잇몸 염증을 최소화한<br />
+                                나사유지형 임플란트로<br />
+                                오래도록 건강한 임플란트를 완성합니다.
+                            </p>
+                            <div class="main_banner_nav">
+                                <div class="main_banner_progress"></div>
+                                <div class="main_banner_prev"><img src="" alt="" /></div>
+                                <div class="main_banner_page"></div>
+                                <div class="main_banner_next"><img src="" alt="" /></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide main_banner03">
+                        <img src="" alt="" />
+                        <div class="center">
+                            <img src="" alt="" />
+                            <h2 class="t80r">
+                                <span class="primary">무삭제 최소삭제</span><br />
+                                <span>라미네이트</span>
+                            </h2>
+                            <p class="t22r">
+                                우리는 ‘티 나는 아름다움'을 만들지 않습니다.<br />
+                                단 한 사람, 자연스럽게 스며드는 미소,<br />
+                                디어네이트는 그 조화로움을 만듭니다.
+                            </p>
+                            <div class="main_banner_nav">
+                                <div class="main_banner_progress"></div>
+                                <div class="main_banner_prev"><img src="" alt="" /></div>
+                                <div class="main_banner_page"></div>
+                                <div class="main_banner_next"><img src="" alt="" /></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide main_banner04">
+                        <img src="" alt="" />
+                        <div class="center">
+                            <h2 class="t80r">
+                                <span>보이지 않는</span><br />
+                                <span>글로벌 투명교정</span>
+                            </h2>
+                            <p class="t22r">
+                                아이부터 시니어까지,<br />
+                                편안하고 정밀한 인비절라인 교정
+                            </p>
+                            <div class="main_banner_nav">
+                                <div class="main_banner_progress"></div>
+                                <div class="main_banner_prev"><img src="" alt="" /></div>
+                                <div class="main_banner_page"></div>
+                                <div class="main_banner_next"><img src="" alt="" /></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="main_intro">
+            <div class="main_intro01">
+                <div class="main_intro_inner">
+                    <div class="txt">
+                        <h3 class="t65r">어떤 치과를<br />찾고 계신가요?</h3>
+                        <p class="t28r">
+                            저렴한 가격만 내세우는 치과?<br />
+                            치료를 빨리만 끝내주는 치과?<br /><br />
+                            위 기준으로만 치과를 찾고 계신다면,<br />
+                            저희 치과와는 맞지 않으실 수도 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="main_intro02">
+                <div class="main_intro_inner">
+                    <div class="txt">
+                        <h3 class="t65r">
+                            우리는<br />
+                            양이 아닌<br />
+                            깊이에 집중합니다.
+                        </h3>
+                        <p class="t28r">
+                            매 순간 치료에 정성을 다하는 일<br />
+                            보이지 않는 성의를 지키는 일<br />
+                            그것이 우리가 지키는 ‘깊이 '입니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="main_intro03">
+                <div class="main_intro_inner">
+                    <div class="txt">
+                        <h3 class="t65r">
+                            우리는<br />
+                            속도 보다<br />
+                            정성을 다합니다.
+                        </h3>
+                        <p class="t28r">
+                            치료가 끝날 때까지<br />
+                            ‘빠르게' 보다<br />
+                            ‘제대로' 진료하겠습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- Footer -->
         <footer id="page06" class="footer">
             <div class="footer-left">
