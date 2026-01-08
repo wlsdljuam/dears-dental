@@ -4,12 +4,14 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>디어스치과 - Dears Dental Clinic</title>
-        <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+        <!-- <link rel="stylesheet" href="css/swiper-bundle.min.css" /> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
         <script src="js/jquery-1.8.3.min.js"></script>
         <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
         <script src="js/gsap.min.js"></script>
         <script src="js/ScrollTrigger.min.js"></script>
-        <script src="js/swiper-bundle.min.js"></script>
+        <!-- <script src="js/swiper-bundle.min.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
         <style>
             @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css');
 
@@ -26,7 +28,7 @@
                 --container-center: 1344px;
             }
             .primary {
-                color: var(--color-primary);
+                color: var(--color-primary) !important;
             }
             .primary-bg {
                 background-color: var(--color-primary);
@@ -257,11 +259,13 @@
 padding: 8px 16px 8px 20px;
 justify-content: center;
 align-items: center;
-gap: 8px;
 color: #fff;
 background-color: var(--color-primary);
 cursor: pointer;
 border-radius: 50px;
+            }
+            .hd_child_btn img{
+                margin-left: 8px;
             }
 
             /* Section Title */
@@ -285,35 +289,124 @@ border-radius: 50px;
             /* main_banner */
             .main_banner_swiper{
                 width: 100%;
-                height: 100vh;
+                /* height: 100vh; */
                 overflow: hidden;
+                position: relative;
             }
             .main_banner .swiper-slide>img{
                 max-width: 100vw;
+                /* height: 100vh; */
             }
             .main_banner01 h2 {
                 color: rgba(51, 51, 51, 0.4);
             }
-            .main_banner01 h2 span,
-            .main_banner01 p {
+            .main_banner01 h2 span{
                 color: var(--gray-900, #333);
             }
+            .main_banner .content-wrap {
+                position: absolute;
+                bottom: 60px;
+                left: 50%;
+                transform: translateX(-50%);
+                color: var(--color-gray-900);
+            }
+            .main_banner p{
+                margin: 20px 0 40px;
+            }
+            .main_banner02 h2,.main_banner04 h2{
+                color: #fff;
+            }
+                        .main_banner02 h2 span,.main_banner04 h2 span{
+                color: rgba(255, 255, 255, 0.60);
+            }
+            .main_banner02 p,.main_banner04 p{
+                color: #fff;
+            }
+                        .main_banner p{
+                margin: 20px 0 40px;
+            }
+            .main_banner_nav{
+                display: flex;
+                align-items: center;
+                gap: 16px;
+            }
+            .main_banner_progress {
+            /* absolute 해제: 부모 레이아웃에 따라 배치되도록 위치 속성 제거 */
+            max-width: 240px;
+            width: 100%;
+            height: 2px;
+            display: flex;
+            align-items: center;
+            background-color: rgba(51, 51, 51, 0.2);
+            overflow: hidden;
+            position: static;
+        }
+        .main_banner02 .main_banner_progress,
+        .main_banner04 .main_banner_progress {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .main_banner_progress .progress-bar {
+            height: 100%;
+            background-color: var(--color-gray-900);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        .main_banner02 .main_banner_progress .progress-bar,
+        .main_banner04 .main_banner_progress .progress-bar {
+            background-color: #fff;
+        }
+        .main_banner_prev,.main_banner_next{
+            cursor: pointer;
+        }
+        .main_banner_page{
+            color: var(--gray-900, #333);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 148%; /* 23.68px */
+            letter-spacing: 2.56px;
+        }
+        .main_banner02 .main_banner_page,
+        .main_banner04 .main_banner_page{
+            color: #fff;
+        }
             /* Main Slogan Section */
-            .main_slogan01 {
+            .main_slogan {
+                position: relative;
+                color: #fff;
+            }
+            .main_slogan01, .main_slogan02, .main_slogan03 {
                 width: 100%;
                 height: 100vh;
-                background: url('img/main_intro_bg.jpg') center/cover no-repeat;
                 display: flex;
                 align-items: flex-end;
                 justify-content: flex-end;
+                position: relative;
+                padding: 60px;
+            }
+            .main_slogan01 {
+                background: url('img/main_slogan01.jpg') center no-repeat;
+                background-size: contain;
+            }
+            .main_slogan02 {
+                background: url('img/main_slogan02.jpg') left center no-repeat;
+                background-size: contain;
+                justify-content: flex-start
+            }
+            .main_slogan03 {
+                background: url('img/main_slogan03.jpg') right center no-repeat;
+                background-size: contain;
             }
             .main_slogan_inner {
                 width: 50%;
             }
-            .main_slogan01 .txt {
-                color: #fff;
+            .main_slogan01 .txt,.main_slogan03 .txt {
+                padding-left: 60px;
             }
-            .main_slogan01 .txt h3 {
+                        .main_slogan02 .txt {
+                padding-left: 20px;
+            }
+            .main_slogan01 .txt h3, .main_slogan02 .txt h3, .main_slogan03 .txt h3 {
                 margin-bottom: 20px;
             }
             /* Main Care Section - Dears Signature */
@@ -347,21 +440,21 @@ border-radius: 50px;
         <header class="header" id="header">
             <nav class="hd_wrap">
                 <h1 class="hd_logo">
-                    <a href="/" style="display: flex;"><img src="img/hd_logo.svg" alt="디어스치과" /></a>
+                    <a href="/index.php" style="display: flex;"><img src="img/hd_logo.svg" alt="디어스치과" /></a>
                 </h1>
                 <ul class="hd_menu">
-                    <li><a href="#" class="b18r">디어스치과</a></li>
-                    <li><a href="#" class="b18r">임플란트, 왜 디어스인가?</a></li>
-                    <li><a href="#" class="b18r">원데이 임플란트</a></li>
+                    <li><a href="/index.php" class="b18r">디어스치과</a></li>
+                    <li><a href="/dears.php" class="b18r">임플란트, 왜 디어스인가?</a></li>
+                    <li><a href="/implant.php" class="b18r">원데이 임플란트</a></li>
                     <li>
-                        <a href="#"><img src="img/dearnate.svg" alt="디어네이트" /></a>
+                        <a href="/dearnate.php"><img src="img/dearnate.svg" alt="디어네이트" /></a>
                     </li>
-                    <li><a href="#" class="b18r">치아 교정</a></li>
-                    <li><a href="#" class="b18r">일반 진료</a></li>
-                    <li><a href="#" class="b18r">진료 칼럼</a></li>
-                    <li><a href="#" class="b18r child">어린이 치과</a></li>
-                    <li><a href="#" class="b18r child">성장기 교정</a></li>
-                    <li><a href="#" class="b18r" style="color: var(--color-gray-700);">로그인</a></li>
+                    <li><a href="/orthodontic.php" class="b18r">치아 교정</a></li>
+                    <li><a href="/care.php" class="b18r">일반 진료</a></li>
+                    <li><a href="/bbs/column.php" class="b18r">진료 칼럼</a></li>
+                    <li><a href="/child01.php" class="b18r child">어린이 치과</a></li>
+                    <li><a href="/child02.php" class="b18r child">성장기 교정</a></li>
+                    <li><a href="/bbs/login.php" class="b18r" style="color: var(--color-gray-700);">로그인</a></li>
                     <span class="b18r hd_child_btn">디어스 <span>어린이</span> 치과<img src="img/arrow01.svg" alt="메뉴토글" /></span>
                 </ul>
             </nav>
@@ -371,7 +464,7 @@ border-radius: 50px;
                 <div class="swiper-wrapper">
                     <div class="swiper-slide main_banner01">
                         <img src="img/main_banner01.jpg" alt="메인배너01" />
-                        <div class="center">
+                        <div class="content-wrap">
                             <h2 class="t80r">
                                 <span class="primary">일요일 공휴일</span> 진료<br />
                                 <span>평일 야간</span> 진료<br />
@@ -382,39 +475,43 @@ border-radius: 50px;
                                 디어스는 각 분야 전문의의 협진을 바탕으로<br />
                                 진심이 담긴 진료와 신뢰할 수 있는 결과를 약속드립니다.
                             </p>
-                            <div class="main_banner_nav">
-                                <div class="main_banner_progress"></div>
-                                <div class="main_banner_prev"><img src="img/main_banner_prev.svg" alt="이전" /></div>
-                                <div class="main_banner_page"></div>
-                                <div class="main_banner_next"><img src="img/main_banner_next.svg" alt="다음" /></div>
-                            </div>
+                                                        <div class="main_banner_nav">
+                                                                <div class="main_banner_progress">
+                                                                    <div class="progress-bar"></div>
+                                                                </div>
+                                                                <div class="main_banner_prev"><img src="img/main_banner_prev.svg" alt="이전" /></div>
+                                                                <div class="main_banner_page"></div>
+                                                                <div class="main_banner_next"><img src="img/main_banner_next.svg" alt="다음" /></div>
+                                                        </div>
                         </div>
                     </div>
                     <div class="swiper-slide main_banner02">
                         <img src="img/main_banner02.jpg" alt="메인배너02" />
-                        <div class="center">
+                        <div class="content-wrap">
                             <h2 class="t80r">
                                 <span class="primary">원데이 임플란트</span><br />
-                                <span>임플란트 식립</span>부터<br />
-                                <span>당일 임시치아</span>까지
+                                임플란트 식립<span>부터</span><br />
+                                당일 임시치아<span>까지</span>
                             </h2>
                             <p class="t22r">
                                 접착제 없이 잇몸 염증을 최소화한<br />
                                 나사유지형 임플란트로<br />
                                 오래도록 건강한 임플란트를 완성합니다.
                             </p>
-                            <div class="main_banner_nav">
-                                <div class="main_banner_progress"></div>
-                                <div class="main_banner_prev"><img src="img/main_banner_prev.svg" alt="이전" /></div>
-                                <div class="main_banner_page"></div>
-                                <div class="main_banner_next"><img src="img/main_banner_next.svg" alt="다음" /></div>
-                            </div>
+                                                        <div class="main_banner_nav">
+                                                                <div class="main_banner_progress">
+                                                                    <div class="progress-bar"></div>
+                                                                </div>
+                                                                <div class="main_banner_prev"><img src="img/main_banner_prev.svg" alt="이전" /></div>
+                                                                <div class="main_banner_page"></div>
+                                                                <div class="main_banner_next"><img src="img/main_banner_next.svg" alt="다음" /></div>
+                                                        </div>
                         </div>
                     </div>
                     <div class="swiper-slide main_banner03">
                         <img src="img/main_banner03.jpg" alt="메인배너03" />
-                        <div class="center">
-                            <img src="img/main_banner03_con.svg" alt="디어네이트" />
+                        <div class="content-wrap">
+                            <img src="img/main_banner03_con.svg" alt="디어네이트" style="margin-bottom: 20px;"/>
                             <h2 class="t80r">
                                 <span class="primary">무삭제 최소삭제</span><br />
                                 <span>라미네이트</span>
@@ -424,31 +521,35 @@ border-radius: 50px;
                                 단 한 사람, 자연스럽게 스며드는 미소,<br />
                                 디어네이트는 그 조화로움을 만듭니다.
                             </p>
-                            <div class="main_banner_nav">
-                                <div class="main_banner_progress"></div>
-                                <div class="main_banner_prev"><img src="img/main_banner_prev.svg" alt="이전" /></div>
-                                <div class="main_banner_page"></div>
-                                <div class="main_banner_next"><img src="img/main_banner_next.svg" alt="다음" /></div>
-                            </div>
+                                                        <div class="main_banner_nav">
+                                                                <div class="main_banner_progress">
+                                                                    <div class="progress-bar"></div>
+                                                                </div>
+                                                                <div class="main_banner_prev"><img src="img/main_banner_prev.svg" alt="이전" /></div>
+                                                                <div class="main_banner_page"></div>
+                                                                <div class="main_banner_next"><img src="img/main_banner_next.svg" alt="다음" /></div>
+                                                        </div>
                         </div>
                     </div>
                     <div class="swiper-slide main_banner04">
                         <img src="img/main_banner04.jpg" alt="메인배너04" />
-                        <div class="center">
+                        <div class="content-wrap">
                             <h2 class="t80r">
                                 <span>보이지 않는</span><br />
-                                <span>글로벌 투명교정</span>
+                                글로벌 투명교정
                             </h2>
                             <p class="t22r">
                                 아이부터 시니어까지,<br />
                                 편안하고 정밀한 인비절라인 교정
                             </p>
-                            <div class="main_banner_nav">
-                                <div class="main_banner_progress"></div>
-                                <div class="main_banner_prev"><img src="img/main_banner_prev.svg" alt="이전" /></div>
-                                <div class="main_banner_page"></div>
-                                <div class="main_banner_next"><img src="img/main_banner_next.svg" alt="다음" /></div>
-                            </div>
+                                                        <div class="main_banner_nav">
+                                                                <div class="main_banner_progress">
+                                                                    <div class="progress-bar"></div>
+                                                                </div>
+                                                                <div class="main_banner_prev"><img src="img/main_banner_prev.svg" alt="이전" /></div>
+                                                                <div class="main_banner_page"></div>
+                                                                <div class="main_banner_next"><img src="img/main_banner_next.svg" alt="다음" /></div>
+                                                        </div>
                         </div>
                     </div>
                 </div>
@@ -1018,6 +1119,9 @@ border-radius: 50px;
             </span>
         </aside>
         <script>
+            // GSAP ScrollTrigger 등록
+            gsap.registerPlugin(ScrollTrigger);
+
             // Lenis Smooth Scroll
             const lenis = new Lenis({
                 duration: 1.2,
@@ -1025,157 +1129,74 @@ border-radius: 50px;
                 smoothWheel: true,
             });
 
-            function raf(time) {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            }
-            requestAnimationFrame(raf);
+            // ===== Lenis + ScrollTrigger 공식 통합 패턴 =====
+            // 1. GSAP Ticker로 Lenis RAF 루프 (requestAnimationFrame보다 우선)
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            
+            // 2. Ticker lagSmoothing 비활성화 (프레임 스킵 방지)
+            gsap.ticker.lagSmoothing(0);
 
-            // GSAP ScrollTrigger
-            gsap.registerPlugin(ScrollTrigger);
+            // 3. ScrollTrigger 업데이트를 Lenis scroll 이벤트에 연결
+            lenis.on('scroll', ScrollTrigger.update);
+
+            // 4. ScrollTrigger refresh 시 Lenis resize (중요!)
+            ScrollTrigger.addEventListener('refresh', () => lenis.resize());
+
+            // 5. Window resize 시 Lenis resize
+            window.addEventListener('resize', () => lenis.resize());
 
             // Header Active State & Scroll State
             document.addEventListener('DOMContentLoaded', function () {
                 const header = document.getElementById('header');
                 const menuLinks = document.querySelectorAll('.hd_menu a');
-                const sections = document.querySelectorAll('section[id^="page"]');
 
-                function updateHeader() {
-                    const scrollY = window.pageYOffset;
+                // Set active menu link based on current page
+                const currentPage = window.location.pathname;
+                menuLinks.forEach((link) => {
+                    const href = link.getAttribute('href');
+                    if (href && href !== '#') {
+                        const isActive = currentPage.endsWith(href) || 
+                                        (href === '/index.php' && (currentPage === '/' || currentPage.endsWith('/index.php')));
+                        link.classList.toggle('active', isActive);
+                    }
+                });
 
-                    // Toggle scrolled class for header background
-                    if (scrollY > 100) {
+                // Toggle scrolled class for header background on scroll
+                lenis.on('scroll', () => {
+                    if (lenis.scroll > 100) {
                         header.classList.add('scrolled');
                     } else {
                         header.classList.remove('scrolled');
                     }
+                });
 
-                    // Update active menu link
-                    let activeSection = '';
-                    for (let i = sections.length - 1; i >= 0; i--) {
-                        const section = sections[i];
-                        const sectionTop = section.offsetTop - 150;
-
-                        if (scrollY >= sectionTop) {
-                            activeSection = section.getAttribute('id');
-                            break;
-                        }
+                // Main Slogan Pin Animation - 각 슬라이드마다 개별 PIN 설정 (02의 pin 기간 연장)
+                let panels = gsap.utils.toArray(".main_slogan01, .main_slogan02, .main_slogan03");
+                
+                panels.forEach((panel, i) => {
+                    let startValue = "top top";
+                    let endValue;
+                    
+                    if (i === 1) {
+                        startValue = "center center";
+                        endValue = "+=200%"; // 02의 pin을 2배로 늘림
+                    } else if (i === 2) {
+                        startValue = "center center";
+                        endValue = "+=100%"; // 03 기본 길이
                     }
-
-                    menuLinks.forEach((link) => {
-                        const href = link.getAttribute('href');
-                        if (href === '#') return; // Skip home link
-                        link.classList.remove('active');
-                        if (href === `#${activeSection}`) {
-                            link.classList.add('active');
-                        }
-                    });
-
-                    // Keep first link (디어스치과) always highlighted when at top
-                    if (scrollY < 100) {
-                        menuLinks[0].classList.add('active');
-                    }
-                }
-
-                lenis.on('scroll', updateHeader);
-                updateHeader();
-
-                // Philosophy Accordion
-                const philosophyItems = document.querySelectorAll('.philosophy-item');
-                philosophyItems.forEach((item) => {
-                    item.querySelector('.philosophy-header').addEventListener('click', () => {
-                        const isActive = item.classList.contains('active');
-                        philosophyItems.forEach((i) => i.classList.remove('active'));
-                        if (!isActive) {
-                            item.classList.add('active');
-                        }
-                    });
-                });
-
-                // Scroll Top Button
-                document.getElementById('scrollTop').addEventListener('click', (e) => {
-                    e.preventDefault();
-                    lenis.scrollTo(0);
-                });
-
-                // Counter Animation
-                const counters = document.querySelectorAll('.stat-num');
-                const counterObserver = new IntersectionObserver(
-                    (entries) => {
-                        entries.forEach((entry) => {
-                            if (entry.isIntersecting) {
-                                const target = entry.target;
-                                const count = target.getAttribute('data-count');
-                                const isFloat = count.includes('.');
-                                const endValue = parseFloat(count);
-                                let startValue = 0;
-                                const duration = 2000;
-                                const startTime = performance.now();
-
-                                function updateCounter(currentTime) {
-                                    const elapsed = currentTime - startTime;
-                                    const progress = Math.min(elapsed / duration, 1);
-                                    const easeProgress = 1 - Math.pow(1 - progress, 3);
-                                    const currentValue = startValue + (endValue - startValue) * easeProgress;
-
-                                    if (isFloat) {
-                                        target.textContent = currentValue.toFixed(1);
-                                    } else {
-                                        target.textContent = Math.floor(currentValue).toLocaleString();
-                                    }
-
-                                    if (progress < 1) {
-                                        requestAnimationFrame(updateCounter);
-                                    }
-                                }
-
-                                requestAnimationFrame(updateCounter);
-                                counterObserver.unobserve(target);
-                            }
-                        });
-                    },
-                    { threshold: 0.5 }
-                );
-
-                counters.forEach((counter) => counterObserver.observe(counter));
-
-                // GSAP Animations
-                gsap.utils.toArray('.wisdom-card').forEach((card, i) => {
-                    gsap.from(card, {
-                        scrollTrigger: {
-                            trigger: card,
-                            start: 'top 80%',
-                        },
-                        y: 60,
-                        opacity: 0,
-                        duration: 0.8,
-                        delay: i * 0.1,
-                    });
-                });
-
-                gsap.utils.toArray('.jaw-card').forEach((card, i) => {
-                    gsap.from(card, {
-                        scrollTrigger: {
-                            trigger: card,
-                            start: 'top 80%',
-                        },
-                        y: 60,
-                        opacity: 0,
-                        duration: 0.8,
-                        delay: i * 0.1,
-                    });
-                });
-
-                gsap.utils.toArray('.section-title').forEach((title) => {
-                    gsap.from(title, {
-                        scrollTrigger: {
-                            trigger: title,
-                            start: 'top 80%',
-                        },
-                        y: 40,
-                        opacity: 0,
-                        duration: 0.8,
-                    });
+                    
+                    const config = {
+                        trigger: panel,
+                        start: startValue,
+                        pin: true,
+                        pinSpacing: false,
+                        scrub: 1,
+                        markers: false,
+                    };
+                    if (endValue) config.end = endValue;
+                    ScrollTrigger.create(config);
                 });
             });
 
@@ -1184,35 +1205,44 @@ border-radius: 50px;
                 slidesPerView: 1,
                 loop: true,
                 autoplay: {
-                    delay: 4000,
+                    delay: 5000,
                     disableOnInteraction: false,
                 },
-            });
-            const reviewSwiper = new Swiper('.review-swiper', {
-                slidesPerView: 'auto',
-                spaceBetween: 24,
-                centeredSlides: true,
-                loop: true,
-                autoplay: {
-                    delay: 4000,
-                    disableOnInteraction: false,
+                effect: "fade",
+                      navigation: {
+        nextEl: ".main_banner_next",
+        prevEl: ".main_banner_prev",
+      },
+            // custom per-slide pagination updater
+            on: {
+                init(swiper) {
+                    function updateBannerPagination(sw) {
+                        const slides = Array.from(sw.slides || []);
+                        const total = slides.filter(s => !s.classList.contains('swiper-slide-duplicate')).length || 0;
+                        const idx = (typeof sw.realIndex === 'number') ? sw.realIndex : 0;
+                        const display = String(idx + 1).padStart(2, '0');
+                        const totalStr = String(total).padStart(2, '0');
+                        slides.forEach(s => {
+                            const el = s.querySelector('.main_banner_page');
+                            if (el) el.textContent = `${display} / ${totalStr}`;
+                        });
+                    }
+                    // attach helper to swiper instance for reuse
+                    swiper.__updateBannerPagination = updateBannerPagination;
+                    swiper.__updateBannerPagination(swiper);
                 },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
-                        centeredSlides: false,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                        centeredSlides: false,
-                    },
+                slideChange(swiper) {
+                    if (swiper.__updateBannerPagination) swiper.__updateBannerPagination(swiper);
                 },
-            });
+                autoplayTimeLeft(swiper, time, progress) {
+                    const activeSlide = swiper.slides[swiper.activeIndex];
+                    const progressBar = activeSlide.querySelector(".main_banner_progress .progress-bar");
 
-            const bnaSwiper = new Swiper('.bna-swiper', {
-                slidesPerView: 'auto',
-                spaceBetween: 16,
-                freeMode: true,
+                    if (progressBar) {
+                        progressBar.style.width = ((1 - progress) * 100) + '%';
+                    }
+                }
+            }
             });
         </script>
     </body>
