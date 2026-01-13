@@ -31,6 +31,9 @@
             .primary {
                 color: var(--primary) !important;
             }
+            .subtle {
+                color: var(--primary-subtle) !important;
+            }
             .primary-bg {
                 background-color: var(--primary);
                 color: #fff;
@@ -223,13 +226,336 @@
                 line-height: 140%; /* 91px */
                 letter-spacing: -2.6px;
             }
+
+            /* sub_head */
+            .sub_head {
+                position: relative;
+            }
+            .sub_head .content-wrap {
+                position: absolute;
+                left: 50%;
+                bottom: 40px;
+                transform: translateX(-50%);
+                z-index: 1;
+                width: 100%;
+                text-align: center;
+            }
+            .sub_head h2 {
+                margin-top: 20px;
+            }
+
+            /* dears01 */
+            .dears01 {
+                padding-top: 100px;
+            }
+            .dears01 .content-wrap {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                padding-bottom: 100px;
+                border-bottom: 1px solid #cdcdcd;
+            }
+            .dears01 h3 {
+                margin: 20px 0px 40px;
+            }
+            .dears01 p {
+                color: var(--gray-800, #999);
+            }
+
+            /* dears02 */
+            .dears02 {
+                padding-top: 200px;
+                border-bottom: 1px solid var(--gray-700);
+            }
+            .dears02_title {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                flex-shrink: 0;
+                padding: 40px 60px;
+                border-top: 1px solid var(--gray-700, #cdcdcd);
+                background: #e9e8e6;
+            }
+            .dears02_title span {
+                color: var(--gray-800);
+                display: inline-block;
+                margin-top: 8px;
+            }
+            .column_body {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 60px 0px;
+            }
+            .column_body h4 {
+                margin: 20px 0px;
+            }
+            .column_body span {
+                color: var(--gray-800, #999);
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                transition: all 0.2s;
+            }
+            .column_body span img {
+                filter: grayscale(1) brightness(1.3);
+                transition: all 0.2s;
+            }
+            .column_body a:hover span {
+                color: var(--primary);
+            }
+            .column_body a:hover span img {
+                filter: none;
+            }
+            .dears02_award {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 60px 0px;
+            }
+            .dears02_award h4 {
+                margin-top: 20px;
+            }
+            .dears02_history {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 60px 0px;
+            }
+            .dears02_history h4 {
+                margin-top: 20px;
+            }
+
+            /* dears03 */
+            .dears03 {
+                padding-top: 200px;
+            }
+            .dears03 h2 span:first-child {
+                font-size: 48px;
+                letter-spacing: -1.92px;
+            }
+            .dears03_title {
+                padding: 40px 80px;
+                border-top: 1px solid var(--gray-700, #cdcdcd);
+                background: #e9e8e6;
+            }
+            .dears03 .content-wrap {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                padding: 60px 0px;
+            }
+            .dears03_txt p {
+                margin-top: 20px;
+                color: var(--gray-800, #999);
+            }
+            .dears03_wrap {
+                max-width: 970px;
+                width: 100%;
+                margin: 60px auto 0px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 60px;
+            }
+            .dears03_con {
+                position: relative;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .dears03_con div {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                text-align: center;
+                width: 340px;
+                height: 340px;
+                border-radius: 100%;
+                background-color: #fff;
+            }
+            .dears03_con02 {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+            }
+            .dears03_con p {
+                color: var(--gray-800, #999);
+            }
+            .dears03_table {
+                width: 100%;
+            }
+            .dears03_table > div {
+                display: flex;
+                padding: 40px 0;
+                align-items: flex-start;
+                border-bottom: 1px solid var(--gray-700);
+            }
+            .dears03_table > div > div {
+                width: 50%;
+            }
+            .dears03_table_title h4 {
+                color: var(--gray-800, #999);
+                width: 50%;
+            }
+            .dears03_table h3 {
+                margin-top: 8px;
+            }
+            .dears03_table_normal h3,
+            .dears03_table_dears span {
+                color: var(--gray-800, #999);
+            }
+            .dears03_table_normal span {
+                color: var(--gray-700);
+            }
+            .dears03_youtube h2 {
+                margin-bottom: 40px;
+            }
+
+            /* dears04 */
+            .dears04 {
+                padding-top: 200px;
+            }
+            .dears04_title {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                flex-shrink: 0;
+                padding: 40px 60px;
+                border-top: 1px solid var(--gray-700, #cdcdcd);
+                background: #e9e8e6;
+            }
+            .dears04_title span {
+                color: var(--gray-800);
+                display: inline-block;
+                margin-top: 8px;
+            }
+            .dears04_con01 {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                padding: 60px 0px;
+            }
+            .dears02_con01_txt p {
+                margin-top: 20px;
+                color: var(--gray-800, #999);
+            }
+            .dears04_con02_list {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 60px 0px;
+            }
+            .dears04_con02_list > div > div {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 20px 0px 40px;
+            }
+            .dears04_con02_list h4 {
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .dears04_con02_list h4 span {
+                margin-top: 2px;
+                display: inline-block;
+                color: var(--gray-800, #999);
+            }
+            .dears04_con02_list p {
+                color: var(--gray-800, #999);
+                padding: 0px 16px;
+            }
+            .dears04_youtube {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                padding: 60px 0px;
+            }
+            .dears04_youtube_txt p {
+                margin-top: 20px;
+                color: var(--gray-800, #999);
+            }
+
+            /* dears05 */
+            .dears05 {
+                padding-top: 200px;
+                border-bottom: 1px solid var(--gray-700);
+            }
+            .dears05_title {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                flex-shrink: 0;
+                padding: 40px 60px;
+                border-top: 1px solid var(--gray-700, #cdcdcd);
+                background: #e9e8e6;
+            }
+            .dears05_title span {
+                color: var(--gray-800);
+                display: inline-block;
+                margin-top: 8px;
+            }
+            .dears05_con01 {
+                padding: 60px 0px;
+            }
+            .dears05_con01_txt p {
+                margin-top: 32px;
+                color: var(--gray-800, #999);
+                margin-bottom: 60px;
+            }
+            .dears05_con01_list {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .dears05_con01_list h5 {
+                margin-top: 20px;
+            }
+            .dears05_con02_list {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 60px 0px;
+            }
+
+            /* dears06 */
+            .dears06 {
+                padding: 200px 0px;
+            }
+            .dears06 .content-wrap {
+                position: relative;
+            }
+            .dears06 > div > div {
+                position: absolute;
+                left: 50%;
+                bottom: 60px;
+                transform: translateX(-50%);
+                width: 100%;
+                padding: 0px 60px;
+                color: #fff;
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+            }
+            .dears06 h2 {
+                color: rgba(255, 255, 255, 0.4);
+            }
+            .dears06 h2 span {
+                color: #fff;
+            }
         </style>
     </head>
     <body>
         <section class="sub_head">
             <img src="img/sub/dears_head.jpg" alt="임플란트, 디어스는 다릅니다." />
             <div class="content-wrap">
-                <h3 class="c16r">Dears Implant</h3>
+                <h3 class="c16r subtle">Dears Implant</h3>
                 <h2 class="t65r">임플란트, 디어스는 다릅니다.</h2>
             </div>
         </section>
@@ -242,23 +568,23 @@
                         진단부터 수술, 사후관리까지
                     </h3>
                     <p class="t22r">
-                        <span class="primary">왜 치주과 전문의에게 받아야 하나요?</span><br />
+                        <span class="primary b28r">왜 치주과 전문의에게 받아야 하나요?</span><br />
                         치주과는 치아 주변조직(잇몸, 잇몸뼈)에 대해<br />
                         연구하고 치료하는 학문입니다.<br />
                         각 치아 상태를 평가하여, 종합적인 치료계획을 세우고<br />
                         임플란트 수술을 담당합니다.
                     </p>
                 </div>
-                <img src="" alt="" />
+                <img src="img/sub/dears01.jpg" alt="실력부터 다릅니다." />
             </div>
         </section>
         <section class="dears02">
             <div class="section-title">
-                <p class="sub">Proven Skills</p>
+                <p class="sub subtle">Proven Skills</p>
                 <h2>검증된 실력</h2>
             </div>
-            <h3 class="dears02_title"><span>1</span>안정적인 결과로 증명합니다.</h3>
-            <div class="column_body">
+            <h3 class="dears02_title t56r"><span class="b28r">1</span>안정적인 결과로 증명합니다.</h3>
+            <div class="column_body content-wrap">
                 <a href="">
                     <img src="img/column_body.jpg" alt="진료 칼럼 썸네일" />
                     <h4 class="b28r">전체 임플란트 사례</h4>
@@ -275,42 +601,42 @@
                     <span class="b28r">자세히 보기<img src="img/arrow02.svg" alt="칼럼 이동" /></span>
                 </a>
             </div>
-            <h3 class="dears02_title"><span>2</span>실력으로 얻은 타이틀</h3>
-            <div class="dears02_award">
+            <h3 class="dears02_title t56r"><span class="b28r">2</span>실력으로 얻은 타이틀</h3>
+            <div class="dears02_award content-wrap">
                 <div class="dears02_award01">
-                    <img src="" alt="" />
+                    <img src="img/sub/dears02_award01.jpg" alt="대한치주과학회 임플란트 식립경연 1위" />
                     <h4 class="b28r">대한치주과학회 임플란트 식립경연 1위</h4>
                 </div>
                 <div class="dears02_award02">
-                    <img src="" alt="" />
+                    <img src="img/sub/dears02_award02.jpg" alt="오스템 임플란트 우수 시술 병원" />
                     <h4 class="b28r">오스템 임플란트 우수 시술 병원</h4>
                 </div>
             </div>
-            <h3 class="dears02_title"><span>3</span>치과의사를 가르치는 치과의사</h3>
-            <div class="dears02_history">
+            <h3 class="dears02_title t56r"><span class="b28r">3</span>치과의사를 가르치는 치과의사</h3>
+            <div class="dears02_history content-wrap">
                 <div class="dears02_history01">
-                    <img src="" alt="" />
+                    <img src="img/sub/dears02_history01.jpg" alt="대한치주과학회 임플란트 식립경연 1위" />
                     <h4 class="b28r">대한치주과학회 임플란트 식립경연 1위</h4>
                 </div>
                 <div class="dears02_history02">
-                    <img src="" alt="" />
+                    <img src="img/sub/dears02_history02.jpg" alt="치주과 전문의 대상 임플란트 강의" />
                     <h4 class="b28r">치주과 전문의 대상 임플란트 강의</h4>
                 </div>
                 <div class="dears02_history03">
-                    <img src="" alt="" />
+                    <img src="img/sub/dears02_history03.jpg" alt="덴티움 연구 자문 치과 지정" />
                     <h4 class="b28r">덴티움 연구 자문 치과 지정</h4>
                 </div>
             </div>
         </section>
         <section class="dears03">
             <div class="section-title">
-                <p class="sub">HERI Implant</p>
+                <p class="sub subtle">HERI Implant</p>
                 <h2>
                     <span>10년, 20년 후에도 만족도 최상</span><br />
-                    나사유지형 <span>HERI</span> 임플란트
+                    나사유지형 <span class="primary">HERI</span> 임플란트
                 </h2>
             </div>
-            <h3 class="dears02_title">접착제가 없는 나사유지형 임플란트</h3>
+            <h3 class="dears03_title t56r">접착제가 없는 나사유지형 임플란트</h3>
             <div class="content-wrap">
                 <div class="dears03_txt">
                     <h4 class="b28r">
@@ -322,33 +648,229 @@
                         나사 유지형 보철물을 사용합니다.
                     </p>
                 </div>
-                <img src="" alt="" />
+                <img src="img/sub/dears03.jpg" alt="접착제가 없는 나사유지형 임플란트" />
             </div>
             <div class="dears03_wrap">
                 <div class="dears03_con">
                     <div class="dears03_con01">
-                        <h5><span>H</span>ealthy</h5>
-                        <p>
+                        <h5 class="t48r"><span class="primary">H</span>ealthy</h5>
+                        <p class="b28r">
                             접착제가 없어<br />
                             건강함
                         </p>
                     </div>
                     <div class="dears03_con02">
-                        <h5><span>E</span>sthetic</h5>
-                        <p>
+                        <h5 class="t48r"><span class="primary">E</span>sthetic</h5>
+                        <p class="b28r">
                             잇몸 하방까지<br />
                             치아 색상으로 심미적
                         </p>
                     </div>
                     <div class="dears03_con03">
-                        <h5><span>R</span>etrievable</h5>
-                        <p>
+                        <h5 class="t48r"><span class="primary">R</span>etrievable</h5>
+                        <p class="b28r">
                             찰탁이 쉬워<br />
                             수리에 용이
                         </p>
                     </div>
                 </div>
-                <div class="dears03_table"></div>
+                <div class="dears03_table">
+                    <div class="dears03_table_title">
+                        <h4 class="t56r">일반 시멘트 방식</h4>
+                        <h4 class="t56r primary">디어스의 헤리 방식</h4>
+                    </div>
+                    <div class="dears03_table01">
+                        <div class="dears03_table_normal">
+                            <span class="t22r">방법</span>
+                            <h3 class="b28r">시멘트 접착</h3>
+                        </div>
+                        <div class="dears03_table_dears">
+                            <span class="t22r">방법</span>
+                            <h3 class="b28r">나사 연결</h3>
+                        </div>
+                    </div>
+                    <div class="dears03_table02">
+                        <div class="dears03_table_normal">
+                            <span class="t22r">이물질 끼임</span>
+                            <h3 class="b28r">분해 및 수리 어려움</h3>
+                        </div>
+                        <div class="dears03_table_dears">
+                            <span class="t22r">이물질 끼임</span>
+                            <h3 class="b28r">쉽게 분해 및 수리 가능</h3>
+                        </div>
+                    </div>
+                    <div class="dears03_table03">
+                        <div class="dears03_table_normal">
+                            <span class="t22r">임플란트 염증</span>
+                            <h3 class="b28r">가능성 높음</h3>
+                        </div>
+                        <div class="dears03_table_dears">
+                            <span class="t22r">임플란트 염증</span>
+                            <h3 class="b28r">가능성 낮음</h3>
+                        </div>
+                    </div>
+                    <div class="dears03_table04">
+                        <div class="dears03_table_normal">
+                            <span class="t22r">임플란트 탈락</span>
+                            <h3 class="b28r">가능성 높음</h3>
+                        </div>
+                        <div class="dears03_table_dears">
+                            <span class="t22r">임플란트 탈락</span>
+                            <h3 class="b28r">가능성 낮음</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="dears03_youtube">
+                    <h2 class="t56r">
+                        임플란트 오래 사용하려면?<br />
+                        <span class="primary">나사 유지형 임플란트</span>
+                    </h2>
+                    <img src="img/sub/dears03_youtube.jpg" alt="나사 유지형 임플란트" />
+                </div>
+            </div>
+        </section>
+        <section class="dears04">
+            <div class="section-title">
+                <p class="sub subtle">One Day</p>
+                <h2>원데이 임플란트</h2>
+            </div>
+            <h3 class="dears04_title t56r"><span class="b28r">1</span>임플란트 수술 당일 임시 보철물까지</h3>
+            <div class="dears04_con01 content-wrap">
+                <div class="dears02_con01_txt">
+                    <h4 class="b28r">
+                        임플란트는 수술부터 최종 보철물까지 평균 90일,<br />
+                        원데이 임플란트는 치아 없이 지내는 불편감을<br />
+                        대폭 줄여줄 수 있습니다.
+                    </h4>
+                    <p class="t22r">
+                        섬세한 수술 실력과 구강스캐너,<br />
+                        디지털 원내 기공센터가 있어야 가능합니다.
+                    </p>
+                </div>
+                <img src="img/sub/dears04_con01.jpg" alt="수술 당일 임시 치아 연결" />
+            </div>
+            <h3 class="dears04_title t56r"><span class="b28r">2</span>원데이 임플란트 과정</h3>
+            <div class="dears04_con02_list content-wrap">
+                <div class="dears04_con02_list01">
+                    <img src="img/sub/dears04_con02_list01.jpg" alt="임플란트 수술" />
+                    <div>
+                        <h4 class="b28r"><span class="b18r">1</span>임플란트 수술</h4>
+                        <img src="img/sub/next.svg" alt="다음" />
+                    </div>
+                    <p class="t22r">
+                        충분한 잇몸 뼈를 확보하여 초기 고정력을 위한<br />
+                        정교한 수술을 진행합니다.
+                    </p>
+                </div>
+                <div class="dears04_con02_list02">
+                    <img src="img/sub/dears04_con02_list02.jpg" alt="구강스캐너로 데이터 채득" />
+                    <div>
+                        <h4 class="b28r"><span class="b18r">2</span>구강스캐너로 데이터 채득</h4>
+                        <img src="img/sub/next.svg" alt="다음" />
+                    </div>
+                    <p class="t22r">
+                        3D 디지털 구강스캐너를 이용하여<br />
+                        수술 부 손상 없이 정확한 데이터를 채득합니다.
+                    </p>
+                </div>
+                <div class="dears04_con02_list03">
+                    <img src="img/sub/dears04_con02_list03.jpg" alt="원내 기공소에서 임시 보철물 제작" />
+                    <div>
+                        <h4 class="b28r"><span class="b18r">3</span>원내 기공소에서 임시 보철물 제작</h4>
+                        <img src="img/sub/next.svg" alt="다음" />
+                    </div>
+                    <p class="t22r">
+                        최종 보철물과 동일한 디자인의<br />
+                        임시 보철물을 당일에 제작합니다.
+                    </p>
+                </div>
+                <div class="dears04_con02_list04">
+                    <img src="img/sub/dears04_con02_list04.jpg" alt="임시 보철물 연결" />
+                    <div>
+                        <h4 class="b28r"><span class="b18r">4</span>임시 보철물 연결</h4>
+                        <img src="img/sub/next.svg" alt="다음" />
+                    </div>
+                    <p class="t22r">
+                        수술부 치유에 유리하도록<br />
+                        나사 유지형 보철물로 연결합니다.
+                    </p>
+                </div>
+            </div>
+            <h3 class="dears04_title t56r"><span class="b28r">3</span>하루만에 일어나는 변화</h3>
+            <div class="dears04_youtube content-wrap">
+                <div class="dears04_youtube_txt">
+                    <h4 class="b28r">
+                        디어스치과는 임플란트의<br />
+                        부작용은 줄이고 수명은 늘리기 위해<br />
+                        꾸준히 연구하고 노력해왔습니다.
+                    </h4>
+                    <p class="t22r">
+                        일반적인 임플란트는 치아 발치 후 수 개월을 기다려<br />
+                        보철을 해야 하지만, 디어스의 원데이 임플란트는<br />
+                        당일 임시 보철물까지 완성이 가능합니다.
+                    </p>
+                </div>
+                <img src="img/sub/dears04_youtube.jpg" alt="하루만에 일어나는 변화" />
+            </div>
+        </section>
+        <section class="dears05">
+            <div class="section-title">
+                <p class="sub subtle">Best Equipment</p>
+                <h2>검증된 재료, 최고의 장비</h2>
+            </div>
+            <h3 class="dears05_title t56r"><span class="b28r">1</span>기공 장비</h3>
+            <div class="dears05_con01 content-wrap">
+                <div class="dears05_con01_txt">
+                    <h4 class="t48r">
+                        디어스는 재료와 장비에<br />
+                        가성비를 따지지 않습니다.
+                    </h4>
+                    <p class="b28r">
+                        훌륭한 결과물을 위해 검증된 재료와<br />
+                        최고의 장비만을 사용할 것을 약속드립니다.
+                    </p>
+                </div>
+                <div class="dears05_con01_list">
+                    <div class="dears05_con01_list01">
+                        <img src="img/sub/dears05_con01_list01.jpg" alt="세계 1위 구강스캐너, 프라임 스캔" />
+                        <h5 class="b28r">세계 1위 구강스캐너, 프라임 스캔</h5>
+                    </div>
+                    <div class="dears05_con01_list02">
+                        <img src="img/sub/dears05_con01_list02.jpg" alt="원내 디지털 기공 장비" />
+                        <h5 class="b28r">원내 디지털 기공 장비</h5>
+                    </div>
+                    <div class="dears05_con01_list03">
+                        <img src="img/sub/dears05_con01_list03.jpg" alt="루젠 프리미엄, 지르코니아 블록" />
+                        <h5 class="b28r">루젠 프리미엄, 지르코니아 블록</h5>
+                    </div>
+                </div>
+            </div>
+            <h3 class="dears05_title t56r"><span class="b28r">2</span>검증된 재료</h3>
+            <div class="dears05_con02_list content-wrap">
+                <div class="dears05_con02_list01">
+                    <img src="img/sub/dears05_con02_list01.jpg" alt="잇몸 뼈 상태에 맞는 수술 키트" />
+                    <h4 class="b28r">잇몸 뼈 상태에 맞는 수술 키트</h4>
+                </div>
+                <div class="dears05_con02_list02">
+                    <img src="img/sub/dears05_con02_list02.jpg" alt="검증된 고품질 뼈이식 재료" />
+                    <h4 class="b28r">검증된 고품질 뼈이식 재료</h4>
+                </div>
+            </div>
+        </section>
+        <section class="dears06">
+            <div class="content-wrap">
+                <img src="img/sub/dears06.jpg" alt="디어스는 유지, 관리까지 진심입니다." />
+                <div>
+                    <h2 class="t56r">
+                        디어스는<br />
+                        <span>유지, 관리까지</span><br />
+                        진심입니다.
+                    </h2>
+                    <p class="b28r">
+                        10년 뒤에도 문제 없는 임플란트<br />
+                        치주과 전문의가 직접 관리해드립니다.
+                    </p>
+                </div>
             </div>
         </section>
     </body>
