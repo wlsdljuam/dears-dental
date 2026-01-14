@@ -3,29 +3,41 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>임플란트 - 디어스치과</title>
-        <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+        <title>디어스치과 - Dears Dental Clinic</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
         <script src="js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=4so8ycoa15"></script>
         <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
         <script src="js/gsap.min.js"></script>
         <script src="js/ScrollTrigger.min.js"></script>
-        <script src="js/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
         <style>
             @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css');
 
             :root {
-                --color-bg: #f5f4f1;
-                --color-white: #ffffff;
-                --color-gray-900: #333333;
-                --color-gray-800: #999999;
-                --color-gray-700: #cdcdcd;
-                --color-black: #222222;
-                --color-primary: #f1693a;
+                --bg: #f5f4f1;
+                --white: #ffffff;
+                --gray-900: #333333;
+                --gray-800: #999999;
+                --gray-800: #999999;
+                --gray-700: #cdcdcd;
+                --black: #222222;
+                --primary: #f1693a;
+                --primary-subtle: #c6a489;
                 --container-full: 1920px;
                 --container-content: 1760px;
                 --container-center: 1344px;
             }
-
+            .primary {
+                color: var(--primary) !important;
+            }
+            .subtle {
+                color: var(--primary-subtle) !important;
+            }
+            .primary-bg {
+                background-color: var(--primary);
+                color: #fff;
+            }
             * {
                 box-sizing: border-box;
                 scroll-behavior: smooth;
@@ -38,8 +50,8 @@
                 margin: 0;
                 -webkit-font-smoothing: antialiased;
                 word-break: keep-all;
-                color: var(--color-gray-900);
-                background-color: var(--color-bg);
+                color: var(--gray-900);
+                background-color: var(--bg);
             }
             html.lenis,
             html.lenis body {
@@ -59,7 +71,7 @@
             }
 
             a {
-                color: var(--color-gray-900);
+                color: var(--gray-900);
                 text-decoration: none;
             }
             ul,
@@ -97,6 +109,20 @@
             }
 
             /* Typography */
+            /* Title 80px - Figma: kor/title/80-regular */
+            .t80r {
+                font-size: 80px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -3.2px;
+            }
+            /* Title 65px - Figma: kor/title/65-regular */
+            .t65r {
+                font-size: 65px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2.6px;
+            }
             .t56r {
                 font-size: 56px;
                 font-weight: 400;
@@ -133,6 +159,12 @@
                 line-height: 140%;
                 letter-spacing: -1px;
             }
+            .b28r {
+                font-size: 28px;
+                font-weight: 400;
+                line-height: 148%; /* 41.44px */
+                letter-spacing: -1.12px;
+            }
             .b18r {
                 font-size: 18px;
                 font-weight: 400;
@@ -163,281 +195,286 @@
                 line-height: 143%;
                 letter-spacing: -1px;
             }
+            .c16r {
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 148%; /* 23.68px */
+                letter-spacing: 2.56px;
+            }
             .c12r {
                 font-size: 12px;
                 font-weight: 400;
                 line-height: 148%;
                 letter-spacing: -0.48px;
             }
-
-            /* Header - Implant Page Variant */
-            .header {
-                width: 100%;
-                position: fixed;
-                left: 0;
-                top: 0;
-                z-index: 102;
-                transition: all 0.3s;
-            }
-            .hd_wrap {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                max-width: 1920px;
-                width: 100%;
-                margin: 0 auto;
-                background-color: transparent;
-                padding: 15px 60px;
-                height: 73px;
-                transition: all 0.3s;
-            }
-            .hd_logo img {
-                height: 32px;
-                transition: filter 0.3s;
-            }
-
-            /* Menu - Implant Page Style */
-            .hd_menu {
-                display: flex;
-                align-items: center;
-                gap: 50px;
-            }
-            .hd_menu > li {
-                position: relative;
-            }
-            .hd_menu > li > a {
-                color: #fff;
-                transition: all 0.2s;
-                display: inline-flex;
-                align-items: center;
-                gap: 6px;
-                font-size: 18px;
-                font-weight: 400;
-                letter-spacing: -0.72px;
-            }
-            .hd_menu > li > a:hover {
-                color: rgba(255, 255, 255, 0.7);
-            }
-            .hd_menu > li > a.active {
-                color: var(--color-primary);
-            }
-
-            /* Diernate Logo in Menu */
-            .hd_menu .diernate-logo {
-                display: inline-flex;
-                align-items: center;
-                gap: 6px;
-            }
-            .hd_menu .diernate-logo svg {
-                height: 16px;
-                width: auto;
-            }
-
-            /* Submenu Indicator */
-            .hd_menu .has-submenu > a::after {
-                content: '';
-                display: inline-block;
-                width: 0;
-                height: 0;
-                border-left: 4px solid transparent;
-                border-right: 4px solid transparent;
-                border-top: 5px solid currentColor;
-                margin-left: 4px;
-            }
-
-            /* Right Section */
-            .hd_right {
-                display: flex;
-                align-items: center;
-                gap: 24px;
-            }
-            .hd_night {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                color: #fff;
-                font-size: 14px;
-            }
-            .hd_night img {
-                width: 20px;
-                height: 20px;
-            }
-
-            /* Header Hover/Scroll State */
-            .header.scrolled .hd_wrap,
-            .header:hover .hd_wrap {
-                background-color: var(--color-white);
-                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            }
-            .header.scrolled .hd_menu > li > a,
-            .header:hover .hd_menu > li > a {
-                color: var(--color-gray-900);
-            }
-            .header.scrolled .hd_menu > li > a:hover,
-            .header:hover .hd_menu > li > a:hover {
-                color: var(--color-gray-800);
-            }
-            .header.scrolled .hd_menu > li > a.active,
-            .header:hover .hd_menu > li > a.active {
-                color: var(--color-primary);
-            }
-            .header.scrolled .hd_night,
-            .header:hover .hd_night {
-                color: var(--color-gray-900);
-            }
-            .header.scrolled .hd_logo img,
-            .header:hover .hd_logo img {
-                filter: brightness(0) saturate(100%);
-            }
-            /* Diernate logo color change on scroll/hover */
-            .header.scrolled .diernate-logo svg path,
-            .header:hover .diernate-logo svg path {
-                fill: var(--color-gray-900);
-            }
-
-            /* Hero Section for Implant Page */
-            .hero-implant {
-                position: relative;
-                width: 100%;
-                height: 100vh;
-                min-height: 800px;
-                overflow: hidden;
-                background-color: #1a1a1a;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .hero-implant .hero-bg {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-            }
-            .hero-implant .hero-content {
-                position: relative;
-                z-index: 1;
-                text-align: center;
-                color: #fff;
-            }
-            .hero-implant h1 {
-                font-size: 72px;
-                font-weight: 400;
-                letter-spacing: -3px;
-                margin-bottom: 24px;
-            }
-            .hero-implant p {
-                font-size: 22px;
-                line-height: 1.6;
-                opacity: 0.8;
-            }
-
-            /* Content Section */
-            .section-content {
-                padding: 120px 0;
-            }
+            /* Section Title */
             .section-title {
                 text-align: center;
                 margin-bottom: 60px;
             }
             .section-title .sub {
                 font-size: 16px;
-                color: var(--color-gray-800);
-                margin-bottom: 12px;
-                text-transform: uppercase;
-                letter-spacing: 2px;
+                font-weight: 400;
+                color: #c6a489;
+                margin-bottom: 20px;
+                line-height: 148%; /* 23.68px */
+                letter-spacing: 2.56px;
             }
             .section-title h2 {
-                font-size: 48px;
+                font-size: 65px;
                 font-weight: 400;
-                letter-spacing: -2px;
+                line-height: 140%; /* 91px */
+                letter-spacing: -2.6px;
+            }
+
+            /* sub_head */
+            .sub_head {
+                position: relative;
+            }
+            .sub_head .content-wrap {
+                position: absolute;
+                left: 50%;
+                bottom: 40px;
+                transform: translateX(-50%);
+                z-index: 1;
+                width: 100%;
+                text-align: center;
+            }
+            .sub_head h2 {
+                margin-top: 20px;
             }
         </style>
     </head>
     <body>
-        <!-- Header (GNB - Implant Page Variant: node-id 825-13) -->
-        <header class="header" id="header">
-            <nav class="hd_wrap">
-                <h1 class="hd_logo">
-                    <a href="/"><img src="img/hd_logo.svg" alt="디어스치과" /></a>
-                </h1>
-                <ul class="hd_menu">
-                    <li><a href="/" class="active">디어스치과</a></li>
-                    <li class="has-submenu"><a href="#">임플란트, 왜 디어스인가?</a></li>
-                    <li><a href="#">원데이 임플란트</a></li>
-                    <li>
-                        <a href="#" class="diernate-logo">
-                            <!-- Diernate Logo SVG -->
-                            <svg viewBox="0 0 80 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 12.8V0H4.8C7.68 0 9.6 1.92 9.6 4.8V8C9.6 10.88 7.68 12.8 4.8 12.8H0ZM2.4 10.4H4.8C6.24 10.4 7.2 9.44 7.2 8V4.8C7.2 3.36 6.24 2.4 4.8 2.4H2.4V10.4Z" fill="white" />
-                                <path d="M12 12.8V0H14.4V12.8H12Z" fill="white" />
-                                <path d="M17.6 12.8V0H25.6V2.4H20V4.8H24.8V7.2H20V10.4H25.6V12.8H17.6Z" fill="white" />
-                                <path d="M28 12.8V0H33.6C35.52 0 36.8 1.28 36.8 3.2C36.8 4.48 36.16 5.44 35.2 5.92C36.32 6.4 37.12 7.52 37.12 8.96C37.12 11.04 35.68 12.8 33.44 12.8H28ZM30.4 5.12H33.28C33.92 5.12 34.4 4.64 34.4 4C34.4 3.36 33.92 2.88 33.28 2.88H30.4V5.12ZM30.4 10.4H33.28C34.08 10.4 34.72 9.76 34.72 8.96C34.72 8.16 34.08 7.52 33.28 7.52H30.4V10.4Z" fill="white" />
-                                <path d="M39.2 12.8V0H41.6L46.4 8V0H48.8V12.8H46.4L41.6 4.8V12.8H39.2Z" fill="white" />
-                                <path d="M51.2 12.8L55.2 0H58.4L62.4 12.8H59.84L59.04 10.08H54.56L53.76 12.8H51.2ZM55.2 7.68H58.4L56.8 2.4L55.2 7.68Z" fill="white" />
-                                <path d="M64 12.8V2.4H60.8V0H69.6V2.4H66.4V12.8H64Z" fill="white" />
-                                <path d="M71.2 12.8V0H79.2V2.4H73.6V4.8H78.4V7.2H73.6V10.4H79.2V12.8H71.2Z" fill="white" />
-                            </svg>
-                            <span>디어네이트</span>
-                        </a>
-                    </li>
-                    <li><a href="#">치아 교정</a></li>
-                    <li><a href="#">일반 진료</a></li>
-                </ul>
-                <div class="hd_right">
-                    <div class="hd_night">
-                        <img src="img/night.svg" alt="야간진료" />
-                        <span>야간진료</span>
+        <section class="sub_head">
+            <img src="img/sub/implant_head.jpg" alt="원데이 임플란트" />
+            <div class="content-wrap">
+                <h3 class="c16r subtle">One Day</h3>
+                <h2 class="t65r">원데이 임플란트</h2>
+            </div>
+        </section>
+        <section class="implant01">
+            <div class="section-title">
+                <h2 class="t65r">
+                    <span>임플란트 수술 당일</span><br />
+                    임시 보철물까지 <span class="primary">단 하루</span>
+                    <div class="primary-bg">1 DAY</div>
+                </h2>
+            </div>
+            <div class="content-wrap">
+                <div class="implant01_txt">
+                    <h3>
+                        치아 없이<br />
+                        지내는 시간이 없도록
+                    </h3>
+                    <h4>수술 당일 임시 보철물까지 식립합니다.</h4>
+                    <p>
+                        원데이 임플란트는 <span>수술 당일 임시 보철물을 장착</span>하여<br />
+                        치아 없이 지내는 불편감을 최소화하는 시스템입니다.<br />
+                        <br />
+                        평균 3-6개월 소요되는 길고 복잡한 치료이지만,<br />
+                        디어스는 섬세한 수술과 디지털 장비를 이용해<br />
+                        <span>이 기간을 획기적으로 단축해드립니다.</span>
+                    </p>
+                </div>
+                <img src="img/sub/implant01.jpg" alt="원데이 임플란트" />
+            </div>
+        </section>
+        <section class="implant02">
+            <div class="section-title">
+                <span></span>
+                <p class="sub subtle">Solution</p>
+                <h2>어떤 방법을 설명 들으셨나요?</h2>
+            </div>
+            <h3>
+                <span>덜그덕 거리고 불편한</span> 임시 틀니?<br />
+                <span>손으로 깎아 정교하지 못한</span> 임시 보철물?
+            </h3>
+            <img src="img/sub/implant02.svg" alt="implant02_article" />
+            <h4>
+                디어스는 수술 당일<br />
+                <span class="primary">최종 보철물과 동일한 임시 보철물</span>을 제작합니다.
+            </h4>
+        </section>
+        <section class="implant03">
+            <div class="section-title">
+                <span></span>
+                <p class="sub subtle">One Day</p>
+                <h2>원데이 임플란트</h2>
+            </div>
+            <h3 class="implant03_title t56r">최종 보철물과 동일한 임시 보철물</h3>
+            <div class="implant03_con content-wrap">
+                <div class="implant03_con_txt">
+                    <h4 class="t48r">
+                        하루만에 일어나는<br />
+                        드라마틱한 변화
+                    </h4>
+                    <p class="b28r">
+                        수술 당일 임시 보철물을 식립해, 치아가 없는 기간을 최소화하여<br />
+                        심미적인 만족도를 높이고 임플란트 치료 과정의 불편감을 줄여드립니다.
+                    </p>
+                </div>
+                <div class="implant03_con_list">
+                    <div class="implant03_con_list01">
+                        <div class="container">
+                            <div id="comparison1" class="comparison">
+                                <figure>
+                                    <div id="handle1" class="handle" style="left: 50%"></div>
+                                    <div id="divisor1" class="divisor" style="width: 50%"></div>
+                                </figure>
+                                <input type="range" min="0" max="100" value="50" id="slider1" oninput="moveDivisor1()" />
+                            </div>
+                        </div>
+                        <h5 class="b28r">앞니 6전치 원데이 임플란트</h5>
+                        <h6>22.08.19 ~ 22.08.26 (임시 보철물은 당일)</h6>
+                    </div>
+                    <div class="implant03_con_list02">
+                        <div class="container">
+                            <div id="comparison2" class="comparison">
+                                <figure>
+                                    <div id="handle2" class="handle" style="left: 50%"></div>
+                                    <div id="divisor2" class="divisor" style="width: 50%"></div>
+                                </figure>
+                                <input type="range" min="0" max="100" value="50" id="slider2" oninput="moveDivisor2()" />
+                            </div>
+                        </div>
+                        <h5 class="b28r">상하 전체 원데이 임플란트</h5>
+                        <h6>25.06.09 ~ 25.06.30 (임시 보철물은 당일)</h6>
+                    </div>
+                    <div class="implant03_con_list03">
+                        <div class="container">
+                            <div id="comparison3" class="comparison">
+                                <figure>
+                                    <div id="handle3" class="handle" style="left: 50%"></div>
+                                    <div id="divisor3" class="divisor" style="width: 50%"></div>
+                                </figure>
+                                <input type="range" min="0" max="100" value="50" id="slider3" oninput="moveDivisor3()" />
+                            </div>
+                        </div>
+                        <h5 class="b28r">앞니 6전치 원데이 임플란트</h5>
+                        <h6>23.08.24 ~ 23.08.24 (임시 보철물 당일 포함)</h6>
                     </div>
                 </div>
-            </nav>
-        </header>
-
-        <!-- Hero Section -->
-        <section class="hero-implant">
-            <div class="hero-bg"></div>
-            <div class="hero-content">
-                <h1>임플란트</h1>
-                <p>정확한 진단과 풍부한 경험으로<br />안전하고 오래가는 임플란트를 약속드립니다.</p>
+                <p>
+                    모든 치료 결과는 환자분에 따라 차이가 있을 수 있으며, 부작용이 발생할 수 있습니다.<br />
+                    본 사진은 동일 조건에서 촬영되었으며, 환자 본인의 동의를 얻어 게재되었습니다.
+                </p>
             </div>
         </section>
-
-        <!-- Content Section -->
-        <section class="section-content">
+        <section class="implant04">
+            <div class="section-title">
+                <span></span>
+                <p class="sub subtle">How to</p>
+                <h2>어떻게 가능한가요?</h2>
+            </div>
+            <h3 class="implant04_title t56r"><span class="b28r">1</span>3D 구강 스캐너로 당일 진단</h3>
+            <div class="implant04_con01 content-wrap">
+                <div class="implant04_con01_txt">
+                    <h4 class="b28r">촬영 즉시 3D 진단 데이터 채득</h4>
+                    <p class="t22r">
+                        디지털 장비를 이용한 정확한 진단으로,<br />
+                        수술 부 손상 없이 구강 내 데이터를 채득합니다.
+                    </p>
+                </div>
+                <img src="img/sub/implant04_con01.jpg" alt="3D 구강 스캐너로 당일 진단" />
+            </div>
+            <h3 class="implant04_title t56r"><span class="b28r">2</span>원내 기공센터에서 당일 제작</h3>
+            <div class="implant04_con02 content-wrap">
+                <div class="implant04_con02_txt">
+                    <h4 class="b28r">최종 보철물과 동일한 임시 보철물 제작</h4>
+                    <p class="t22r">
+                        외부 의뢰 없이 구내 데이터를 기반으로<br />
+                        원내 기공센터에서 빠르고 정밀하게 제작하여<br />
+                        완성도 높은 임시 보철물을 제공해드립니다.
+                    </p>
+                </div>
+                <img src="img/sub/implant04_con02.jpg" alt="원내 기공센터에서 당일 제작" />
+            </div>
+            <h3 class="implant04_title t56r"><span class="b28r">3</span>원데이 임플란트 과정</h3>
+            <div class="implant04_list content-wrap">
+                <div class="implant04_list01">
+                    <img src="img/sub/dears04_con02_list01.jpg" alt="임플란트 수술" />
+                    <div>
+                        <h4 class="b28r"><span class="b18r">1</span>임플란트 수술</h4>
+                        <img src="img/sub/next.svg" alt="다음" />
+                    </div>
+                    <p class="t22r">
+                        충분한 잇몸 뼈를 확보하여 초기 고정력을 위한<br />
+                        정교한 수술을 진행합니다.
+                    </p>
+                </div>
+                <div class="implant04_list02">
+                    <img src="img/sub/dears04_con02_list02.jpg" alt="구강스캐너로 데이터 채득" />
+                    <div>
+                        <h4 class="b28r"><span class="b18r">2</span>구강스캐너로 데이터 채득</h4>
+                        <img src="img/sub/next.svg" alt="다음" />
+                    </div>
+                    <p class="t22r">
+                        3D 디지털 구강스캐너를 이용하여<br />
+                        수술 부 손상 없이 정확한 데이터를 채득합니다.
+                    </p>
+                </div>
+                <div class="implant04_list03">
+                    <img src="img/sub/dears04_con02_list03.jpg" alt="원내 기공소에서 임시 보철물 제작" />
+                    <div>
+                        <h4 class="b28r"><span class="b18r">3</span>원내 기공소에서 임시 보철물 제작</h4>
+                        <img src="img/sub/next.svg" alt="다음" />
+                    </div>
+                    <p class="t22r">
+                        최종 보철물과 동일한 디자인의<br />
+                        임시 보철물을 당일에 제작합니다.
+                    </p>
+                </div>
+                <div class="implant04_list04">
+                    <img src="img/sub/dears04_con02_list04.jpg" alt="임시 보철물 연결" />
+                    <div>
+                        <h4 class="b28r"><span class="b18r">4</span>임시 보철물 연결</h4>
+                        <img src="img/sub/next.svg" alt="다음" />
+                    </div>
+                    <p class="t22r">
+                        수술부 치유에 유리하도록<br />
+                        나사 유지형 보철물로 연결합니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="implant05">
+            <div class="section-title">
+                <span></span>
+                <p class="sub subtle">Before & After</p>
+                <h2>실제 치료 사례</h2>
+            </div>
+            <div class="bna_swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="bna_img">
+                            <img src="img/sub/bna_before.jpg" alt="이전" />
+                            <img src="img/sub/bna_after.jpg" alt="다음" />
+                        </div>
+                        <div class="bna_nav">
+                            <h3>상, 하악 전체 임플란트</h3>
+                            <a href="">자세히 보기<img src="img/arrow02.svg" alt="칼럼 이동" /></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bna_page"></div>
+            </div>
+        </section>
+        <section class="implant06">
             <div class="content-wrap">
-                <div class="section-title">
-                    <p class="sub">Implant</p>
-                    <h2>임플란트 치료 안내</h2>
-                </div>
-                <div style="text-align: center; padding: 100px 0; color: var(--color-gray-800)">
-                    <p>임플란트 페이지 콘텐츠가 이곳에 표시됩니다.</p>
+                <img src="img/sub/implant06.jpg" alt="어려운 것을 잘 해내는 것이 실력입니다." />
+                <div>
+                    <h2 class="t56r">
+                        어려운 것을<br />
+                        <span>잘 해내는 것</span>이<br />
+                        실력입니다.<br />
+                    </h2>
+                    <p class="b28r">
+                        임플란트는 '누가 하느냐'에 따라<br />
+                        다른 결과를 만들 수 있습니다.
+                    </p>
                 </div>
             </div>
         </section>
-
-        <script>
-            // Lenis Smooth Scroll
-            const lenis = new Lenis({
-                duration: 1.2,
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-                smooth: true,
-            });
-            function raf(time) {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            }
-            requestAnimationFrame(raf);
-
-            // Header scroll effect
-            window.addEventListener('scroll', function () {
-                const header = document.getElementById('header');
-                if (window.scrollY > 100) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-        </script>
     </body>
 </html>
