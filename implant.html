@@ -243,6 +243,373 @@
             .sub_head h2 {
                 margin-top: 20px;
             }
+
+            /* implant01 */
+            .implant01 {
+                padding-top: 100px;
+            }
+            .implant01 h2 {
+                position: relative;
+                display: inline-block;
+            }
+            .implant01 h2 span {
+                color: var(--gray-800, #999);
+            }
+            .implant01 h2 div {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: -100px;
+                padding: 10px 30px;
+                color: #fff;
+                border-radius: 999px;
+                box-shadow: 2px 6px 15px 0 rgba(0, 0, 0, 0.2);
+            }
+            .implant01 .content-wrap {
+                border-top: 1px solid #cdcdcd;
+                border-bottom: 1px solid #cdcdcd;
+                padding: 100px 0;
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+            .implant01_txt h4 {
+                margin: 20px 0px;
+            }
+            .implant01_txt p {
+                color: var(--gray-800, #999);
+            }
+            .implant01_txt p span {
+                color: var(--gray-900, #333);
+            }
+
+            /* implant02 */
+            .implant02 {
+                padding: 200px 0px 569px;
+                text-align: center;
+                background-image: url(img/sub/implant02_bg.jpg);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: bottom center;
+            }
+            .implant02 h3 {
+                margin: 60px auto;
+            }
+            .implant02 h3 span {
+                color: var(--gray-800);
+            }
+            .implant02 h4 {
+                margin-top: 60px;
+            }
+
+            /* implant03 */
+            .implant03 {
+                padding-top: 200px;
+                border-bottom: 1px solid var(--gray-700, #cdcdcd);
+            }
+            .implant03_title {
+                padding: 40px 80px;
+                border-top: 1px solid var(--gray-700, #cdcdcd);
+                background: #e9e8e6;
+            }
+            .implant03 .content-wrap {
+                padding: 60px 0px;
+            }
+            .implant03_con_txt p {
+                margin: 32px 0px;
+                color: var(--gray-800);
+            }
+            .implant03_con_list {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+            .implant03_con_list > div {
+                max-width: 576px;
+                width: 100%;
+            }
+            .implant03_con > p {
+                color: var(--gray-800);
+                margin-top: 32px;
+            }
+            .implant03_con_list h5 {
+                margin: 74px 0px 4px;
+            }
+            .implant03_con_list h6 {
+                color: var(--gray-800);
+            }
+
+            /* Comparison Slider - 수정이 필요한 경우 여기 변수만 조정하세요 */
+            .comparison {
+                --slider-height: 328px; /* 슬라이더 컨테이너 높이 */
+                --handle-size: 50px; /* 핸들 크기 */
+                --handle-offset: -80px; /* 핸들 위치 조정 */
+                --slider-offset: -52px; /* 슬라이더 입력 위치 */
+                --thumb-size: 44px; /* 슬라이더 썸 크기 */
+                --divider-width: 1px; /* 구분선 두께 */
+                --track-height: 1px; /* 슬라이더 트랙 높이 */
+
+                width: 100%;
+                padding-bottom: var(--slider-height);
+                position: relative;
+            }
+
+            /* Before/After 이미지 컨테이너 */
+            .comparison figure {
+                position: absolute;
+                background-size: cover;
+                font-size: 0;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+
+            /* After 이미지 (오버레이) */
+            .divisor {
+                background-size: cover;
+                position: absolute;
+                width: 50%;
+                bottom: 0;
+                height: 100%;
+            }
+
+            /* 중앙 구분선 */
+            .divisor::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                width: var(--divider-width);
+                height: 100%;
+                background: var(--white);
+                z-index: 3;
+                bottom: 0;
+            }
+
+            /* 핸들 (드래그 아이콘 컨테이너) */
+            .handle {
+                position: absolute;
+                width: var(--handle-size);
+                height: var(--handle-size);
+                bottom: var(--handle-offset);
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                z-index: 3;
+                pointer-events: none; /* 클릭이 슬라이더로 전달되도록 */
+            }
+
+            /* 핸들 아이콘 */
+            .handle::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -53%);
+                background: url(img/sub/handle.svg) no-repeat center/contain;
+                border-radius: 50%;
+            }
+
+            /* 슬라이더 입력 */
+            .comparison input[type='range'] {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                position: absolute;
+                bottom: var(--slider-offset);
+                left: 0;
+                width: 100%;
+                background-color: transparent;
+                cursor: pointer;
+                z-index: 2;
+            }
+
+            .comparison input[type='range']:focus,
+            .comparison input[type='range']:active {
+                border: none;
+                outline: none;
+            }
+
+            /* 슬라이더 썸 (드래그 포인트) - Webkit */
+            .comparison input[type='range']::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                width: var(--thumb-size);
+                height: var(--thumb-size);
+                border: none;
+                border-radius: 50%;
+            }
+
+            /* 슬라이더 트랙 - Firefox */
+            .comparison input[type='range']::-moz-range-track {
+                -moz-appearance: none;
+                width: 100%;
+                height: 15px;
+                background-color: transparent;
+                outline: none;
+            }
+
+            /* 슬라이더 트랙 라인 */
+            .comparison input[type='range']::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 100%;
+                height: var(--track-height);
+                background-color: var(--gray-700);
+                border-radius: 50px;
+            }
+
+            /* implant04 */
+            .implant04 {
+                padding-top: 200px;
+                border-bottom: 1px solid var(--gray-700, #cdcdcd);
+            }
+
+            .implant04_title {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                flex-shrink: 0;
+                padding: 40px 60px;
+                border-top: 1px solid var(--gray-700, #cdcdcd);
+                background: #e9e8e6;
+            }
+            .implant04_title span {
+                color: var(--gray-800);
+                display: inline-block;
+                margin-top: 8px;
+            }
+            .implant04_con01,
+            .implant04_con02 {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                padding: 60px 0px;
+            }
+            .implant04_con01 p,
+            .implant04_con02 p {
+                color: var(--gray-800);
+                margin-top: 20px;
+            }
+            .implant04_list {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 60px 0px;
+            }
+            .implant04_list > div > div {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 20px 0px 40px;
+            }
+            .implant04_list h4 {
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .implant04_list h4 span {
+                margin-top: 2px;
+                display: inline-block;
+                color: var(--gray-800, #999);
+            }
+            .implant04_list p {
+                color: var(--gray-800, #999);
+                padding: 0px 16px;
+            }
+
+            /* implant05 */
+            .implant05 {
+                padding-top: 200px;
+                overflow: hidden;
+            }
+            .bna_swiper {
+                max-width: 1278px;
+                width: 100%;
+                margin: 0 auto;
+            }
+            .bna_img {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .bna_swiper .swiper-slide .bna_nav {
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+            }
+            .bna_swiper .swiper-slide-active .bna_nav {
+                opacity: 1;
+            }
+            .bna_nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+            .bna_nav a {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: var(--gray-800);
+            }
+            .bna_nav a img {
+                filter: grayscale(1);
+            }
+            .bna_navigation {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                max-width: 400px;
+                width: 100%;
+                margin: 40px auto 0px;
+            }
+            .bna_prev,
+            .bna_next {
+                cursor: pointer;
+            }
+            .implant05 .bna_page {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .implant05 .bna_page span {
+                width: 6px;
+                height: 6px;
+                background-color: var(--gray-700);
+                border-radius: 0px;
+                opacity: 1;
+                margin: 0px 4px !important;
+            }
+            .implant05 .bna_page span.swiper-pagination-bullet-active {
+                background-color: #333;
+            }
+
+            /* implant06 */
+            .implant06 {
+                padding: 200px 0px;
+            }
+            .implant06 .content-wrap {
+                position: relative;
+            }
+            .implant06 > div > div {
+                position: absolute;
+                left: 50%;
+                bottom: 60px;
+                transform: translateX(-50%);
+                width: 100%;
+                padding: 0px 60px;
+                color: #fff;
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+            }
+            .implant06 h2 {
+                color: rgba(255, 255, 255, 0.4);
+            }
+            .implant06 h2 span {
+                color: #fff;
+            }
         </style>
     </head>
     <body>
@@ -258,17 +625,17 @@
                 <h2 class="t65r">
                     <span>임플란트 수술 당일</span><br />
                     임시 보철물까지 <span class="primary">단 하루</span>
-                    <div class="primary-bg">1 DAY</div>
+                    <div class="primary-bg b28r">1 DAY</div>
                 </h2>
             </div>
             <div class="content-wrap">
                 <div class="implant01_txt">
-                    <h3>
+                    <h3 class="t65r">
                         치아 없이<br />
                         지내는 시간이 없도록
                     </h3>
-                    <h4>수술 당일 임시 보철물까지 식립합니다.</h4>
-                    <p>
+                    <h4 class="b28r">수술 당일 임시 보철물까지 식립합니다.</h4>
+                    <p class="t22r">
                         원데이 임플란트는 <span>수술 당일 임시 보철물을 장착</span>하여<br />
                         치아 없이 지내는 불편감을 최소화하는 시스템입니다.<br />
                         <br />
@@ -282,23 +649,21 @@
         </section>
         <section class="implant02">
             <div class="section-title">
-                <span></span>
                 <p class="sub subtle">Solution</p>
-                <h2>어떤 방법을 설명 들으셨나요?</h2>
+                <h2 class="t65r">어떤 방법을 설명 들으셨나요?</h2>
             </div>
-            <h3>
+            <h3 class="t56r">
                 <span>덜그덕 거리고 불편한</span> 임시 틀니?<br />
                 <span>손으로 깎아 정교하지 못한</span> 임시 보철물?
             </h3>
             <img src="img/sub/implant02.svg" alt="implant02_article" />
-            <h4>
+            <h4 class="t56r">
                 디어스는 수술 당일<br />
                 <span class="primary">최종 보철물과 동일한 임시 보철물</span>을 제작합니다.
             </h4>
         </section>
         <section class="implant03">
             <div class="section-title">
-                <span></span>
                 <p class="sub subtle">One Day</p>
                 <h2>원데이 임플란트</h2>
             </div>
@@ -318,49 +683,73 @@
                     <div class="implant03_con_list01">
                         <div class="container">
                             <div id="comparison1" class="comparison">
-                                <figure>
-                                    <div id="handle1" class="handle" style="left: 50%"></div>
-                                    <div id="divisor1" class="divisor" style="width: 50%"></div>
+                                <figure style="background-image: url(img/sub/implant03_con01a.jpg)">
+                                    <div class="handle" style="left: 50%"></div>
+                                    <div class="divisor" style="width: 50%; background-image: url(img/sub/implant03_con01b.jpg)"></div>
                                 </figure>
-                                <input type="range" min="0" max="100" value="50" id="slider1" oninput="moveDivisor1()" />
+                                <input type="range" min="0" max="100" value="50" id="slider1" class="comparison-slider" data-target="comparison1" />
                             </div>
                         </div>
                         <h5 class="b28r">앞니 6전치 원데이 임플란트</h5>
-                        <h6>22.08.19 ~ 22.08.26 (임시 보철물은 당일)</h6>
+                        <h6 class="t22r">22.08.19 ~ 22.08.26 (임시 보철물은 당일)</h6>
                     </div>
                     <div class="implant03_con_list02">
                         <div class="container">
                             <div id="comparison2" class="comparison">
-                                <figure>
-                                    <div id="handle2" class="handle" style="left: 50%"></div>
-                                    <div id="divisor2" class="divisor" style="width: 50%"></div>
+                                <figure style="background-image: url(img/sub/implant03_con02a.jpg)">
+                                    <div class="handle" style="left: 50%"></div>
+                                    <div class="divisor" style="width: 50%; background-image: url(img/sub/implant03_con02b.jpg)"></div>
                                 </figure>
-                                <input type="range" min="0" max="100" value="50" id="slider2" oninput="moveDivisor2()" />
+                                <input type="range" min="0" max="100" value="50" id="slider2" class="comparison-slider" data-target="comparison2" />
                             </div>
                         </div>
                         <h5 class="b28r">상하 전체 원데이 임플란트</h5>
-                        <h6>25.06.09 ~ 25.06.30 (임시 보철물은 당일)</h6>
+                        <h6 class="t22r">25.06.09 ~ 25.06.30 (임시 보철물은 당일)</h6>
                     </div>
                     <div class="implant03_con_list03">
                         <div class="container">
                             <div id="comparison3" class="comparison">
-                                <figure>
-                                    <div id="handle3" class="handle" style="left: 50%"></div>
-                                    <div id="divisor3" class="divisor" style="width: 50%"></div>
+                                <figure style="background-image: url(img/sub/implant03_con03a.jpg)">
+                                    <div class="handle" style="left: 50%"></div>
+                                    <div class="divisor" style="width: 50%; background-image: url(img/sub/implant03_con03b.jpg)"></div>
                                 </figure>
-                                <input type="range" min="0" max="100" value="50" id="slider3" oninput="moveDivisor3()" />
+                                <input type="range" min="0" max="100" value="50" id="slider3" class="comparison-slider" data-target="comparison3" />
                             </div>
                         </div>
                         <h5 class="b28r">앞니 6전치 원데이 임플란트</h5>
-                        <h6>23.08.24 ~ 23.08.24 (임시 보철물 당일 포함)</h6>
+                        <h6 class="t22r">23.08.24 ~ 23.08.24 (임시 보철물 당일 포함)</h6>
                     </div>
                 </div>
-                <p>
+                <p class="c12r">
                     모든 치료 결과는 환자분에 따라 차이가 있을 수 있으며, 부작용이 발생할 수 있습니다.<br />
                     본 사진은 동일 조건에서 촬영되었으며, 환자 본인의 동의를 얻어 게재되었습니다.
                 </p>
             </div>
         </section>
+        <script>
+            // 모든 comparison 슬라이더를 자동으로 초기화
+            document.addEventListener('DOMContentLoaded', function () {
+                const sliders = document.querySelectorAll('.comparison-slider');
+
+                sliders.forEach(function (slider) {
+                    const targetId = slider.dataset.target;
+                    const container = document.getElementById(targetId);
+                    const handle = container.querySelector('.handle');
+                    const divisor = container.querySelector('.divisor');
+
+                    // 슬라이더 이동 이벤트
+                    slider.addEventListener('input', function () {
+                        const value = this.value + '%';
+                        handle.style.left = value;
+                        divisor.style.width = value;
+                    });
+
+                    // 초기 위치 설정
+                    handle.style.left = slider.value + '%';
+                    divisor.style.width = slider.value + '%';
+                });
+            });
+        </script>
         <section class="implant04">
             <div class="section-title">
                 <span></span>
@@ -429,7 +818,6 @@
                     <img src="img/sub/dears04_con02_list04.jpg" alt="임시 보철물 연결" />
                     <div>
                         <h4 class="b28r"><span class="b18r">4</span>임시 보철물 연결</h4>
-                        <img src="img/sub/next.svg" alt="다음" />
                     </div>
                     <p class="t22r">
                         수술부 치유에 유리하도록<br />
@@ -452,14 +840,82 @@
                             <img src="img/sub/bna_after.jpg" alt="다음" />
                         </div>
                         <div class="bna_nav">
-                            <h3>상, 하악 전체 임플란트</h3>
-                            <a href="">자세히 보기<img src="img/arrow02.svg" alt="칼럼 이동" /></a>
+                            <h3 class="b28r">상, 하악 전체 임플란트</h3>
+                            <a href="" class="b28r">자세히 보기<img src="img/arrow02.svg" alt="칼럼 이동" /></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bna_img">
+                            <img src="img/sub/bna_before.jpg" alt="이전" />
+                            <img src="img/sub/bna_after.jpg" alt="다음" />
+                        </div>
+                        <div class="bna_nav">
+                            <h3 class="b28r">상, 하악 전체 임플란트</h3>
+                            <a href="" class="b28r">자세히 보기<img src="img/arrow02.svg" alt="칼럼 이동" /></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bna_img">
+                            <img src="img/sub/bna_before.jpg" alt="이전" />
+                            <img src="img/sub/bna_after.jpg" alt="다음" />
+                        </div>
+                        <div class="bna_nav">
+                            <h3 class="b28r">상, 하악 전체 임플란트</h3>
+                            <a href="" class="b28r">자세히 보기<img src="img/arrow02.svg" alt="칼럼 이동" /></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bna_img">
+                            <img src="img/sub/bna_before.jpg" alt="이전" />
+                            <img src="img/sub/bna_after.jpg" alt="다음" />
+                        </div>
+                        <div class="bna_nav">
+                            <h3 class="b28r">상, 하악 전체 임플란트</h3>
+                            <a href="" class="b28r">자세히 보기<img src="img/arrow02.svg" alt="칼럼 이동" /></a>
                         </div>
                     </div>
                 </div>
-                <div class="bna_page"></div>
+                <div class="bna_navigation">
+                    <div class="bna_prev">
+                        <img src="img/sub/bna_prev.svg" alt="이전 슬라이드" />
+                    </div>
+                    <div class="bna_page"></div>
+                    <div class="bna_next">
+                        <img src="img/sub/bna_next.svg" alt="다음 슬라이드" />
+                    </div>
+                </div>
             </div>
         </section>
+        <script>
+            var bnaSwiper = new Swiper('.bna_swiper', {
+                loop: true,
+                slidesPerView: 'auto',
+                spaceBetween: 60,
+                speed: 1000,
+                loopAdditionalSlides: 1,
+
+                // autoplay: {
+                //     delay: 5000,
+                //     disableOnInteraction: false,
+                // },
+
+                pagination: {
+                    el: '.bna_page',
+                    clickable: true,
+                },
+
+                navigation: {
+                    nextEl: '.bna_next',
+                    prevEl: '.bna_prev',
+                },
+
+                on: {
+                    init: function () {
+                        this.update();
+                    },
+                },
+            });
+        </script>
         <section class="implant06">
             <div class="content-wrap">
                 <img src="img/sub/implant06.jpg" alt="어려운 것을 잘 해내는 것이 실력입니다." />

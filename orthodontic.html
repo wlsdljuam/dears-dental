@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>디어스치과 - Dears Dental Clinic</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=4so8ycoa15"></script>
+        <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+        <script src="js/gsap.min.js"></script>
+        <script src="js/ScrollTrigger.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+        <style>
+            @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css');
+
+            :root {
+                --bg: #f5f4f1;
+                --white: #ffffff;
+                --gray-900: #333333;
+                --gray-800: #999999;
+                --gray-800: #999999;
+                --gray-700: #cdcdcd;
+                --black: #222222;
+                --primary: #f1693a;
+                --primary-subtle: #c6a489;
+                --container-full: 1920px;
+                --container-content: 1760px;
+                --container-center: 1344px;
+            }
+            .primary {
+                color: var(--primary) !important;
+            }
+            .subtle {
+                color: var(--primary-subtle) !important;
+            }
+            .primary-bg {
+                background-color: var(--primary);
+                color: #fff;
+            }
+            * {
+                box-sizing: border-box;
+                scroll-behavior: smooth;
+                letter-spacing: -0.05em;
+            }
+            body {
+                position: relative;
+                overflow-x: hidden;
+                font-family: 'Pretendard', sans-serif;
+                margin: 0;
+                -webkit-font-smoothing: antialiased;
+                word-break: keep-all;
+                color: var(--gray-900);
+                background-color: var(--bg);
+            }
+            html.lenis,
+            html.lenis body {
+                height: auto;
+            }
+            .lenis.lenis-smooth {
+                scroll-behavior: auto !important;
+            }
+            .lenis.lenis-smooth [data-lenis-prevent] {
+                overscroll-behavior: contain;
+            }
+            .lenis.lenis-stopped {
+                overflow: hidden;
+            }
+            .lenis.lenis-scrolling iframe {
+                pointer-events: none;
+            }
+
+            a {
+                color: var(--gray-900);
+                text-decoration: none;
+            }
+            ul,
+            li {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            img {
+                vertical-align: middle;
+                max-width: 100%;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            span,
+            strong {
+                margin: 0;
+            }
+
+            .center {
+                max-width: var(--container-center);
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+            .content-wrap {
+                max-width: var(--container-content);
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            /* Typography */
+            /* Title 80px - Figma: kor/title/80-regular */
+            .t80r {
+                font-size: 80px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -3.2px;
+            }
+            /* Title 65px - Figma: kor/title/65-regular */
+            .t65r {
+                font-size: 65px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2.6px;
+            }
+            .t56r {
+                font-size: 56px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2.24px;
+            }
+            .t48r {
+                font-size: 48px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2px;
+            }
+            .t36r {
+                font-size: 36px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2px;
+            }
+            .t28r {
+                font-size: 28px;
+                font-weight: 400;
+                line-height: 148%;
+                letter-spacing: -1.12px;
+            }
+            .t22r {
+                font-size: 22px;
+                font-weight: 400;
+                line-height: 148%;
+                letter-spacing: -0.88px;
+            }
+            .t20r {
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -1px;
+            }
+            .b28r {
+                font-size: 28px;
+                font-weight: 400;
+                line-height: 148%; /* 41.44px */
+                letter-spacing: -1.12px;
+            }
+            .b18r {
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 148%;
+                letter-spacing: -0.72px;
+            }
+            .b16r {
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 162%;
+                letter-spacing: -0.5px;
+            }
+            .b16s {
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 162%;
+                letter-spacing: -0.5px;
+            }
+            .b14r {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 143%;
+                letter-spacing: -0.5px;
+            }
+            .b14s {
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 143%;
+                letter-spacing: -1px;
+            }
+            .c16r {
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 148%; /* 23.68px */
+                letter-spacing: 2.56px;
+            }
+            .c12r {
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 148%;
+                letter-spacing: -0.48px;
+            }
+            /* Section Title */
+            .section-title {
+                text-align: center;
+                margin-bottom: 60px;
+            }
+            .section-title .sub {
+                font-size: 16px;
+                font-weight: 400;
+                color: #c6a489;
+                margin-bottom: 20px;
+                line-height: 148%; /* 23.68px */
+                letter-spacing: 2.56px;
+            }
+            .section-title h2 {
+                font-size: 65px;
+                font-weight: 400;
+                line-height: 140%; /* 91px */
+                letter-spacing: -2.6px;
+            }
+
+            /* sub_head */
+            .sub_head {
+                position: relative;
+            }
+            .sub_head .content-wrap {
+                position: absolute;
+                left: 50%;
+                bottom: 40px;
+                transform: translateX(-50%);
+                z-index: 1;
+                width: 100%;
+                text-align: center;
+            }
+            .sub_head h2 {
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="sub_head">
+            <img src="img/sub/implant_head.jpg" alt="원데이 임플란트" />
+            <div class="content-wrap">
+                <h3 class="c16r subtle">One Day</h3>
+                <h2 class="t65r">원데이 임플란트</h2>
+            </div>
+        </section>
+    </body>
+</html>
