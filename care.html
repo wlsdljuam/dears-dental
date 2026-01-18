@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>디어스치과 - Dears Dental Clinic</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=4so8ycoa15"></script>
+        <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+        <script src="js/gsap.min.js"></script>
+        <script src="js/ScrollTrigger.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+        <style>
+            @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css');
+
+            :root {
+                --bg: #f5f4f1;
+                --white: #ffffff;
+                --gray-900: #333333;
+                --gray-800: #999999;
+                --gray-800: #999999;
+                --gray-700: #cdcdcd;
+                --black: #222222;
+                --primary: #f1693a;
+                --primary-subtle: #c6a489;
+                --container-full: 1920px;
+                --container-content: 1760px;
+                --container-center: 1344px;
+            }
+            .primary {
+                color: var(--primary) !important;
+            }
+            .subtle {
+                color: var(--primary-subtle) !important;
+            }
+            .primary-bg {
+                background-color: var(--primary);
+                color: #fff;
+            }
+            * {
+                box-sizing: border-box;
+                scroll-behavior: smooth;
+                letter-spacing: -0.05em;
+            }
+            body {
+                position: relative;
+                overflow-x: hidden;
+                font-family: 'Pretendard', sans-serif;
+                margin: 0;
+                -webkit-font-smoothing: antialiased;
+                word-break: keep-all;
+                color: var(--gray-900);
+                background-color: var(--bg);
+            }
+            html.lenis,
+            html.lenis body {
+                height: auto;
+            }
+            .lenis.lenis-smooth {
+                scroll-behavior: auto !important;
+            }
+            .lenis.lenis-smooth [data-lenis-prevent] {
+                overscroll-behavior: contain;
+            }
+            .lenis.lenis-stopped {
+                overflow: hidden;
+            }
+            .lenis.lenis-scrolling iframe {
+                pointer-events: none;
+            }
+
+            a {
+                color: var(--gray-900);
+                text-decoration: none;
+            }
+            ul,
+            li {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            img {
+                vertical-align: middle;
+                max-width: 100%;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            span,
+            strong {
+                margin: 0;
+            }
+
+            .center {
+                max-width: var(--container-center);
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+            .content-wrap {
+                max-width: var(--container-content);
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            /* Typography */
+            /* Title 80px - Figma: kor/title/80-regular */
+            .t80r {
+                font-size: 80px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -3.2px;
+            }
+            /* Title 65px - Figma: kor/title/65-regular */
+            .t65r {
+                font-size: 65px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2.6px;
+            }
+            .t56r {
+                font-size: 56px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2.24px;
+            }
+            .t48r {
+                font-size: 48px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2px;
+            }
+            .t36r {
+                font-size: 36px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2px;
+            }
+            .t28r {
+                font-size: 28px;
+                font-weight: 400;
+                line-height: 148%;
+                letter-spacing: -1.12px;
+            }
+            .t22r {
+                font-size: 22px;
+                font-weight: 400;
+                line-height: 148%;
+                letter-spacing: -0.88px;
+            }
+            .t20r {
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -1px;
+            }
+            .b32r {
+                font-size: 32px;
+                font-weight: 400;
+                line-height: 148%; /* 47.36px */
+                letter-spacing: -1.28px;
+            }
+            .b28r {
+                font-size: 28px;
+                font-weight: 400;
+                line-height: 148%; /* 41.44px */
+                letter-spacing: -1.12px;
+            }
+            .b18r {
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 148%;
+                letter-spacing: -0.72px;
+            }
+            .b16r {
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 162%;
+                letter-spacing: -0.5px;
+            }
+            .b16s {
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 162%;
+                letter-spacing: -0.5px;
+            }
+            .b14r {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 143%;
+                letter-spacing: -0.5px;
+            }
+            .b14s {
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 143%;
+                letter-spacing: -1px;
+            }
+            .c16r {
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 148%; /* 23.68px */
+                letter-spacing: 2.56px;
+            }
+            .c12r {
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 148%;
+                letter-spacing: -0.48px;
+            }
+            /* Section Title */
+            .section-title {
+                text-align: center;
+                margin-bottom: 60px;
+            }
+            .section-title .sub {
+                font-size: 16px;
+                font-weight: 400;
+                color: #c6a489;
+                margin-bottom: 20px;
+                line-height: 148%; /* 23.68px */
+                letter-spacing: 2.56px;
+            }
+            .section-title h2 {
+                font-size: 65px;
+                font-weight: 400;
+                line-height: 140%; /* 91px */
+                letter-spacing: -2.6px;
+            }
+
+            /* sub_head */
+            .sub_head {
+                position: relative;
+            }
+            .sub_head .content-wrap {
+                position: absolute;
+                left: 50%;
+                bottom: 40px;
+                transform: translateX(-50%);
+                z-index: 1;
+                width: 100%;
+                text-align: center;
+            }
+            .sub_head h2 {
+                margin-top: 20px;
+            }
+
+            /* care01 */
+            .care01 .content-wrap {
+                padding: 100px 0px;
+                border-bottom: 1px solid var(--gray-700);
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+            .care01_txt h3 {
+                margin: 20px 0px;
+            }
+            .care01_txt p {
+                color: var(--gray-800);
+            }
+
+            /* care02 */
+            .care02 {
+                padding-top: 200px;
+                border-bottom: 1px solid var(--gray-700);
+            }
+            .care02_title {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                flex-shrink: 0;
+                padding: 40px 60px;
+                border-top: 1px solid var(--gray-700, #cdcdcd);
+                background: #e9e8e6;
+            }
+            .care02_title span {
+                color: var(--gray-800);
+                display: inline-block;
+                margin-top: 8px;
+            }
+            .care02 h4 {
+                margin: 20px 0px 4px;
+            }
+            .care02 p {
+                color: var(--gray-800);
+            }
+            .care02 .content-wrap {
+                display: flex;
+                padding: 60px 0px;
+                align-items: flex-start;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+            .care02_con03_list01,
+            .care02_con03_list02,
+            .care02_con03_list03 {
+                margin-bottom: 60px;
+            }
+
+            /* care03 */
+            .care03 {
+                padding: 200px 0px;
+                overflow: hidden;
+            }
+            .bna_swiper {
+                max-width: 1278px;
+                width: 100%;
+                margin: 0 auto;
+            }
+            .bna_img {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .bna_swiper .swiper-slide .bna_nav {
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+            }
+            .bna_swiper .swiper-slide-active .bna_nav {
+                opacity: 1;
+            }
+            .bna_nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+            .bna_nav a {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: var(--gray-800);
+            }
+            .bna_nav a img {
+                filter: grayscale(1);
+            }
+            .bna_navigation {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                max-width: 400px;
+                width: 100%;
+                margin: 40px auto 0px;
+            }
+            .bna_prev,
+            .bna_next {
+                cursor: pointer;
+            }
+            .care03 .bna_page {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .care03 .bna_page span {
+                width: 6px;
+                height: 6px;
+                background-color: var(--gray-700);
+                border-radius: 0px;
+                opacity: 1;
+                margin: 0px 4px !important;
+            }
+            .care03 .bna_page span.swiper-pagination-bullet-active {
+                background-color: #333;
+            }
+
+            /* care04 */
+            .care04 {
+                padding: 200px 0px;
+            }
+            .care04 .content-wrap {
+                position: relative;
+            }
+            .care04 > div > div {
+                position: absolute;
+                left: 50%;
+                bottom: 60px;
+                transform: translateX(-50%);
+                width: 100%;
+                padding: 0px 60px;
+                color: #fff;
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+            }
+            .care04 h2 {
+                color: rgba(255, 255, 255, 0.4);
+            }
+            .care04 h2 span {
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="sub_head">
+            <img src="img/sub/care_head.jpg" alt="일반 진료" />
+            <div class="content-wrap">
+                <h3 class="c16r subtle">Dears Clinic</h3>
+                <h2 class="t65r">일반 진료</h2>
+            </div>
+        </section>
+        <section class="care01">
+            <div class="content-wrap">
+                <div class="care01_txt">
+                    <h2 class="t65r">
+                        치아 본연의 건강을<br />
+                        되살리는 진료
+                    </h2>
+                    <h3 class="b28r">
+                        환자의 불편을 줄이고 치아의 건강,<br />
+                        그리고 편안함을 지키는 진료
+                    </h3>
+                    <p class="t22r">
+                        진심을 다한 정직한 치료로 충치, 잇몸, 신경 치료 등<br />
+                        모든 진료 과정에서 불필요한 시술 없이 치아 본연의<br />
+                        기능과 건강을 지킵니다.
+                    </p>
+                </div>
+                <img src="img/sub/care01.jpg" alt="치아 본연의 건강을 되살리는 진료" />
+            </div>
+        </section>
+        <section class="care02">
+            <div class="section-title">
+                <p class="sub subtle">Primary Care</p>
+                <h2>
+                    정확한 진단<br />
+                    정직한 진료
+                </h2>
+            </div>
+            <h3 class="care02_title t56r"><span class="b28r">1</span>스케일링</h3>
+            <div class="care02_con01 content-wrap">
+                <div class="care02_con01_list01">
+                    <img src="img/sub/care02_con01_list01.jpg" alt="능숙함과 정성이 99%" />
+                    <h4 class="b28r">능숙함과 정성이 99%</h4>
+                    <p class="t22r">
+                        디어스는 통증을 줄이는 세심한 테크닉과 부드러운 접근으로<br />
+                        스케일링의 불편함을 최소화하고, 잇몸 본연의 건강을 되살립니다.
+                    </p>
+                </div>
+                <div class="care02_con01_list02">
+                    <img src="img/sub/care02_con01_list02.jpg" alt="감동을 전하는 섬세함" />
+                    <h4 class="b28r">감동을 전하는 섬세함</h4>
+                    <p class="t22r">
+                        디어스는 올바른 스케일링을 제공해드리기 위해<br />
+                        치주과 대표원장이 직접 스텝들을 교육하고 있습니다.
+                    </p>
+                </div>
+                <div class="care02_con01_list03">
+                    <img src="img/sub/care02_con01_list03.jpg" alt="치아 본연의 색과 질감 회복" />
+                    <h4 class="b28r">치아 본연의 색과 질감 회복</h4>
+                    <p class="t22r">
+                        잇몸뿐 아니라 표면 착색 제거 효과로<br />
+                        자연스러운 밝은 미소 회복이 가능합니다.
+                    </p>
+                </div>
+            </div>
+            <h3 class="care02_title t56r"><span class="b28r">2</span>사랑니 발치</h3>
+            <div class="care02_con02 content-wrap">
+                <div class="care02_con02_list01">
+                    <img src="img/sub/care02_con02_list01.jpg" alt="대학병원 갈 필요 없이" />
+                    <h4 class="b28r">대학병원 갈 필요 없이</h4>
+                    <p class="t22r">
+                        깊다고, 신경과 가깝다고 모두 대학병원을 가야 하는 건 아닙니다.<br />
+                        저희의 편의보다 환자를 위한 진료를 위해 효율적인 방법을 제안합니다.
+                    </p>
+                </div>
+                <div class="care02_con02_list02">
+                    <img src="img/sub/care02_con02_list02.jpg" alt="손끝의 차이, 디어스의 실력" />
+                    <h4 class="b28r">손끝의 차이, 디어스의 실력</h4>
+                    <p class="t22r">
+                        디어스의 사랑니 발치는 빨리 뽑는 공장형이 아닌<br />
+                        안전하게, 후유증 없이 뽑는 기술입니다.
+                    </p>
+                </div>
+                <div class="care02_con02_list03">
+                    <img src="img/sub/care02_con02_list03.jpg" alt="정확함이 만드는 안전함" />
+                    <h4 class="b28r">정확함이 만드는 안전함</h4>
+                    <p class="t22r">
+                        디지털 정밀 검사를 통해 0.1mm의 미세한 구조까지 분석해<br />
+                        가장 안전하고 정확한 사랑니 발치가 가능합니다.
+                    </p>
+                </div>
+            </div>
+            <h3 class="care02_title t56r"><span class="b28r">3</span>빼지 않고 지켜내는 치료</h3>
+            <div class="care02_con02 content-wrap">
+                <div class="care02_con03_list01">
+                    <img src="img/sub/care02_con03_list01.jpg" alt="잇몸 치료" />
+                    <h4 class="b28r">잇몸 치료</h4>
+                    <p class="t22r">
+                        초기 잇몸질환부터 치주염 관리까지, 잇몸 속 염증과 세균을<br />
+                        정밀하게 제거하는 비수술적 치료로 회복을 돕습니다.
+                    </p>
+                </div>
+                <div class="care02_con03_list02">
+                    <img src="img/sub/care02_con03_list02.jpg" alt="잇몸 수술" />
+                    <h4 class="b28r">잇몸 수술</h4>
+                    <p class="t22r">디어스는 치주과 전문의의 실력으로 잇몸 조직의 재생을 촉진하여<br />치아를 오래 지탱할 건강한 기반을 만들어갑니다.</p>
+                </div>
+                <div class="care02_con03_list03">
+                    <img src="img/sub/care02_con03_list03.jpg" alt="잇몸 뼈이식" />
+                    <h4 class="b28r">잇몸 뼈이식</h4>
+                    <p class="t22r">
+                        섬세한 잇몸 뼈 이식을 통해<br />
+                        자연치아의 수명을 최대한 늘립니다.
+                    </p>
+                </div>
+                <div class="care02_con03_list04">
+                    <img src="img/sub/care02_con03_list04.jpg" alt="재신경 치료" />
+                    <h4 class="b28r">재신경 치료</h4>
+                    <p class="t22r">
+                        감염 부위를 정밀하게 제거하고,<br />
+                        신경을 다시 재건하여 치아를 보존합니다.
+                    </p>
+                </div>
+                <div class="care02_con03_list05">
+                    <img src="img/sub/care02_con03_list05.jpg" alt="치근단 절제술" />
+                    <h4 class="b28r">치근단 절제술</h4>
+                    <p class="t22r">미세 현미경 수술로 치근단(뿌리 끝)을 정밀하게 절제하고,<br />염증 조직을 깨끗하게 제거해 재발을 막습니다.</p>
+                </div>
+                <div class="care02_con03_list06">
+                    <img src="img/sub/care02_con03_list06.jpg" alt="치아 재식술" />
+                    <h4 class="b28r">치아 재식술</h4>
+                    <p class="t22r">
+                        문제가 있는 치아를 일시적으로 빼낸 뒤 치료 후 다시 심어,<br />
+                        자연치아의 뿌리와 기능을 최대한 보존합니다.
+                    </p>
+                </div>
+            </div>
+            <h3 class="care02_title t56r"><span class="b28r">4</span>턱관절 치료</h3>
+            <div class="care02_con04 content-wrap">
+                <div class="care02_con04_list01">
+                    <img src="img/sub/care02_con04_list01.jpg" alt="턱관절 치료 인증치과" />
+                    <h4 class="b28r">턱관절 치료 인증치과</h4>
+                    <p class="t22r">
+                        증상이 아닌 원인을 바라보는 치료를 위해<br />
+                        통증 완화부터 재발 방지까지 근본적인 회복을 목표로 합니다.
+                    </p>
+                </div>
+                <div class="care02_con04_list02">
+                    <img src="img/sub/care02_con04_list02.jpg" alt="턱관절 물리치료" />
+                    <h4 class="b28r">턱관절 물리치료</h4>
+                    <p class="t22r">
+                        저출력 레이저와 적외선 치료, 그리고 냉각스프레이를<br />
+                        활용한 물리치료로 턱관절 주변의 염증과 근육 긴장을 완화합니다.
+                    </p>
+                </div>
+                <div class="care02_con04_list03">
+                    <img src="img/sub/care02_con04_list03.jpg" alt="턱관절 안정장치(이갈이 장치)" />
+                    <h4 class="b28r">턱관절 안정장치(이갈이 장치)</h4>
+                    <p class="t22r">
+                        이악물기, 수면 이갈이 등 치아를 보호하고<br />
+                        턱의 부담을 줄이기 위해 개인별 맞춤 장치를 제작합니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="care03">
+            <div class="section-title">
+                <p class="sub subtle">Before & After</p>
+                <h2>실제 치료 사례</h2>
+            </div>
+            <div class="bna_swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="bna_img">
+                            <img src="img/sub/bna_before.jpg" alt="이전" />
+                            <img src="img/sub/bna_after.jpg" alt="다음" />
+                        </div>
+                        <div class="bna_nav">
+                            <h3 class="b28r">치근단 절제술</h3>
+                            <a href="" class="b28r">자세히 보기<img src="img/arrow02.svg" alt="칼럼 이동" /></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bna_img">
+                            <img src="img/sub/bna_before.jpg" alt="이전" />
+                            <img src="img/sub/bna_after.jpg" alt="다음" />
+                        </div>
+                        <div class="bna_nav">
+                            <h3 class="b28r">치근단 절제술</h3>
+                            <a href="" class="b28r">자세히 보기<img src="img/arrow02.svg" alt="칼럼 이동" /></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bna_img">
+                            <img src="img/sub/bna_before.jpg" alt="이전" />
+                            <img src="img/sub/bna_after.jpg" alt="다음" />
+                        </div>
+                        <div class="bna_nav">
+                            <h3 class="b28r">치근단 절제술</h3>
+                            <a href="" class="b28r">자세히 보기<img src="img/arrow02.svg" alt="칼럼 이동" /></a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bna_img">
+                            <img src="img/sub/bna_before.jpg" alt="이전" />
+                            <img src="img/sub/bna_after.jpg" alt="다음" />
+                        </div>
+                        <div class="bna_nav">
+                            <h3 class="b28r">치근단 절제술</h3>
+                            <a href="" class="b28r">자세히 보기<img src="img/arrow02.svg" alt="칼럼 이동" /></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bna_navigation">
+                    <div class="bna_prev">
+                        <img src="img/sub/bna_prev.svg" alt="이전 슬라이드" />
+                    </div>
+                    <div class="bna_page"></div>
+                    <div class="bna_next">
+                        <img src="img/sub/bna_next.svg" alt="다음 슬라이드" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="care04">
+            <div class="content-wrap">
+                <img src="img/sub/care04.jpg" alt="불편한 일상에 활력을 불어넣는 일반 진료" />
+                <div>
+                    <h2 class="t56r">
+                        불편한 일상에<br />
+                        <span>활력을 불어넣는</span><br />
+                        일반 진료
+                    </h2>
+                    <p class="b28r">
+                        정확한 진단과 섬세한 손길로<br />
+                        치아 본연의 기능과 편안함을<br />
+                        안전하게 되살립니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <script>
+            var bnaSwiper = new Swiper('.bna_swiper', {
+                loop: true,
+                slidesPerView: 'auto',
+                spaceBetween: 60,
+                speed: 1000,
+                loopAdditionalSlides: 1,
+
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+
+                pagination: {
+                    el: '.bna_page',
+                    clickable: true,
+                },
+
+                navigation: {
+                    nextEl: '.bna_next',
+                    prevEl: '.bna_prev',
+                },
+
+                on: {
+                    init: function () {
+                        this.update();
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>

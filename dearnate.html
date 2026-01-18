@@ -1,0 +1,1014 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>디어스치과 - Dears Dental Clinic</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+        <script src="js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=4so8ycoa15"></script>
+        <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+        <script src="js/gsap.min.js"></script>
+        <script src="js/ScrollTrigger.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+        <style>
+            @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css');
+
+            :root {
+                --bg: #f5f4f1;
+                --white: #ffffff;
+                --gray-900: #333333;
+                --gray-800: #999999;
+                --gray-800: #999999;
+                --gray-700: #cdcdcd;
+                --black: #222222;
+                --primary: #f1693a;
+                --primary-subtle: #c6a489;
+                --container-full: 1920px;
+                --container-content: 1760px;
+                --container-center: 1344px;
+            }
+            .primary {
+                color: var(--primary) !important;
+            }
+            .subtle {
+                color: var(--primary-subtle) !important;
+            }
+            .primary-bg {
+                background-color: var(--primary);
+                color: #fff;
+            }
+            * {
+                box-sizing: border-box;
+                scroll-behavior: smooth;
+                letter-spacing: -0.05em;
+            }
+            body {
+                position: relative;
+                overflow-x: hidden;
+                font-family: 'Pretendard', sans-serif;
+                margin: 0;
+                -webkit-font-smoothing: antialiased;
+                word-break: keep-all;
+                color: var(--gray-900);
+                background-color: var(--bg);
+            }
+            html.lenis,
+            html.lenis body {
+                height: auto;
+            }
+            .lenis.lenis-smooth {
+                scroll-behavior: auto !important;
+            }
+            .lenis.lenis-smooth [data-lenis-prevent] {
+                overscroll-behavior: contain;
+            }
+            .lenis.lenis-stopped {
+                overflow: hidden;
+            }
+            .lenis.lenis-scrolling iframe {
+                pointer-events: none;
+            }
+
+            a {
+                color: var(--gray-900);
+                text-decoration: none;
+            }
+            ul,
+            li {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            img {
+                vertical-align: middle;
+                max-width: 100%;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            span,
+            strong {
+                margin: 0;
+            }
+
+            .center {
+                max-width: var(--container-center);
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+            .content-wrap {
+                max-width: var(--container-content);
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            /* Typography */
+            /* Title 80px - Figma: kor/title/80-regular */
+            .t80r {
+                font-size: 80px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -3.2px;
+            }
+            /* Title 65px - Figma: kor/title/65-regular */
+            .t65r {
+                font-size: 65px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2.6px;
+            }
+            .t56r {
+                font-size: 56px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2.24px;
+            }
+            .t48r {
+                font-size: 48px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2px;
+            }
+            .t36r {
+                font-size: 36px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -2px;
+            }
+            .t28r {
+                font-size: 28px;
+                font-weight: 400;
+                line-height: 148%;
+                letter-spacing: -1.12px;
+            }
+            .t22r {
+                font-size: 22px;
+                font-weight: 400;
+                line-height: 148%;
+                letter-spacing: -0.88px;
+            }
+            .t20r {
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 140%;
+                letter-spacing: -1px;
+            }
+            .b32r {
+                font-size: 32px;
+                font-weight: 400;
+                line-height: 148%; /* 47.36px */
+                letter-spacing: -1.28px;
+            }
+            .b28r {
+                font-size: 28px;
+                font-weight: 400;
+                line-height: 148%; /* 41.44px */
+                letter-spacing: -1.12px;
+            }
+            .b18r {
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 148%;
+                letter-spacing: -0.72px;
+            }
+            .b16r {
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 162%;
+                letter-spacing: -0.5px;
+            }
+            .b16s {
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 162%;
+                letter-spacing: -0.5px;
+            }
+            .b14r {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 143%;
+                letter-spacing: -0.5px;
+            }
+            .b14s {
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 143%;
+                letter-spacing: -1px;
+            }
+            .c16r {
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 148%; /* 23.68px */
+                letter-spacing: 2.56px;
+            }
+            .c12r {
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 148%;
+                letter-spacing: -0.48px;
+            }
+            /* Section Title */
+            .section-title {
+                text-align: center;
+                margin-bottom: 60px;
+            }
+            .section-title .sub {
+                font-size: 16px;
+                font-weight: 400;
+                color: #c6a489;
+                margin-bottom: 20px;
+                line-height: 148%; /* 23.68px */
+                letter-spacing: 2.56px;
+            }
+            .section-title h2 {
+                font-size: 65px;
+                font-weight: 400;
+                line-height: 140%; /* 91px */
+                letter-spacing: -2.6px;
+            }
+
+            /* dearnate_head */
+            .dearnate_head {
+                position: relative;
+            }
+            .dearnate_head .content-wrap {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                z-index: 1;
+                width: 100%;
+                text-align: center;
+            }
+            .dearnate_head p {
+                margin-top: 25px;
+                color: #fff;
+            }
+
+            /* dearnate01 */
+            .dearnate01 {
+                padding-top: 100px;
+            }
+            .dearnate01 h3 {
+                margin: 20px auto 100px;
+                color: var(--gray-800);
+            }
+            .dearnate01_list li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 40px 0px;
+                border-top: 1px solid var(--gray-700);
+                gap: 40px;
+            }
+            .dearnate01_list li span {
+                color: var(--gray-800);
+                max-width: 300px;
+                width: 100%;
+            }
+            .dearnate01_list li div {
+                max-width: 245px;
+                width: 100%;
+                text-align: right;
+            }
+            .dearnate01_list li:last-child {
+                border-bottom: 1px solid var(--gray-700);
+            }
+            .dearnate01_con {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                margin: 200px auto 0px;
+            }
+            .dearnate01_txt h5 {
+                margin: 20px 0px;
+            }
+            .dearnate01_txt p {
+                color: var(--gray-800);
+            }
+
+            /* dearnate02 */
+            .dearnate02 {
+                padding: 200px 0px 0px;
+                border-bottom: 1px solid var(--gray-700);
+            }
+            .dearnate02_title {
+                padding: 40px 80px;
+                border-top: 1px solid var(--gray-700, #cdcdcd);
+                background: #e9e8e6;
+            }
+            .dearnate02_con {
+                padding: 60px 0px;
+            }
+            .dearnate02_con > h5 {
+                color: var(--gray-800);
+                margin: 32px 0px;
+            }
+
+            .dearnate02_con_list {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+            .dearnate02_con_list > div {
+                max-width: 576px;
+                width: 100%;
+            }
+            .dearnate02_con_list h5 {
+                margin: 74px 0px 4px;
+            }
+            .dearnate02_con_list h6 {
+                color: var(--gray-800);
+            }
+
+            /* Comparison Slider - 수정이 필요한 경우 여기 변수만 조정하세요 */
+            .comparison {
+                --slider-height: 328px; /* 슬라이더 컨테이너 높이 */
+                --handle-size: 50px; /* 핸들 크기 */
+                --handle-offset: -80px; /* 핸들 위치 조정 */
+                --slider-offset: -52px; /* 슬라이더 입력 위치 */
+                --thumb-size: 44px; /* 슬라이더 썸 크기 */
+                --divider-width: 1px; /* 구분선 두께 */
+                --track-height: 1px; /* 슬라이더 트랙 높이 */
+
+                width: 100%;
+                padding-bottom: var(--slider-height);
+                position: relative;
+            }
+
+            /* Before/After 이미지 컨테이너 */
+            .comparison figure {
+                position: absolute;
+                background-size: cover;
+                font-size: 0;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+
+            /* After 이미지 (오버레이) */
+            .divisor {
+                background-size: cover;
+                position: absolute;
+                width: 50%;
+                bottom: 0;
+                height: 100%;
+            }
+
+            /* 중앙 구분선 */
+            .divisor::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                width: var(--divider-width);
+                height: 100%;
+                background: var(--white);
+                z-index: 3;
+                bottom: 0;
+            }
+
+            /* 핸들 (드래그 아이콘 컨테이너) */
+            .handle {
+                position: absolute;
+                width: var(--handle-size);
+                height: var(--handle-size);
+                bottom: var(--handle-offset);
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                z-index: 3;
+                pointer-events: none; /* 클릭이 슬라이더로 전달되도록 */
+            }
+
+            /* 핸들 아이콘 */
+            .handle::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -53%);
+                background: url(img/sub/handle.svg) no-repeat center/contain;
+                border-radius: 50%;
+            }
+
+            /* 슬라이더 입력 */
+            .comparison input[type='range'] {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                position: absolute;
+                bottom: var(--slider-offset);
+                left: 0;
+                width: 100%;
+                background-color: transparent;
+                cursor: pointer;
+                z-index: 2;
+            }
+
+            .comparison input[type='range']:focus,
+            .comparison input[type='range']:active {
+                border: none;
+                outline: none;
+            }
+
+            /* 슬라이더 썸 (드래그 포인트) - Webkit */
+            .comparison input[type='range']::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                width: var(--thumb-size);
+                height: var(--thumb-size);
+                border: none;
+                border-radius: 50%;
+            }
+
+            /* 슬라이더 트랙 - Firefox */
+            .comparison input[type='range']::-moz-range-track {
+                -moz-appearance: none;
+                width: 100%;
+                height: 15px;
+                background-color: transparent;
+                outline: none;
+            }
+
+            /* 슬라이더 트랙 라인 */
+            .comparison input[type='range']::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 100%;
+                height: var(--track-height);
+                background-color: var(--gray-700);
+                border-radius: 50px;
+            }
+            .dearnate02_con > p {
+                color: var(--gray-800);
+                margin-top: 32px;
+            }
+
+            /* dearnate03 */
+            .dearnate03 {
+                padding: 100px 0px 200px;
+            }
+            .dearnate03 > div {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+            .dearnate03_txt h3 {
+                margin: 20px 0px;
+            }
+            .dearnate03_txt p {
+                color: var(--gray-800);
+            }
+
+            /* dearnate04 */
+            .dearnate04 {
+                position: relative;
+                display: flex;
+                align-items: center;
+            }
+            .dearnate04 > img {
+                width: 50%;
+            }
+            .dearnate04_con {
+                position: absolute;
+                left: 80px;
+                bottom: 60px;
+                color: #fff;
+            }
+            .dearnate04_con h2 {
+                margin-bottom: 20px;
+            }
+
+            /* dearnate05 */
+            .dearnate05 {
+                padding-top: 200px;
+                border-bottom: 1px solid var(--gray-700);
+            }
+            .dearnate05_title {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                flex-shrink: 0;
+                padding: 40px 60px;
+                border-top: 1px solid var(--gray-700, #cdcdcd);
+                background: #e9e8e6;
+            }
+            .dearnate05_title span {
+                color: var(--gray-800);
+                display: inline-block;
+                margin-top: 8px;
+            }
+            .dearnate05_con {
+                padding: 60px 0px;
+            }
+            .dearnate05_con h5 {
+                margin: 32px 0px;
+                color: var(--gray-800);
+            }
+
+            .dearnate05_list {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+            .dearnate05_list > div > div {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 20px 0px 4px;
+            }
+            .dearnate05_list h4 {
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .dearnate05_list h4 span {
+                margin-top: 2px;
+                display: inline-block;
+                color: var(--gray-800, #999);
+            }
+            .dearnate05_list p {
+                color: var(--gray-800, #999);
+                padding: 0px 18px;
+            }
+
+            /* dearnate06 */
+            .dearnate06 .content-wrap {
+                padding: 100px 0px;
+                border-bottom: 1px solid var(--gray-700);
+            }
+            .dearnate06_txt h3 {
+                margin: 20px 0px;
+            }
+            .dearnate06_txt p {
+                color: var(--gray-800);
+            }
+            .dearnate06 > div > div {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+            .dearnate06 > div > div.dearnate06_con02 {
+                justify-content: flex-start;
+                gap: 60px;
+                margin-top: 60px;
+            }
+
+            /* dearnate07 */
+            .dearnate07 {
+                padding: 200px 0px;
+            }
+            .dearnate07_table {
+                width: 100%;
+                max-width: 970px;
+                margin: 0 auto;
+            }
+            .dearnate07_table > div {
+                display: flex;
+                padding: 40px 0;
+                align-items: flex-start;
+                border-bottom: 1px solid var(--gray-700);
+            }
+            .dearnate07_table > div > div {
+                width: 50%;
+            }
+            .dearnate07_table_title h4 {
+                color: var(--gray-800, #999);
+                width: 50%;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .dearnate07_table h3 {
+                margin-top: 8px;
+            }
+            .dearnate07_table_normal h3,
+            .dearnate07_table_dears span {
+                color: var(--gray-800, #999);
+            }
+            .dearnate07_table_normal span {
+                color: var(--gray-700);
+            }
+
+            /* dearnate08 */
+            .dearnate08 .content-wrap {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+            .dearnate08_con {
+                position: relative;
+            }
+            .dearnate08_con > div {
+                position: absolute;
+                left: 50%;
+                bottom: 60px;
+                transform: translateX(-50%);
+                width: 100%;
+                padding: 0px 60px;
+                color: #fff;
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+            }
+            .dearnate08 h2 {
+                color: rgba(255, 255, 255, 0.4);
+            }
+            .dearnate08 h2 span {
+                color: #fff;
+            }
+
+            /* dearnate09 */
+            .dearnate09 {
+                padding: 200px 0px;
+                text-align: center;
+            }
+            .dearnate09 p {
+                margin: 20px auto;
+            }
+            .dearnate09 a {
+                display: inline-flex;
+                padding: 8px 16px 8px 20px;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                background-color: var(--primary);
+                border-radius: 50px;
+                gap: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="dearnate_head">
+            <img src="img/sub/dearnate_head.jpg" alt="일반 진료" />
+            <div class="content-wrap">
+                <img src="img/sub/dearnate_head.svg" alt="디어네이트" />
+                <p class="t22r">
+                    최소한의 삭제로 만드는<br />
+                    자연스러운 아름다움 디어네이트
+                </p>
+            </div>
+        </section>
+        <section class="dearnate01">
+            <div class="section-title">
+                <p class="sub subtle">Laminate</p>
+                <h2>최소한의 삭제, 자연스러운 아름다움</h2>
+                <h3 class="b28r">
+                    삭제를 많이 한 보통의 라미네이트처럼 인위적인 느낌이 아닌,<br />
+                    최대한 치아를 보존하여 어우러지는 자연스러운 아름다움을 만들어냅니다.
+                </h3>
+                <img src="img/sub/dearnate01.jpg" alt="최소한의 삭제, 자연스러운 아름다움" />
+            </div>
+            <ul class="dearnate01_list">
+                <li class="t56r">
+                    <div>수제작</div>
+                    <span class="b28r">0.05mm 단위의 섬세한 기술</span>
+                </li>
+                <li class="t56r">
+                    <div>맞춤 디자인</div>
+                    <span class="b28r">개인의 단점을 완벽히 커버</span>
+                </li>
+                <li class="t56r">
+                    <div>투명함</div>
+                    <span class="b28r">치아표면의 얇은 투명감</span>
+                </li>
+            </ul>
+            <div class="dearnate01_con content-wrap">
+                <div class="dearnate01_txt">
+                    <h4 class="t65r">
+                        디어스 치과만의<br />
+                        디어네이트
+                    </h4>
+                    <h5 class="b28r">최소한의 삭제, 자연스러운 아름다움</h5>
+                    <p class="t22r">
+                        삭제를 많이 한 보통의 라미네이트처럼<br />
+                        인위적인 느낌이 아닌, 최대한 치아를 보존하여<br />
+                        어우러지는 자연스러운 아름다움을 만들어냅니다.
+                    </p>
+                </div>
+                <img src="img/sub/dearnate01_con.jpg" alt="디어스 치과만의 디어네이트" />
+            </div>
+        </section>
+        <section class="dearnate02">
+            <div class="section-title">
+                <p class="sub subtle">Dear Nate</p>
+                <h2>디어네이트라서 가능한</h2>
+            </div>
+            <h3 class="dearnate02_title t56r">무삭제 · 미세삭제</h3>
+            <div class="dearnate02_con content-wrap">
+                <h4 class="t56r">
+                    치아를 보존하면서<br />
+                    더 아름다운 미소로
+                </h4>
+                <h5 class="b28r">
+                    본래 치아처럼 자연스러운 색·투명도·질감을 구현하여<br />
+                    자연스럽지만 분명하게 아름다운 변화를 만듭니다.
+                </h5>
+                <div class="dearnate02_con_list">
+                    <div class="dearnate02_con_list01">
+                        <div class="container">
+                            <div id="comparison1" class="comparison">
+                                <figure style="background-image: url(img/sub/dearnate02_con01a.jpg)">
+                                    <div class="handle" style="left: 50%"></div>
+                                    <div class="divisor" style="width: 50%; background-image: url(img/sub/dearnate02_con01b.jpg)"></div>
+                                </figure>
+                                <input type="range" min="0" max="100" value="50" id="slider1" class="comparison-slider" data-target="comparison1" />
+                            </div>
+                        </div>
+                        <h5 class="b28r">6전치 라미네이트</h5>
+                        <h6 class="t22r">
+                            치아 형태, 잇몸 라인 개선<br />
+                            24.11.4 ~ 24.11.18
+                        </h6>
+                    </div>
+                    <div class="dearnate02_con_list02">
+                        <div class="container">
+                            <div id="comparison2" class="comparison">
+                                <figure style="background-image: url(img/sub/dearnate02_con02a.jpg)">
+                                    <div class="handle" style="left: 50%"></div>
+                                    <div class="divisor" style="width: 50%; background-image: url(img/sub/dearnate02_con02b.jpg)"></div>
+                                </figure>
+                                <input type="range" min="0" max="100" value="50" id="slider2" class="comparison-slider" data-target="comparison2" />
+                            </div>
+                        </div>
+                        <h5 class="b28r">6전치 라미네이트</h5>
+                        <h6 class="t22r">
+                            치아 사이 공간, 형태 개선<br />
+                            25.09.03 ~ 25.09.17
+                        </h6>
+                    </div>
+                    <div class="dearnate02_con_list03">
+                        <div class="container">
+                            <div id="comparison3" class="comparison">
+                                <figure style="background-image: url(img/sub/dearnate02_con03a.jpg)">
+                                    <div class="handle" style="left: 50%"></div>
+                                    <div class="divisor" style="width: 50%; background-image: url(img/sub/dearnate02_con03b.jpg)"></div>
+                                </figure>
+                                <input type="range" min="0" max="100" value="50" id="slider3" class="comparison-slider" data-target="comparison3" />
+                            </div>
+                        </div>
+                        <h5 class="b28r">라미네이트, 레진 복합</h5>
+                        <h6 class="t22r">
+                            브라운 스팟 개선<br />
+                            24.12.03 ~ 24.12.17
+                        </h6>
+                    </div>
+                </div>
+                <p class="c12r">
+                    모든 치료 결과는 환자분에 따라 차이가 있을 수 있으며, 부작용이 발생할 수 있습니다.<br />
+                    본 사진은 동일 조건에서 촬영되었으며, 환자 본인의 동의를 얻어 게재되었습니다.
+                </p>
+            </div>
+        </section>
+        <script>
+            // 모든 comparison 슬라이더를 자동으로 초기화
+            document.addEventListener('DOMContentLoaded', function () {
+                const sliders = document.querySelectorAll('.comparison-slider');
+
+                sliders.forEach(function (slider) {
+                    const targetId = slider.dataset.target;
+                    const container = document.getElementById(targetId);
+                    const handle = container.querySelector('.handle');
+                    const divisor = container.querySelector('.divisor');
+
+                    // 슬라이더 이동 이벤트
+                    slider.addEventListener('input', function () {
+                        const value = this.value + '%';
+                        handle.style.left = value;
+                        divisor.style.width = value;
+                    });
+
+                    // 초기 위치 설정
+                    handle.style.left = slider.value + '%';
+                    divisor.style.width = slider.value + '%';
+                });
+            });
+        </script>
+        <section class="dearnate03">
+            <div class="content-wrap">
+                <div class="dearnate03_txt">
+                    <h2 class="t65r">
+                        기술과 예술이 만나는<br />
+                        디어스만의 미학
+                    </h2>
+                    <h3 class="b28r">아름다움을 만들기 위해서는<br />아름다움을 볼 줄 알아야 합니다.</h3>
+                    <p class="t22r">
+                        디어스의 라미네이트는 손 끝에서 이루어지는<br />
+                        정교한 감각을 통해 자연스러운 치아의 곡선과 질감이 구현됩니다.<br />
+                        치아의 가장 이상적인 디자인을 찾아내는 섬세함을 경험해보세요.
+                    </p>
+                </div>
+                <img src="img/sub/dearnate03.jpg" alt="기술과 예술이 만나는 디어스만의 미학" />
+            </div>
+        </section>
+        <section class="dearnate04">
+            <img src="img/sub/dearnate04_left.jpg" alt="자연스러운 아름다움을 위한 기술력" />
+            <img src="img/sub/dearnate04_right.jpg" alt="정교한 세라믹 기공 기술력을 통해 자연스러운 미소를 완성합니다." />
+            <div class="dearnate04_con">
+                <h2 class="t65r">
+                    자연스러운<br />
+                    아름다움을<br />
+                    위한 기술력
+                </h2>
+                <p class="b28r">
+                    정교한 세라믹 기공기술력을 통해<br />
+                    자연스러운 미소를 완성합니다.
+                </p>
+            </div>
+        </section>
+        <section class="dearnate05">
+            <div class="section-title">
+                <img src="img/sub/dearnate05_logo.svg" alt="디어네이트" />
+                <h2>디어네이트가 특별한 이유</h2>
+            </div>
+            <h3 class="dearnate05_title t56r"><span class="b28r">1</span>치료 전, 결과를 미리 확인하세요.</h3>
+            <div class="dearnate05_con content-wrap">
+                <h4 class="t56r">
+                    디지털 진단을 통한<br />
+                    프리뷰(pre-view) 시스템
+                </h4>
+                <h5 class="b28r">
+                    라미네이트는 특성상 치료 후 수정이 매우 어려운 치료입니다.<br />
+                    디지털 진단을 통한 충분한 소통으로 만족스러운 결과물을 완성합니다.
+                </h5>
+                <div class="dearnate05_list">
+                    <div class="dearnate05_list01">
+                        <img src="img/sub/dearnate05_list01.jpg" alt="초진" />
+                        <div>
+                            <h4 class="b28r"><span class="b18r">1</span>초진</h4>
+                            <img src="img/sub/next.svg" alt="다음" />
+                        </div>
+                        <p class="t22r">
+                            현재 치아 상태, 원하는 디자인, 삭제 여부,<br />
+                            개선 사항 등 충분한 소통으로 진단합니다.
+                        </p>
+                    </div>
+                    <div class="dearnate05_list02">
+                        <img src="img/sub/dearnate05_list02.jpg" alt="디지털 진단" />
+                        <div>
+                            <h4 class="b28r"><span class="b18r">2</span>디지털 진단</h4>
+                            <img src="img/sub/next.svg" alt="다음" />
+                        </div>
+                        <p class="t22r">
+                            3D 구강스캐너로 치아 데이터를<br />
+                            정확하게 채득하여 설계합니다.
+                        </p>
+                    </div>
+                    <div class="dearnate05_list03">
+                        <img src="img/sub/dearnate05_list03.jpg" alt="진단 모형 제작" />
+                        <div>
+                            <h4 class="b28r"><span class="b18r">3</span>진단 모형 제작</h4>
+                            <img src="img/sub/next.svg" alt="다음" />
+                        </div>
+                        <p class="t22r">
+                            최종 보철물과 동일한 디자인의 pre-view 전용<br />
+                            레진 라미네이트를 제작하여 미리 확인하며<br />
+                            최종 디자인을 함께 결정합니다.
+                        </p>
+                    </div>
+                    <div class="dearnate05_list04">
+                        <img src="img/sub/dearnate05_list04.jpg" alt="최종 보철물" />
+                        <div>
+                            <h4 class="b28r"><span class="b18r">4</span>최종 보철물</h4>
+                        </div>
+                        <p class="t22r">최종 라미네이트를 제작하여 장착합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="dearnate06">
+            <div class="content-wrap">
+                <div class="dearnate06_con01">
+                    <div class="dearnate06_txt">
+                        <h2 class="t65r">
+                            자연치아를 보존하는<br />
+                            무삭제 · 미세삭제
+                        </h2>
+                        <h3 class="b28r">0.1mm 얇은 라미네이트로 자연스럽게</h3>
+                        <p class="t22r">
+                            좋은 결과를 위해 삭제가 필요한 부분은 가감없이 말씀드립니다.<br />
+                            하지만 필요하지 않은 부분을 절대 삭제하지 않겠습니다.
+                        </p>
+                    </div>
+                    <img src="img/sub/dearnate06_con01.jpg" alt="자연치아를 보존하는 무삭제 · 미세삭제" />
+                </div>
+                <div class="dearnate06_con02">
+                    <img src="img/sub/dearnate06_con02.jpg" alt="자연스러움의 핵심 맞춤형 수제작" />
+                    <div class="dearnate06_txt">
+                        <h2 class="t65r">
+                            자연스러움의 핵심<br />
+                            맞춤형 수제작
+                        </h2>
+                        <h3 class="b28r">Handmade 수제작 주조 기술</h3>
+                        <p class="t22r">
+                            세라믹을 디지털로 깎는 방식이 아닌,<br />
+                            수작업 주조기술로 세라믹을 제작하는 프레스 방식을 고집합니다.<br />
+                            투명도, 적합도, 표면질감 등을 더욱 섬세하게 구현하여<br />
+                            기계가 할 수 없는 영역의 얇고 투명한 결과물을 만듭니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="dearnate07">
+            <div class="section-title">
+                <span></span>
+                <p class="sub subtle">How to</p>
+                <h2>
+                    프레스 방식,<br />
+                    수작업을 고집하는 이유
+                </h2>
+            </div>
+            <div class="dearnate07_table">
+                <div class="dearnate07_table_title">
+                    <h4 class="t56r">일반 밀링 방식</h4>
+                    <h4 class="t56r primary">프레스 방식<img src="img/sub/dearnate07_table.svg" alt="디어네이트" /></h4>
+                </div>
+                <div class="dearnate07_table01">
+                    <div class="dearnate07_table_normal">
+                        <span class="t22r">방법</span>
+                        <h3 class="b28r">기계로 세라믹 블록을<br />깎아 제작</h3>
+                    </div>
+                    <div class="dearnate07_table_dears">
+                        <span class="t22r">방법</span>
+                        <h3 class="b28r">아날로그로 치아 형태 제작 후 <br />녹인 세라믹을 압축</h3>
+                    </div>
+                </div>
+                <div class="dearnate07_table02">
+                    <div class="dearnate07_table_normal">
+                        <span class="t22r">적합</span>
+                        <h3 class="b28r">보통</h3>
+                    </div>
+                    <div class="dearnate07_table_dears">
+                        <span class="t22r">적합</span>
+                        <h3 class="b28r">매우 높음</h3>
+                    </div>
+                </div>
+                <div class="dearnate07_table03">
+                    <div class="dearnate07_table_normal">
+                        <span class="t22r">색감 및 투명도</span>
+                        <h3 class="b28r">색상이 일정</h3>
+                    </div>
+                    <div class="dearnate07_table_dears">
+                        <span class="t22r">색감 및 투명도</span>
+                        <h3 class="b28r">높은 투명도와 자연스러움</h3>
+                    </div>
+                </div>
+                <div class="dearnate07_table04">
+                    <div class="dearnate07_table_normal">
+                        <span class="t22r">강도</span>
+                        <h3 class="b28r">양호</h3>
+                    </div>
+                    <div class="dearnate07_table_dears">
+                        <span class="t22r">강도</span>
+                        <h3 class="b28r">높음</h3>
+                    </div>
+                </div>
+                <div class="dearnate07_table05">
+                    <div class="dearnate07_table_normal">
+                        <span class="t22r">작업 효율</span>
+                        <h3 class="b28r">단순, 즉시 제작 가능</h3>
+                    </div>
+                    <div class="dearnate07_table_dears">
+                        <span class="t22r">작업 효율</span>
+                        <h3 class="b28r">수작업, 제작 기간 비교적 소요</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="dearnate08">
+            <div class="content-wrap">
+                <img src="img/sub/dearnate0801.jpg" alt="디어네이트 제작과정01" />
+                <img src="img/sub/dearnate0802.jpg" alt="디어네이트 제작과정02" />
+                <img src="img/sub/dearnate0803.jpg" alt="디어네이트 제작과정03" />
+                <div class="dearnate08_con">
+                    <img src="img/sub/dearnate08_con.jpg" alt="얼굴과 이미지에 맞는 커스텀 디자인" />
+                    <div>
+                        <h2 class="t56r">
+                            얼굴과 이미지에 맞는<br />
+                            <span>커스텀 디자인</span>
+                        </h2>
+                        <p class="b28r">
+                            환자에게 가장 어울리는<br />
+                            맞춤 형태와 색상으로 만드는<br />
+                            완전 커스텀 디자인
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="dearnate09">
+            <img src="img/sub/dearnate09.svg" alt="디어네이트" />
+            <p class="b28r">나에게 가장 잘 어울릴 디자인은?</p>
+            <a href="" class="b18r">케이스 더보기<img src="img/arrow01.svg" alt="화살표" /></a>
+        </section>
+    </body>
+</html>

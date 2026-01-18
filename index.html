@@ -137,6 +137,12 @@
                 line-height: 148%;
                 letter-spacing: -0.88px;
             }
+            .b32r {
+                font-size: 32px;
+                font-weight: 400;
+                line-height: 148%; /* 47.36px */
+                letter-spacing: -1.28px;
+            }
             .b28r {
                 font-size: 28px;
                 font-weight: 400;
@@ -1781,31 +1787,31 @@
             <div class="footer-map">
                 <div id="map"></div>
                 <script type="text/javascript">
-                            var mapOptions = {
-                                center: new naver.maps.LatLng(37.5505667, 127.1434921),
-                                zoom: 17,
-                                scrollWheel: false,
-                                zoomControl: true,
-                                zoomControlOptions: {
-                                    style: naver.maps.ZoomControlStyle.SMALL,
-                                    position: naver.maps.Position.TOP_LEFT,
-                                },
-                            };
-                            var map = new naver.maps.Map("map", mapOptions);
+                    var mapOptions = {
+                        center: new naver.maps.LatLng(37.5505667, 127.1434921),
+                        zoom: 17,
+                        scrollWheel: false,
+                        zoomControl: true,
+                        zoomControlOptions: {
+                            style: naver.maps.ZoomControlStyle.SMALL,
+                            position: naver.maps.Position.TOP_LEFT,
+                        },
+                    };
+                    var map = new naver.maps.Map('map', mapOptions);
 
-                            var markerOptions = {
-                                position: new naver.maps.LatLng(37.5505667, 127.1434921),
-                                map: map,
-                                icon: {
-                                    url: "/img/marker.svg",
-                                    size: new naver.maps.Size(189, 75),
-                                    origin: new naver.maps.Point(0, 0),
-                                    anchor: new naver.maps.Point(94.5, 75),
-                                },
-                            };
+                    var markerOptions = {
+                        position: new naver.maps.LatLng(37.5505667, 127.1434921),
+                        map: map,
+                        icon: {
+                            url: '/img/marker.svg',
+                            size: new naver.maps.Size(189, 75),
+                            origin: new naver.maps.Point(0, 0),
+                            anchor: new naver.maps.Point(94.5, 75),
+                        },
+                    };
 
-                            var marker = new naver.maps.Marker(markerOptions);
-                        </script>
+                    var marker = new naver.maps.Marker(markerOptions);
+                </script>
             </div>
         </footer>
 
@@ -2222,15 +2228,14 @@
             const currentPath = window.location.pathname;
             const menuLinks = document.querySelectorAll('.hd_menu a[href]');
 
-            menuLinks.forEach(link => {
+            menuLinks.forEach((link) => {
                 const href = link.getAttribute('href');
                 // 현재 페이지 경로와 링크의 href가 일치하면 active 클래스 추가
                 if (currentPath === href || currentPath.endsWith(href)) {
                     link.classList.add('active');
                 }
                 // index.php인 경우 루트 경로(/)도 체크
-                if ((currentPath === '/' || currentPath === '/index.php') &&
-                    (href === '/index.php' || href === '/')) {
+                if ((currentPath === '/' || currentPath === '/index.php') && (href === '/index.php' || href === '/')) {
                     link.classList.add('active');
                 }
             });
@@ -2241,7 +2246,7 @@
             const navItems = document.querySelectorAll('nav ul li');
 
             if (hdChildBtn) {
-                hdChildBtn.addEventListener('click', function() {
+                hdChildBtn.addEventListener('click', function () {
                     this.classList.toggle('active');
 
                     if (this.classList.contains('active')) {
@@ -2249,7 +2254,7 @@
                         childText.textContent = '';
 
                         // .child 메뉴 표시, 나머지는 숨김
-                        navItems.forEach(item => {
+                        navItems.forEach((item) => {
                             if (item.querySelector('.child')) {
                                 item.classList.add('show');
                             } else if (!item.querySelector('.hd_child_btn') && !item.querySelector('a[href*="login"]')) {
@@ -2261,7 +2266,7 @@
                         childText.textContent = '어린이';
 
                         // 원래대로 복구
-                        navItems.forEach(item => {
+                        navItems.forEach((item) => {
                             item.classList.remove('show');
                             item.classList.remove('hidden');
                         });
