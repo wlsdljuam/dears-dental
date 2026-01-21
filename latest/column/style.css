@@ -1,0 +1,160 @@
+/* 진료 칼럼 Latest 스킨 CSS */
+
+/* PC 스타일 */
+.column_head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.column_head > a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.column_category {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.column_category span {
+    cursor: pointer;
+    padding: 12px 24px;
+    color: var(--gray-800);
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.column_category span:hover {
+    color: var(--gray-900);
+}
+
+.column_category span.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+.column_body {
+    display: flex;
+    gap: 20px;
+}
+
+.column_body .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    text-decoration: none;
+    color: inherit;
+}
+
+.column_body .swiper-slide img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.column_body .swiper-slide h4 {
+    margin: 0;
+    color: var(--gray-900);
+}
+
+.column_body .swiper-slide > span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gray-600);
+}
+
+/* 태블릿 (1024px 이하) */
+@media screen and (max-width: 1024px) {
+    .column_head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .column_category span {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .column_body {
+        flex-wrap: wrap;
+    }
+
+    .column_body .swiper-slide {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+/* 모바일 (768px 이하) */
+@media screen and (max-width: 768px) {
+    .column_head {
+        margin-bottom: 24px;
+    }
+
+    .column_head > a {
+        display: none;
+    }
+
+    .column_category {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .column_category::-webkit-scrollbar {
+        display: none;
+    }
+
+    .column_category span {
+        padding: 8px 16px;
+        font-size: 14px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .column_body {
+        display: block;
+        overflow: hidden;
+    }
+
+    .column_body .swiper-wrapper {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .column_body .swiper-slide {
+        width: 280px !important;
+        flex-shrink: 0 !important;
+        flex: none !important;
+    }
+
+    .column_body .swiper-slide h4 {
+        font-size: 18px;
+    }
+}
+
+/* 소형 모바일 (480px 이하) */
+@media screen and (max-width: 480px) {
+    .column_category span {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+
+    .column_body .swiper-slide {
+        width: 240px !important;
+    }
+
+    .column_body .swiper-slide h4 {
+        font-size: 16px;
+    }
+}
