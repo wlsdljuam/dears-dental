@@ -270,6 +270,9 @@
             nav ul li:not(:has(.child)):not(:has(.hd_child_btn)) {
                 display: block;
             }
+            nav ul li:not(:has(.child)):not(:has(.hd_child_btn)).m_con {
+                display: none;
+            }
             nav ul li:not(:has(.child)):not(:has(.hd_child_btn)).hidden {
                 display: none;
             }
@@ -598,7 +601,6 @@
                 position: relative;
                 padding: 40px;
                 background-color: #fff;
-                cursor: pointer;
             }
             .doctor_card > img {
                 position: absolute;
@@ -624,9 +626,10 @@
             }
             .doctor_card span {
                 color: var(--gray-800, #999);
-                display: flex;
+                display: inline-flex;
                 align-items: center;
                 gap: 6px;
+                cursor: pointer;
             }
             .doctor_card span img {
                 filter: invert(0.4);
@@ -643,9 +646,12 @@
             .doctor_banner_txt h3 {
                 margin-bottom: 91px;
             }
+            .doctor_swiper .swiper-wrapper {
+                justify-content: space-between;
+            }
 
-            /* main_scroll */
-            .main_scroll {
+            /* main_scroll PC */
+            .main_scroll_pc {
                 width: 100%;
                 height: 100vh;
                 display: flex;
@@ -655,12 +661,15 @@
                 overflow: hidden;
                 gap: 5px;
             }
-            .main_scroll h2 {
+            .main_scroll_pc h2 {
                 color: var(--gray-700, #cdcdcd);
                 white-space: nowrap;
             }
-            .main_scroll h2 span {
+            .main_scroll_pc h2 span {
                 color: var(--gray-900);
+            }
+            .main_scroll_m {
+                display: none;
             }
 
             /* main_endding */
@@ -699,7 +708,7 @@
             .endding_title h3 span {
                 color: var(--gray-800);
             }
-            .endding_title h3 span:last-child {
+            .endding_title h3 span:nth-of-type(2) {
                 color: var(--primary);
             }
             .review_slide_wrapper {
@@ -740,6 +749,7 @@
             }
             .review_card p {
                 color: var(--gray-800, #999);
+                word-break: break-all;
             }
             .review_scroll {
                 background-image: url(img/review_scroll.jpg);
@@ -980,7 +990,11 @@
                 .map-modal {
                     width: 95vw;
                     height: auto;
-                    padding: 40px 20px;
+                    padding: 56px 24px 24px;
+                }
+                .map-modal-close {
+                    top: 16px;
+                    right: 16px;
                 }
             }
 
@@ -1056,7 +1070,7 @@
             .doctor-modal-info h4 span {
                 color: var(--gray-800, #999);
             }
-            .doctor-modal-info p {
+            .doctor-modal-info p:first-of-type {
                 margin: 28px 0px;
             }
             .doctor-modal-info ul {
@@ -1277,9 +1291,14 @@
                 }
 
                 /* Main Doctor */
+                .main_doctor {
+                    padding-top: 80px;
+                    overflow: hidden;
+                }
                 .main_doctor_con {
                     flex-direction: column;
                     gap: 16px;
+                    margin-bottom: 50px;
                 }
                 .doctor_card {
                     max-width: 100%;
@@ -1372,8 +1391,8 @@
                     font-size: 14px;
                 }
                 .c16r {
-                    font-size: 14px;
-                    letter-spacing: 2px;
+                    font-size: 12px;
+                    letter-spacing: 1.92px;
                 }
 
                 /* Container */
@@ -1398,26 +1417,27 @@
                     position: absolute;
                     top: 100%;
                     left: 0;
-                    padding: 20px;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
                 }
                 .hd_menu.active {
                     display: flex;
                 }
                 .hd_menu > li {
-                    padding: 12px 0;
                     border-bottom: 1px solid var(--gray-700);
+                    width: 100%;
                 }
                 .hd_menu > li:last-child {
                     border-bottom: none;
                 }
                 .hd_menu > li > a {
-                    color: var(--gray-900) !important;
+                    color: var(--gray-900);
+                    padding: 16px 24px;
+                    font-size: 18px;
                 }
                 .hd_child_btn {
-                    margin-top: 12px;
                     width: 100%;
-                    justify-content: center;
+                    padding: 16px 24px;
+                    border-radius: 0;
+                    justify-content: space-between;
                 }
 
                 /* 모바일 메뉴 버튼 표시 */
@@ -1427,7 +1447,7 @@
 
                 /* Section Title 모바일 */
                 .section-title {
-                    margin-bottom: 30px;
+                    margin-bottom: 24px;
                 }
                 .section-title .sub {
                     font-size: 12px;
@@ -1654,109 +1674,208 @@
                 }
 
                 /* Main Doctor 모바일 */
+                .main_doctor_con {
+                    display: block !important;
+                    overflow: hidden;
+                }
+                .main_doctor_con .swiper-wrapper {
+                    display: flex !important;
+                    flex-direction: row !important;
+                    flex-wrap: nowrap !important;
+                }
+                .main_doctor_con .swiper-slide {
+                    flex-shrink: 0 !important;
+                    flex: none !important;
+                }
                 .doctor_card {
+                    padding: 0px;
+                    background-color: transparent;
+                }
+                .m_doctor_card {
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    width: 100%;
+                    height: 100%;
                     padding: 24px;
                 }
                 .doctor_card > img {
-                    width: 120px;
+                    width: 100%;
+                    position: static;
                 }
-                .doctor_card h3 {
-                    font-size: 20px;
+                .main_doctor_banner {
+                    width: calc(100% + 48px);
+                    margin-left: -24px;
+                    margin-right: -24px;
                 }
-                .doctor_card h4 {
-                    font-size: 14px;
-                    flex-wrap: wrap;
-                }
-                .doctor_card p {
-                    font-size: 14px;
+                .main_doctor_banner > img {
+                    width: 100%;
                 }
                 .doctor_banner_txt {
                     top: 24px;
                     left: 24px;
                 }
                 .doctor_banner_txt h3 {
-                    margin-bottom: 40px;
+                    margin-bottom: 53px;
                     font-size: 18px;
+                }
+                .doctor_nav {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                }
+                .doctor_prev,
+                .doctor_next {
+                    cursor: pointer;
+                    position: relative;
+                    z-index: 10;
+                }
+                .doctor_card span {
+                    display: flex;
+                    font-size: 18px;
+                }
+                .doctor_card h4 {
+                    gap: 6px;
+                    font-size: 18px;
+                }
+                .doctor_card p {
+                    margin: 118px 0px 0px;
+                    font-size: 15px;
+                }
+                .doctor_btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-top: 12px;
+                    position: relative;
+                }
+                .doctor_nav {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
                 }
 
                 /* Main Scroll 모바일 */
-                .main_scroll {
-                    height: auto;
-                    min-height: 60vh;
-                    padding: 60px 0;
+                .main_scroll_pc {
+                    display: none;
                 }
-                .main_scroll h2 {
-                    font-size: 24px;
+                .main_scroll_m {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    height: 72vh;
+                    padding: 0 24px;
+                    overflow: hidden;
+                    gap: 4px;
+                }
+                .main_scroll_m h2 {
+                    font-size: 26px;
+                    font-weight: 400;
+                    line-height: 138%; /* 35.88px */
+                    letter-spacing: -1.04px;
+                    white-space: nowrap;
+                    color: var(--gray-700);
+                }
+                .main_scroll_m h3 {
+                    color: var(--gray-900);
+                    font-size: 26px;
+                    font-weight: 400;
+                    line-height: 138%; /* 35.88px */
+                    letter-spacing: -1.04px;
+                    text-align: center;
                 }
 
                 /* Main Endding 모바일 */
+                .main_endding {
+                    padding-top: 80px;
+                }
+                .main_endding_img {
+                    width: calc(100% + 48px);
+                    margin-left: -24px;
+                    margin-right: -24px;
+                }
                 .endding_txt {
-                    padding: 20px;
+                    padding: 24px;
+                    gap: 12px;
                 }
                 .endding_txt > div {
-                    gap: 16px;
+                    gap: 0px;
+                }
+                .endding_txt p {
+                    font-size: 16px;
                 }
                 .endding_title {
-                    margin: 60px 0;
-                    gap: 16px;
-                    padding: 0 20px;
+                    margin: 50px 0;
+                    gap: 12px;
                 }
                 .review_card {
-                    width: 280px;
-                    height: 350px;
-                    padding: 20px;
+                    width: 288px;
+                    height: 448px;
+                    padding: 24px;
                 }
                 .review_card p {
-                    font-size: 13px;
+                    font-size: 14px;
+                    line-height: 148%;
                 }
                 .review_scroll {
-                    min-height: 100vh;
+                    min-height: initial;
+                    background-image: url(img/m/review_scroll.jpg);
+                    padding: 148px 24px 24px;
                 }
                 .review_scroll_con {
-                    padding: 0 20px;
+                    padding: 0px;
                     flex-direction: column;
-                    gap: 30px;
+                    align-items: flex-start;
+                    gap: 12px;
+                    position: static;
                     height: auto;
-                    top: auto;
-                    bottom: 40px;
+                }
+                .review_scroll_con p {
+                    font-size: 16px;
                 }
 
                 /* Footer 모바일 */
                 .footer-left {
-                    padding: 40px 20px;
+                    padding: 50px 24px;
                 }
                 .footer-phone {
                     font-size: 32px;
                 }
-                .footer-address {
+                .footer .footer-address {
                     font-size: 18px;
-                    margin-bottom: 30px;
+                    margin-bottom: 24px;
                 }
                 .footer-left > span {
-                    font-size: 16px;
+                    font-size: 18px;
+                    gap: 4px;
+                }
+                .footer-left > span img {
+                    width: 14px;
                 }
                 .footer-left > div:first-of-type {
                     flex-direction: column;
-                    gap: 16px;
+                    gap: 12px;
+                    align-items: flex-start;
                 }
                 .footer-divider {
-                    margin: 30px 0 40px;
+                    margin: 50px 0;
                 }
                 .footer-clinics {
                     flex-direction: column;
                     gap: 40px;
                 }
                 .clinic-info h3 {
-                    font-size: 20px;
+                    font-size: 26px;
                 }
                 .hour-row {
-                    font-size: 16px;
+                    font-size: 18px;
                     gap: 20px;
                 }
                 .footer-caption {
-                    flex-wrap: wrap;
-                    gap: 12px;
-                    margin-top: 24px;
+                    display: block;
+                    margin-top: 50px;
+                    font-size: 14px;
                 }
                 .footer-map {
                     min-height: 300px;
@@ -1764,13 +1883,13 @@
 
                 /* Quick Menu 모바일 */
                 .quick_menu {
-                    right: 16px;
-                    bottom: 16px;
+                    right: 24px;
+                    bottom: 24px;
                 }
                 .quick_menu_btn {
-                    width: 60px;
-                    height: 60px;
-                    font-size: 12px;
+                    width: 72px;
+                    height: 72px;
+                    font-size: 16px;
                 }
             }
 
@@ -1797,14 +1916,11 @@
                     letter-spacing: -0.72px;
                 }
                 .b28r {
-                    font-size: 16px;
+                    font-size: 18px;
                     letter-spacing: -0.64px;
                 }
 
                 /* Section Title */
-                .section-title h2 {
-                    font-size: 26px;
-                }
 
                 /* Main Banner */
                 .main_banner03 .content-wrap > img {
@@ -1817,27 +1933,35 @@
 
                 /* Main Care */
                 /* Main Doctor */
-                .doctor_card > img {
-                    width: 100px;
-                }
 
                 /* Review Card */
-                .review_card {
-                    width: 260px;
-                    height: 320px;
+                .review_card_head h4 img {
+                    width: 40px;
                 }
 
                 /* Footer */
                 .footer-phone {
-                    font-size: 28px;
+                    font-size: 34px;
+                    margin: 24px 0px 4px;
                 }
                 .hour-row {
-                    flex-direction: column;
-                    gap: 4px;
+                    gap: 24px;
                     align-items: flex-start;
                 }
                 .hour-row .day {
-                    min-width: auto;
+                    min-width: 54px;
+                }
+                .clinic-note {
+                    font-size: 18px;
+                }
+                .doctor-modal-img img {
+                    display: none;
+                }
+                .doctor-modal-info p {
+                    font-size: 15px;
+                }
+                nav ul li:not(:has(.child)):not(:has(.hd_child_btn)).m_con {
+                    display: block;
                 }
             }
         </style>
@@ -1866,8 +1990,12 @@
                     <li><a href="/bbs/column.php" class="b18r">진료 칼럼</a></li>
                     <li><a href="/child01.php" class="b18r child">어린이 치과</a></li>
                     <li><a href="/child02.php" class="b18r child">성장기 교정</a></li>
-                    <li><a href="/bbs/login.php" class="b18r">로그인</a></li>
-                    <span class="b18r hd_child_btn">디어스&nbsp;<span>어린이&nbsp;</span> 치과<img src="img/arrow01.svg" alt="메뉴토글" /></span>
+                    <li class="pc_con"><a href="/bbs/login.php" class="b18r">로그인</a></li>
+                    <span class="b18r hd_child_btn"
+                        ><div>디어스&nbsp;<span>어린이&nbsp;</span> 치과</div>
+                        <img src="img/arrow01.svg" alt="메뉴토글"
+                    /></span>
+                    <li class="m_con"><a href="/bbs/login.php" class="b18r">로그인</a></li>
                 </ul>
             </nav>
         </header>
@@ -2327,46 +2455,76 @@
                 </h2>
             </div>
             <div class="content-wrap">
-                <div class="main_doctor_con">
-                    <div class="doctor_card" data-modal="doctor-modal-1">
-                        <img src="img/doctor_card01.png" alt="장재원 대표원장" />
-                        <h5 class="c16r">Doctor</h5>
-                        <h3 class="b28r">장재원 대표원장</h3>
-                        <h4 class="t22r"><img src="img/doctor_mark.svg" alt="보건복지부" />치주과 전문의<span>보건복지지부 인증</span></h4>
-                        <p class="b18r">
-                            보이지 않는 곳까지 책임지는 진료.<br />
-                            치아 하나만 보지 않고, 전체의 구강 건강<br />
-                            흐름을 설계하는 진료를 이어갑니다.
-                        </p>
-                        <span class="b18r">약력 보기<img src="img/arrow01.svg" alt="약력보기" /></span>
-                    </div>
-                    <div class="doctor_card" data-modal="doctor-modal-2">
-                        <img src="img/doctor_card02.png" alt="한정화 대표원장" />
-                        <h5 class="c16r">Doctor</h5>
-                        <h3 class="b28r">한정화 대표원장</h3>
-                        <h4 class="t22r"><img src="img/doctor_mark.svg" alt="보건복지부" />소아치과 전문의<span>보건복지지부 인증</span></h4>
-                        <p class="b18r">
-                            치료보다 먼저, 아이의 마음을 돌봅니다.<br />
-                            치과가 ‘무서운 곳’으로 기억되지 않도록<br />
-                            첫 기억부터 다르게 시작합니다.
-                        </p>
-                        <span class="b18r">약력 보기<img src="img/arrow01.svg" alt="약력보기" /></span>
-                    </div>
-                    <div class="doctor_card" data-modal="doctor-modal-3">
-                        <img src="img/doctor_card03.png" alt="김나현 원장" />
-                        <h5 class="c16r">Doctor</h5>
-                        <h3 class="b28r">김나현 원장</h3>
-                        <h4 class="t22r"><img src="img/doctor_mark.svg" alt="보건복지부" />보존과 전문의<span>보건복지지부 인증</span></h4>
-                        <p class="b18r">
-                            보존과는 자연치아를 최대한 살리는 것을<br />
-                            목표로 합니다. 자연치아를 유지하기 위한<br />
-                            가장 정직한 해답을 고민합니다.
-                        </p>
-                        <span class="b18r">약력 보기<img src="img/arrow01.svg" alt="약력보기" /></span>
+                <div class="main_doctor_con doctor_swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide doctor_card">
+                            <img src="img/doctor_card01.png" alt="장재원 대표원장" class="pc_con" />
+                            <img src="img/m/doctor_card01.jpg" alt="장재원 대표원장" class="m_con" />
+                            <div class="m_doctor_card">
+                                <h5 class="c16r">Doctor</h5>
+                                <h3 class="b28r">장재원 대표원장</h3>
+                                <h4 class="t22r"><img src="img/doctor_mark.svg" alt="보건복지부" />치주과 전문의<span class="pc_con">보건복지지부 인증</span></h4>
+                                <p class="b18r">
+                                    보이지 않는 곳까지 책임지는 진료.<br />
+                                    치아 하나만 보지 않고, 전체의 구강 건강<br />
+                                    흐름을 설계하는 진료를 이어갑니다.
+                                </p>
+                            </div>
+                            <div class="doctor_btn">
+                                <span class="b18r" data-modal="doctor-modal-1">약력 보기<img src="img/arrow01.svg" alt="약력보기" /></span>
+                                <div class="doctor_nav m_con">
+                                    <div class="doctor_prev"><img src="img/m/column_prev.svg" alt="이전" /></div>
+                                    <div class="doctor_next"><img src="img/m/column_next.svg" alt="다음" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide doctor_card">
+                            <img src="img/doctor_card02.png" alt="한정화 대표원장" class="pc_con" />
+                            <img src="img/m/doctor_card02.jpg" alt="한정화 대표원장" class="m_con" />
+                            <div class="m_doctor_card">
+                                <h5 class="c16r">Doctor</h5>
+                                <h3 class="b28r">한정화 대표원장</h3>
+                                <h4 class="t22r"><img src="img/doctor_mark.svg" alt="보건복지부" />소아치과 전문의<span class="pc_con">보건복지지부 인증</span></h4>
+                                <p class="b18r">
+                                    치료보다 먼저, 아이의 마음을 돌봅니다.<br />
+                                    치과가 '무서운 곳'으로 기억되지 않도록<br />
+                                    첫 기억부터 다르게 시작합니다.
+                                </p>
+                            </div>
+                            <div class="doctor_btn">
+                                <span class="b18r" data-modal="doctor-modal-2">약력 보기<img src="img/arrow01.svg" alt="약력보기" /></span>
+                                <div class="doctor_nav m_con">
+                                    <div class="doctor_prev"><img src="img/m/column_prev.svg" alt="이전" /></div>
+                                    <div class="doctor_next"><img src="img/m/column_next.svg" alt="다음" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide doctor_card">
+                            <img src="img/doctor_card03.png" alt="김나현 원장" class="pc_con" />
+                            <img src="img/m/doctor_card03.jpg" alt="김나현 원장" class="m_con" />
+                            <div class="m_doctor_card">
+                                <h5 class="c16r">Doctor</h5>
+                                <h3 class="b28r">김나현 원장</h3>
+                                <h4 class="t22r"><img src="img/doctor_mark.svg" alt="보건복지부" />보존과 전문의<span class="pc_con">보건복지지부 인증</span></h4>
+                                <p class="b18r">
+                                    보존과는 자연치아를 최대한 살리는 것을<br />
+                                    목표로 합니다. 자연치아를 유지하기 위한<br />
+                                    가장 정직한 해답을 고민합니다.
+                                </p>
+                            </div>
+                            <div class="doctor_btn">
+                                <span class="b18r" data-modal="doctor-modal-3">약력 보기<img src="img/arrow01.svg" alt="약력보기" /></span>
+                                <div class="doctor_nav m_con">
+                                    <div class="doctor_prev"><img src="img/m/column_prev.svg" alt="이전" /></div>
+                                    <div class="doctor_next"><img src="img/m/column_next.svg" alt="다음" /></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="main_doctor_banner">
-                    <img src="img/main_doctor_banner.jpg" alt="Dears Dental Clinic" />
+                    <img src="img/main_doctor_banner.jpg" alt="Dears Dental Clinic" class="pc_con" />
+                    <img src="img/m/main_doctor_banner.jpg" alt="Dears Dental Clinic" class="m_con" />
                     <div class="doctor_banner_txt">
                         <h3 class="b28r">
                             디어스를 찾아주시는 모든 분들이<br />
@@ -2378,13 +2536,26 @@
                 </div>
             </div>
         </section>
-        <section class="main_scroll">
+        <section class="main_scroll_pc pc_con">
             <div class="scroll_wrap">
                 <h2 class="t56r">치과는 항상 가기까지가 어려워요. 치과 앞에만 서면 괜히 긴장되고 겁나요. <span>치과는 무섭고 아픈 곳? 저희는 그 고정관념을 깨려 합니다.</span> 무서워서 긴장하는 그 시간이 더 괴로워요. 어릴 때 겪은 무서운</h2>
                 <h2 class="t56r">기억이 여전히 남아있어 치과는 멀게만 느껴져요. 치과 치료는 너무 무서워요. 아플까봐 가기 싫어요. 치과 소리만 들어도 몸이 굳어요. 진료가 시작되기도 전에 무서움이 먼저 다가와요.</h2>
                 <h2 class="t56r">앞에 놓인 장비들이 더 무섭게 느껴질 때가 있어요. 눈을 감아도, 감지 않아도 불안해요. 치과는 항상 어렵게만 느껴져요. 안심되는 치과는 없을까요. 치료에 대한 두려움 때문에 아파도 참게되어요. 안아픈치과는 없나요.</h2>
             </div>
         </section>
+        <section class="main_scroll_m m_con">
+            <h3>
+                치과는 무섭고 아픈 곳?<br />
+                저희는 고정관념을 깨려 합니다.
+            </h3>
+            <div class="scroll_wrap">
+                <h2 class="t56r">눈을 감아도, 감지 않아도 불안해요. 치과는 항상 어렵게만 느껴져요. 안심되는 치과는 없을까요. 진료가 시작되기도 전에 무서움이 먼저 다가와요. 치료에 대한 두려움 때문에 아파도 참게되어요. 안아픈치과는 없나요.</h2>
+                <h2 class="t56r">치과는 항상 가기까지가 어려워요. 치과 앞에만 서면 괜히 긴장되고 겁나요. 치과는 무섭고 아픈 곳? 저희는 그 고정관념을 깨려 합니다. 무서워서 긴장하는 그 시간이 더 괴로워요. 어릴 때 겪은 무서운</h2>
+                <h2 class="t56r">기억이 여전히 남아있어 치과는 멀게만 느껴져요. 치과 치료는 너무 무서워요. 아플까봐 가기 싫어요. 치과 소리만 들어도 몸이 굳어요. 진료가 시작되기도 전에 무서움이 먼저 다가와요.</h2>
+                <h2 class="t56r">앞에 놓인 장비들이 더 무섭게 느껴질 때가 있어요. 눈을 감아도, 감지 않아도 불안해요. 치과는 항상 어렵게만 느껴져요. 안심되는 치과는 없을까요. 치료에 대한 두려움 때문에 아파도 참게되어요. 안아픈치과는 없나요.</h2>
+            </div>
+        </section>
+        <div class="section_line m_con"></div>
         <section class="main_endding">
             <div class="section-title">
                 <p class="sub">Core Value</p>
@@ -2395,7 +2566,8 @@
             </div>
             <div class="content-wrap">
                 <div class="main_endding_img">
-                    <img src="img/main_endding_img.jpg" alt="치과 겁쟁이를 위한 치과" />
+                    <img src="img/main_endding_img.jpg" alt="치과 겁쟁이를 위한 치과" class="pc_con" />
+                    <img src="img/m/main_endding_img.jpg" alt="치과 겁쟁이를 위한 치과" class="m_con" />
                     <div class="endding_txt">
                         <div>
                             <h3 class="t56r">
@@ -2408,19 +2580,19 @@
                             </h3>
                         </div>
                         <p class="b28r">
-                            진료가 무서워 치료를 미루고 방문을 망설이셨다면,<br />
-                            디어스치과가 조금은 편안한 시작이 되어드릴 수 있길 바랍니다.
+                            진료가 무서워 치료를 미루고 <br class="m_con" />방문을 망설이셨다면,<br />
+                            디어스치과가 조금은 편안한 <br class="m_con" />시작이 되어드릴 수 있길 바랍니다.
                         </p>
                     </div>
                 </div>
                 <div class="endding_title">
                     <h3 class="t65r">
                         <span>과거의 불편한 치과 경험,</span><br />
-                        디어스에서 <span>새로운 경험</span>으로 바꿔드립니다.
+                        디어스에서 <span>새로운 경험</span><br class="m_con" />으로 바꿔드립니다.
                     </h3>
                     <p class="b28r">
-                        치과치료는 아프다는 고정관념, 디어스 치과는 그 인식부터 바꾸고 싶습니다.<br />
-                        무통마취 시스템과 의료진의 진심 어린 마음으로 모든 과정을 설계합니다.
+                        치과치료는 아프다는 고정관념, <br class="m_con" />디어스 치과는 그 인식부터 바꾸고 싶습니다.<br />
+                        무통마취 시스템과 의료진의 진심 어린 마음으로 <br class="m_con" />모든 과정을 설계합니다.
                     </p>
                 </div>
             </div>
@@ -2430,35 +2602,35 @@
                         <div class="review_card">
                             <div class="review_card_head">
                                 <h4 class="b16r"><img src="img/review_card_head.svg" alt="아바타" />세*</h4>
-                                <span class="c12r">네이버 리뷰</span>
+                                <span class="c12r pc_con">네이버 리뷰</span>
                             </div>
                             <p class="b16r">치실 하다가 인레이 한 게 부러져서 다시 왔어요. 역시 오늘도 원장님이랑 선생님들이 친절히 봐주시고, 설명도 잘 해주시더라고요. 다른 치과에서는 과잉 진료를 하는 경우도 있는데, 디어스 치과는 정말 필요한 치료만 저렴한 가격으로 해주십니다. 친절하시고 인테리어도 깔끔하고 가격도 부담스럽지 않고 공휴일 진료도 하다 보니 당연히 원장님과 선생님들을 믿고 많이 찾아오시는 것 같아요. 물론 저도 그렇고요. 주차 문제도 없고, 멀리 살아도 시간이 아깝지 않을 만큼 가치 있는 병원입니다. 그래서 평생 치과 주치의는 이재원 원장님께 맡기고, 항상 디어스 치과를 이용하려고 합니다. 늘 진료 잘 봐주셔서 감사합니다.</p>
                         </div>
                         <div class="review_card">
                             <div class="review_card_head">
                                 <h4 class="b16r"><img src="img/review_card_head.svg" alt="아바타" />joo****</h4>
-                                <span class="c12r">네이버 리뷰</span>
+                                <span class="c12r pc_con">네이버 리뷰</span>
                             </div>
                             <p class="b16r">드디어 정착할 치과를 찾았습니다!! 저처럼 정착 못하고 돌고 돌아 이 관리 제대로 못하신 분들 있을까 봐 후기 남겨요. 원장님 실력이 좋으시다고 해서 소개받아 갔는데 안 아프게 정말 잘 해주시네요! 마취 주사가 항상 괴로웠는데 마취 주사조차 전혀 안 아프게 잘 놓아주셨어요. 치료받고 집에 오니 '디어스의 진료 철학'이라는 메세지가 와있어서 읽어보니 글에 원장님의 신념에 진정성이 느껴져서 더더욱 정착해야겠다 생각했어요! 다른 치과에서는 이 정도는 그냥 아프면 오세요 해서 그게 맞는 줄 알았어요... 하지만 아프고 나서 가면 치료할게 훨씬 더 많아져서 비용도 고통도 결국엔 배가 된다는 사실... 앞으로는 정기적으로 검진받고 치료가 필요한 건 디어스 원장님 믿고 바로바로 치료받으려 합니다!</p>
                         </div>
                         <div class="review_card">
                             <div class="review_card_head">
                                 <h4 class="b16r"><img src="img/review_card_head.svg" alt="아바타" />kys****</h4>
-                                <span class="c12r">네이버 리뷰</span>
+                                <span class="c12r pc_con">네이버 리뷰</span>
                             </div>
                             <p class="b16r">임플란트 수술하고 집에서 쉬고 있는데 장재원 원장님이 안부전화가 왔네요. 여러 치과를 다녀봤는데 원장님이나 간호사도 안부전화를 하는 곳은 한 군데도 없었는데 원장님 같은 분은 처음이라, 임플란트 수술도 다른 치과에서 해봐서 아는데 디어스치과는 불편한 점도 통증도 거의 없이 잘 되어서 이렇게 글을 올려요. 디어스치과 모든 분들께 진심으로 감사드립니다. 모든 환자분들을 생각해 주셔서 감사합니다 장재원 원장님!</p>
                         </div>
                         <div class="review_card">
                             <div class="review_card_head">
                                 <h4 class="b16r"><img src="img/review_card_head.svg" alt="아바타" />김영***</h4>
-                                <span class="c12r">네이버 리뷰</span>
+                                <span class="c12r pc_con">네이버 리뷰</span>
                             </div>
                             <p class="b16r">어머니 임플란트 이곳저곳 알아보다가 지인 추천으로 방문하게 되었네요. 다른 곳에서 하려다가 여기로 바꾼 이유가 사실 임플란트 치료를 하셔야 하는 건 아는데 어떤 이유 때문에 정확히 어떻게 해야 하는지를 자세히 설명 듣지 못했던 거 같아요. 대부분 설명 얼마 안 해주시고 다른 설명은 치위생사 선생님들이 설명해 주셔서 뭔가 찜찜하고 크게 납득이 안 갔는데 여기 원장님은 설명을 너무 납득 가도록 해주시고 추가로 상담해 주시는 치위생사 선생님들도 원장님 진단을 바탕으로 자세하게 설명해 주시니 너무 마음에 들었습니다. 네이버 리뷰 같은 거 안 믿어서 그냥 지인 말만 듣고 왔는데 처음으로 치과 리뷰 남겨봅니다.</p>
                         </div>
                         <div class="review_card">
                             <div class="review_card_head">
                                 <h4 class="b16r"><img src="img/review_card_head.svg" alt="아바타" />찌깡**</h4>
-                                <span class="c12r">네이버 리뷰</span>
+                                <span class="c12r pc_con">네이버 리뷰</span>
                             </div>
                             <p class="b16r">저는 6살쯤부터 치아가 좋지 않아 무수히 많은 치과를 다녀봤는데요. 그중 오늘 디어스에서의 마취 주사가 제일 안 아팠어요! 주사 공포증+치과 노이로제 있으셔도 방문해 보시면 치과 좋아지실 것 같아요! 어제까지 주변 다른 치과 갔다가 통증이 잡히지 않아서 방문했는데 상태 설명과 앞으로 진행 방향도 쉽게 설명해 주시고 치료 자체도 무리하지 않게 진행해 주셔서 믿음이 확 갔어요! 힘든 치료라고 하셨는데 너무 잘 치료해 주셨어요! 남은 치료도 발치 없이 끝까지 잘 되면 좋겠어요! 저는 만족도 최상이라 일요일도 진료 보시길래 엄마, 아빠 쉬실 때 모시고 오려구요!</p>
                         </div>
@@ -2593,9 +2765,9 @@
                 </div>
 
                 <div class="footer-caption c12r">
-                    <span>주소 서울시 강동구 천호동 24-2 숨결빌딩 3층</span>
-                    <span>대표자 장재원</span>
-                    <span>사업자번호 110-22-76435</span>
+                    <span>주소 서울시 강동구 천호동 24-2 숨결빌딩 3층</span><br class="m_con" />
+                    <span>대표자 장재원</span><br class="m_con" />
+                    <span>사업자번호 110-22-76435</span><br class="m_con" />
                     <span>© 2026 디어스치과</span>
                 </div>
             </div>
@@ -2635,7 +2807,8 @@
             <div class="map-modal">
                 <img src="img/map_close.svg" alt="닫기" class="map-modal-close" />
                 <div class="map-modal-content">
-                    <img src="img/map.svg" alt="주차 약도" />
+                    <img src="img/map.svg" alt="주차 약도" class="pc_con" />
+                    <img src="img/m/map.svg" alt="주차 약도" class="m_con" />
                 </div>
             </div>
         </div>
@@ -2665,7 +2838,7 @@
                             CWK 치아교정 연수회 수료<br />
                             2D브라켓 전치부 설측 부분교정 연수회 수료
                         </p>
-                        <p>
+                        <p class="b18r">
                             전) 강남 화이트드림치과 심미 & 임플란트 전담의<br />
                             전) 언제나 이든치과 부원장<br />
                             현) 디어스치과 대표원장
@@ -2695,7 +2868,7 @@
                             대한소아치과학회 포스터부분 우수상<br />
                             인비절라인 인증의(미국 투명교정)
                         </p>
-                        <p>
+                        <p class="b18r">
                             전) 산본어린이치과 소아치과 원장<br />
                             전) 서울개구장이치과 소아치과 원장<br />
                             전) 미사 올바로치과 소아치과 원장<br />
@@ -2806,13 +2979,15 @@
             });
 
             // 의료진 모달
-            const doctorCards = document.querySelectorAll('.doctor_card');
+            const doctorModalBtns = document.querySelectorAll('.doctor_card span[data-modal]');
             const doctorModalOverlays = document.querySelectorAll('.doctor-modal-overlay');
             const doctorModalCloses = document.querySelectorAll('.doctor-modal-close');
 
-            // 카드 클릭 시 해당 모달 열기
-            doctorCards.forEach(function (card) {
-                card.addEventListener('click', function () {
+            // 약력 보기 버튼 클릭 시 해당 모달 열기
+            doctorModalBtns.forEach(function (btn) {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
                     const modalId = this.getAttribute('data-modal');
                     const modal = document.getElementById(modalId);
                     if (modal) {
@@ -2976,57 +3151,65 @@
                     ScrollTrigger.create(config);
                 });
 
-                // Main Scroll Animation - 반응형 대응
-                const scrollH2s = gsap.utils.toArray('.main_scroll h2');
+                // Main Scroll PC Animation
+                const scrollH2sPC = gsap.utils.toArray('.main_scroll_pc h2');
+                const endValuePC = '+=200%';
+                const moveAmountPC = 0.3;
 
-                // ScrollTrigger 생성 함수 (반응형 대응을 위해 함수화)
-                function createMainScrollTriggers() {
-                    // 기존 main_scroll 관련 ScrollTrigger 제거
-                    ScrollTrigger.getAll().forEach((trigger) => {
-                        if (trigger.vars && trigger.vars.trigger === '.main_scroll') {
-                            trigger.kill();
-                        }
+                ScrollTrigger.create({
+                    trigger: '.main_scroll_pc',
+                    start: 'top top',
+                    end: endValuePC,
+                    pin: true,
+                    pinSpacing: true,
+                    scrub: 1,
+                    markers: false,
+                    invalidateOnRefresh: true,
+                });
+
+                scrollH2sPC.forEach((h2, i) => {
+                    const direction = i % 2 === 0 ? 1 : -1;
+
+                    gsap.set(h2, {
+                        x: direction * window.innerWidth * moveAmountPC,
                     });
 
-                    // .main_scroll의 실제 DOM 위치를 기준으로 정확히 계산
-                    ScrollTrigger.create({
-                        trigger: '.main_scroll',
-                        start: 'top top',
-                        end: '+=200%',
-                        pin: '.main_scroll',
-                        pinSpacing: true,
-                        scrub: 1,
-                        markers: false,
-                        invalidateOnRefresh: true,
-                        // pinType을 'fixed'로 설정하여 정확한 위치 계산
-                        pinType: 'fixed',
+                    gsap.to(h2, {
+                        x: 0,
+                        scrollTrigger: {
+                            trigger: '.main_scroll_pc',
+                            start: 'top top',
+                            end: endValuePC,
+                            scrub: 1,
+                            markers: false,
+                            invalidateOnRefresh: true,
+                        },
+                    });
+                });
+
+                // Main Scroll Mobile Animation
+                const scrollH2sM = gsap.utils.toArray('.main_scroll_m h2');
+                const moveAmountM = 0.5;
+
+                scrollH2sM.forEach((h2, i) => {
+                    const direction = i % 2 === 0 ? 1 : -1;
+
+                    gsap.set(h2, {
+                        x: direction * window.innerWidth * moveAmountM,
                     });
 
-                    scrollH2s.forEach((h2, i) => {
-                        const direction = i % 2 === 0 ? 1 : -1; // 짝수(0,2): 우->좌(1), 홀수(1): 좌->우(-1)
-
-                        // 시작 위치: 짝수 +30%, 홀수 -30%
-                        gsap.set(h2, {
-                            x: direction * window.innerWidth * 0.3,
-                        });
-
-                        // 끝 위치: 0%
-                        gsap.to(h2, {
-                            x: 0,
-                            scrollTrigger: {
-                                trigger: '.main_scroll',
-                                start: 'top top',
-                                end: '+=200%',
-                                scrub: 1,
-                                markers: false,
-                                invalidateOnRefresh: true,
-                            },
-                        });
+                    gsap.to(h2, {
+                        x: 0,
+                        scrollTrigger: {
+                            trigger: '.main_scroll_m',
+                            start: 'top bottom',
+                            end: 'bottom top',
+                            scrub: 1,
+                            markers: false,
+                            invalidateOnRefresh: true,
+                        },
                     });
-                }
-
-                // 초기 생성
-                createMainScrollTriggers();
+                });
 
                 // 모든 ScrollTrigger 생성 후 refresh (Lenis와 동기화 + 정확한 위치 계산)
                 setTimeout(() => {
@@ -3108,14 +3291,32 @@
                 });
             }
 
-            // 모바일 Swiper 초기화 (care, column)
+            // 모바일 Swiper 초기화 (care, column, doctor)
             let careSwipers = [];
             let columnSwiper = null;
+            let doctorSwiper = null;
 
-            // 버튼 opacity 업데이트 함수
+            // Column 버튼 opacity 업데이트 함수
             function updateColumnNavButtons(swiper) {
                 const prevBtns = document.querySelectorAll('.column_prev');
                 const nextBtns = document.querySelectorAll('.column_next');
+                const isFirst = swiper.isBeginning;
+                const isLast = swiper.isEnd;
+
+                prevBtns.forEach((btn) => {
+                    btn.style.opacity = isFirst ? '0.3' : '1';
+                    btn.style.pointerEvents = isFirst ? 'none' : 'auto';
+                });
+                nextBtns.forEach((btn) => {
+                    btn.style.opacity = isLast ? '0.3' : '1';
+                    btn.style.pointerEvents = isLast ? 'none' : 'auto';
+                });
+            }
+
+            // Doctor 버튼 opacity 업데이트 함수
+            function updateDoctorNavButtons(swiper) {
+                const prevBtns = document.querySelectorAll('.doctor_prev');
+                const nextBtns = document.querySelectorAll('.doctor_next');
                 const isFirst = swiper.isBeginning;
                 const isLast = swiper.isEnd;
 
@@ -3153,6 +3354,30 @@
                 });
             });
 
+            // doctor_nav 버튼 이벤트 연결
+            document.querySelectorAll('.doctor_nav').forEach((nav) => {
+                nav.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                });
+            });
+            document.querySelectorAll('.doctor_prev').forEach((btn) => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (doctorSwiper) doctorSwiper.slidePrev();
+                    return false;
+                });
+            });
+            document.querySelectorAll('.doctor_next').forEach((btn) => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (doctorSwiper) doctorSwiper.slideNext();
+                    return false;
+                });
+            });
+
             function initMobileSwipers() {
                 if (window.innerWidth <= 768) {
                     // Care Swiper 초기화
@@ -3183,6 +3408,24 @@
                             });
                         }
                     }
+                    // Doctor Swiper 초기화
+                    if (!doctorSwiper) {
+                        const doctorEl = document.querySelector('.doctor_swiper');
+                        if (doctorEl) {
+                            doctorSwiper = new Swiper(doctorEl, {
+                                slidesPerView: 1,
+                                spaceBetween: 30,
+                                on: {
+                                    init: function (swiper) {
+                                        updateDoctorNavButtons(swiper);
+                                    },
+                                    slideChange: function (swiper) {
+                                        updateDoctorNavButtons(swiper);
+                                    },
+                                },
+                            });
+                        }
+                    }
                 } else {
                     // 데스크탑에서는 Swiper 제거
                     careSwipers.forEach((swiper) => swiper.destroy(true, true));
@@ -3190,6 +3433,10 @@
                     if (columnSwiper) {
                         columnSwiper.destroy(true, true);
                         columnSwiper = null;
+                    }
+                    if (doctorSwiper) {
+                        doctorSwiper.destroy(true, true);
+                        doctorSwiper = null;
                     }
                 }
             }
