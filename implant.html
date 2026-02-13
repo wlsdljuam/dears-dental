@@ -107,6 +107,9 @@
                 width: 100%;
                 margin: 0 auto;
             }
+            .m_con {
+                display: none;
+            }
 
             /* Typography */
             /* Title 80px - Figma: kor/title/80-regular */
@@ -493,12 +496,18 @@
                 margin-top: 20px;
             }
             .implant04_list {
+                padding: 60px 0px;
+            }
+            .implant04_list .swiper-wrapper {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding: 60px 0px;
             }
-            .implant04_list > div > div {
+            .implant04_list .swiper-slide {
+                width: auto;
+                flex-shrink: 1;
+            }
+            .implant04_list .swiper-slide > div {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -610,11 +619,339 @@
             .implant06 h2 span {
                 color: #fff;
             }
+
+            /* ==================== 모바일 (768px) ==================== */
+            @media screen and (max-width: 768px) {
+                body {
+                    padding-top: 60px;
+                }
+                .pc_con {
+                    display: none !important;
+                }
+                .m_con {
+                    display: block;
+                }
+                .content-wrap {
+                    padding: 0 24px;
+                }
+                .section-title {
+                    margin-bottom: 24px;
+                }
+                .section-title .sub {
+                    font-size: 12px;
+                    margin-bottom: 4px;
+                }
+                .section-title h2 {
+                    font-size: 30px;
+                    letter-spacing: -1.28px;
+                }
+                .t80r {
+                    font-size: 36px;
+                    letter-spacing: -1.44px;
+                }
+                .t65r {
+                    font-size: 32px;
+                    letter-spacing: -1.28px;
+                }
+                .t56r {
+                    font-size: 28px;
+                    letter-spacing: -1.12px;
+                }
+                .t48r {
+                    font-size: 24px;
+                    letter-spacing: -0.96px;
+                }
+                .t36r {
+                    font-size: 22px;
+                    letter-spacing: -0.88px;
+                }
+                .t28r {
+                    font-size: 20px;
+                    letter-spacing: -0.8px;
+                }
+                .t22r {
+                    font-size: 16px;
+                    letter-spacing: -0.64px;
+                }
+                .b28r {
+                    font-size: 18px;
+                    letter-spacing: -0.72px;
+                }
+                .b18r {
+                    font-size: 15px;
+                    letter-spacing: -0.6px;
+                }
+                .c16r {
+                    font-size: 12px;
+                }
+
+                /* sub_head */
+                .sub_head .content-wrap {
+                    bottom: 16px;
+                }
+                .sub_head .content-wrap .subtle {
+                    font-size: 12px;
+                }
+                .sub_head .content-wrap h2 {
+                    margin-top: 4px;
+                    font-size: 24px;
+                }
+                .section_line {
+                    width: 100%;
+                    height: 10px;
+                    border-top: 1px solid var(--gray-700);
+                    background-color: #fff;
+                }
+
+                /* implant01 */
+                .implant01 {
+                    padding-top: 50px;
+                }
+                .implant01 .section-title {
+                    margin-bottom: 50px;
+                }
+                .implant01 h2 div {
+                    position: static;
+                    display: block;
+                    transform: none;
+                    max-width: 127px;
+                    margin: 20px auto 0px;
+                    line-height: 61px;
+                    padding: 0px;
+                    font-size: 28px;
+                }
+                .implant01 .content-wrap {
+                    flex-direction: column;
+                    border: none;
+                    padding: 50px 24px;
+                    gap: 24px;
+                }
+                .implant01_txt h3 {
+                    font-size: 30px;
+                }
+                .implant01_txt h4 {
+                    margin: 12px 0px 20px;
+                }
+                .implant01_txt p {
+                    margin-top: 20px;
+                }
+
+                /* implant02 */
+                .implant02 {
+                    padding: 80px 24px 190px;
+                    background-size: 150%;
+                }
+                .implant02 h3 {
+                    margin: 0px auto 50px;
+                    font-size: 18px;
+                }
+                .implant02 h4 {
+                    margin-top: 50px;
+                    font-size: 30px;
+                }
+                .implant02 .section-title {
+                    margin-bottom: 12px;
+                }
+                .implant02 .section-title h2 {
+                    font-size: 24px;
+                }
+                .implant02 .section-title .sub {
+                    margin-bottom: 12px;
+                }
+                .implant02 img {
+                    width: 4px;
+                }
+
+                /* implant03 */
+                .implant03 {
+                    padding-top: 80px;
+                    border-bottom: none;
+                }
+                .implant03_title {
+                    padding: 24px;
+                }
+                .implant03 .content-wrap {
+                    padding: 32px 24px;
+                }
+                .implant03_con_txt p {
+                    margin: 12px 0px 24px;
+                    font-size: 16px;
+                }
+                .implant03_con_list {
+                    flex-direction: column;
+                    gap: 50px;
+                }
+                .implant03_con_list > div {
+                    max-width: 100%;
+                }
+                .implant03_con_list h5 {
+                    margin: 68px 0px 4px;
+                }
+                .implant03_con > p {
+                    margin-top: 24px;
+                }
+                .comparison {
+                    --slider-height: 194px;
+                    --handle-size: 44px;
+                    --handle-offset: -73px;
+                    max-width: 342px;
+                }
+
+                /* implant04 */
+                .implant04 {
+                    padding-top: 80px;
+                    border-bottom: none;
+                }
+                .implant04_title {
+                    padding: 24px;
+                    gap: 4px;
+                }
+                .implant04_title span {
+                    margin-top: 2px;
+                }
+                .implant04_con01,
+                .implant04_con02 {
+                    flex-direction: column-reverse;
+                    gap: 12px;
+                    padding: 32px 24px;
+                }
+                .implant04_con01 p,
+                .implant04_con02 p {
+                    margin-top: 12px;
+                }
+                .implant04_list {
+                    display: block !important;
+                    padding: 32px 24px;
+                    overflow: hidden;
+                }
+                .implant04_list p {
+                    padding: 0px 14px;
+                }
+                .implant04_list .swiper-wrapper {
+                    display: flex !important;
+                    flex-direction: row !important;
+                    flex-wrap: nowrap !important;
+                    gap: 0 !important;
+                }
+                .implant04_list .swiper-slide {
+                    width: 280px !important;
+                    flex-shrink: 0 !important;
+                    flex: none !important;
+                }
+                .implant04_list .swiper-slide > div {
+                    margin-top: 12px;
+                }
+                .implant04_list .swiper-slide > div img {
+                    width: 16px;
+                }
+
+                /* implant05 */
+                .implant05 {
+                    padding-top: 80px;
+                    padding-bottom: 24px;
+                }
+                .bna_swiper {
+                    padding: 0 24px;
+                }
+                .bna_img {
+                    flex-direction: column;
+                    gap: 8px;
+                }
+                .bna_nav {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 12px;
+                    margin-top: 12px;
+                }
+                .bna_nav a {
+                    gap: 4px;
+                }
+                .bna_nav a img {
+                    width: 16px;
+                }
+                .bna_navigation {
+                    max-width: 280px;
+                    margin-top: 24px;
+                }
+
+                /* implant06 */
+                .implant06 {
+                    padding: 0px;
+                }
+                .implant06 > div > div {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 12px;
+                    padding: 0 24px;
+                    bottom: 24px;
+                }
+                .implant06 p {
+                    font-size: 16px;
+                }
+            }
+
+            /* ==================== 소형 모바일 (480px) ==================== */
+            @media screen and (max-width: 480px) {
+                .section-title h2 {
+                    font-size: 30px;
+                    letter-spacing: -1.04px;
+                }
+                .t80r {
+                    font-size: 28px;
+                    letter-spacing: -1.12px;
+                }
+                .t65r {
+                    font-size: 26px;
+                    letter-spacing: -1.04px;
+                }
+                .t56r {
+                    font-size: 24px;
+                    letter-spacing: -0.88px;
+                }
+                .t48r {
+                    font-size: 18px;
+                    letter-spacing: -0.8px;
+                }
+                .t36r {
+                    font-size: 18px;
+                    letter-spacing: -0.72px;
+                }
+                .t28r {
+                    font-size: 16px;
+                    letter-spacing: -0.64px;
+                }
+                .t22r {
+                    font-size: 16px;
+                    letter-spacing: -0.56px;
+                }
+                .b28r {
+                    font-size: 18px;
+                    letter-spacing: -0.64px;
+                }
+                .b18r {
+                    font-size: 14px;
+                    letter-spacing: -0.56px;
+                }
+                .implant02 {
+                    padding: 80px 24px 200px;
+                }
+                .implant03_title,
+                .implant04_title {
+                    padding: 24px 24px;
+                }
+                .implant03 .content-wrap,
+                .implant04_con01,
+                .implant04_con02,
+                .implant04_list {
+                    padding: 24px 24px;
+                }
+            }
         </style>
     </head>
     <body>
         <section class="sub_head">
-            <img src="img/sub/implant_head.jpg" alt="원데이 임플란트" />
+            <img src="img/m/sub/implant_head.jpg" alt="원데이 임플란트" class="m_con" />
+            <img src="img/sub/implant_head.jpg" alt="원데이 임플란트" class="pc_con" />
             <div class="content-wrap">
                 <h3 class="c16r subtle">One Day</h3>
                 <h2 class="t65r">원데이 임플란트</h2>
@@ -628,6 +965,7 @@
                     <div class="primary-bg b28r">1 DAY</div>
                 </h2>
             </div>
+            <div class="section_line m_con"></div>
             <div class="content-wrap">
                 <div class="implant01_txt">
                     <h3 class="t65r">
@@ -635,6 +973,7 @@
                         지내는 시간이 없도록
                     </h3>
                     <h4 class="b28r">수술 당일 임시 보철물까지 식립합니다.</h4>
+                    <img src="img/m/sub/implant01.jpg" alt="원데이 임플란트" class="m_con" />
                     <p class="t22r">
                         원데이 임플란트는 <span>수술 당일 임시 보철물을 장착</span>하여<br />
                         치아 없이 지내는 불편감을 최소화하는 시스템입니다.<br />
@@ -644,13 +983,14 @@
                         <span>이 기간을 획기적으로 단축해드립니다.</span>
                     </p>
                 </div>
-                <img src="img/sub/implant01.jpg" alt="원데이 임플란트" />
+                <img src="img/sub/implant01.jpg" alt="원데이 임플란트" class="pc_con" />
             </div>
         </section>
+        <div class="section_line m_con"></div>
         <section class="implant02">
             <div class="section-title">
                 <p class="sub subtle">Solution</p>
-                <h2 class="t65r">어떤 방법을 설명 들으셨나요?</h2>
+                <h2 class="t65r">어떤 방법을 <br class="m_con" />설명 들으셨나요?</h2>
             </div>
             <h3 class="t56r">
                 <span>덜그덕 거리고 불편한</span> 임시 틀니?<br />
@@ -659,15 +999,16 @@
             <img src="img/sub/implant02.svg" alt="implant02_article" />
             <h4 class="t56r">
                 디어스는 수술 당일<br />
-                <span class="primary">최종 보철물과 동일한 임시 보철물</span>을 제작합니다.
+                <span class="primary">최종 보철물과 <br class="m_con" />동일한 임시 보철물</span>을 <br class="m_con" />제작합니다.
             </h4>
         </section>
+        <div class="section_line m_con"></div>
         <section class="implant03">
             <div class="section-title">
                 <p class="sub subtle">One Day</p>
                 <h2>원데이 임플란트</h2>
             </div>
-            <h3 class="implant03_title t56r">최종 보철물과 동일한 임시 보철물</h3>
+            <h3 class="implant03_title t56r">최종 보철물과 <br class="m_con" />동일한 임시 보철물</h3>
             <div class="implant03_con content-wrap">
                 <div class="implant03_con_txt">
                     <h4 class="t48r">
@@ -675,8 +1016,8 @@
                         드라마틱한 변화
                     </h4>
                     <p class="b28r">
-                        수술 당일 임시 보철물을 식립해, 치아가 없는 기간을 최소화하여<br />
-                        심미적인 만족도를 높이고 임플란트 치료 과정의 불편감을 줄여드립니다.
+                        수술 당일 임시 보철물을 식립해, <br class="m_con" />치아가 없는 기간을 최소화하여<br />
+                        심미적인 만족도를 높이고 <br class="m_con" />임플란트 치료 과정의 불편감을 줄여드립니다.
                     </p>
                 </div>
                 <div class="implant03_con_list">
@@ -721,7 +1062,7 @@
                     </div>
                 </div>
                 <p class="c12r">
-                    모든 치료 결과는 환자분에 따라 차이가 있을 수 있으며, 부작용이 발생할 수 있습니다.<br />
+                    모든 치료 결과는 환자분에 따라 차이가 있을 수 있으며, 부작용이 발생할 수 있습니다.<br class="pc_con" />
                     본 사진은 동일 조건에서 촬영되었으며, 환자 본인의 동의를 얻어 게재되었습니다.
                 </p>
             </div>
@@ -750,6 +1091,7 @@
                 });
             });
         </script>
+        <div class="section_line m_con"></div>
         <section class="implant04">
             <div class="section-title">
                 <span></span>
@@ -780,52 +1122,55 @@
                 <img src="img/sub/implant04_con02.jpg" alt="원내 기공센터에서 당일 제작" />
             </div>
             <h3 class="implant04_title t56r"><span class="b28r">3</span>원데이 임플란트 과정</h3>
-            <div class="implant04_list content-wrap">
-                <div class="implant04_list01">
-                    <img src="img/sub/dears04_con02_list01.jpg" alt="임플란트 수술" />
-                    <div>
-                        <h4 class="b28r"><span class="b18r">1</span>임플란트 수술</h4>
-                        <img src="img/sub/next.svg" alt="다음" />
+            <div class="implant04_list implant04_list_swiper content-wrap">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide implant04_list01">
+                        <img src="img/sub/dears04_con02_list01.jpg" alt="임플란트 수술" />
+                        <div>
+                            <h4 class="b28r"><span class="b18r">1</span>임플란트 수술</h4>
+                            <img src="img/sub/next.svg" alt="다음" />
+                        </div>
+                        <p class="t22r">
+                            충분한 잇몸 뼈를 확보하여 초기 고정력을 <br class="m_con" />위한<br class="pc_con" />
+                            정교한 수술을 진행합니다.
+                        </p>
                     </div>
-                    <p class="t22r">
-                        충분한 잇몸 뼈를 확보하여 초기 고정력을 위한<br />
-                        정교한 수술을 진행합니다.
-                    </p>
-                </div>
-                <div class="implant04_list02">
-                    <img src="img/sub/dears04_con02_list02.jpg" alt="구강스캐너로 데이터 채득" />
-                    <div>
-                        <h4 class="b28r"><span class="b18r">2</span>구강스캐너로 데이터 채득</h4>
-                        <img src="img/sub/next.svg" alt="다음" />
+                    <div class="swiper-slide implant04_list02">
+                        <img src="img/sub/dears04_con02_list02.jpg" alt="구강스캐너로 데이터 채득" />
+                        <div>
+                            <h4 class="b28r"><span class="b18r">2</span>구강스캐너로 데이터 채득</h4>
+                            <img src="img/sub/next.svg" alt="다음" />
+                        </div>
+                        <p class="t22r">
+                            3D 디지털 구강스캐너를 이용하여<br class="pc_con" />
+                            수술 부 <br class="m_con" />손상 없이 정확한 데이터를 채득합니다.
+                        </p>
                     </div>
-                    <p class="t22r">
-                        3D 디지털 구강스캐너를 이용하여<br />
-                        수술 부 손상 없이 정확한 데이터를 채득합니다.
-                    </p>
-                </div>
-                <div class="implant04_list03">
-                    <img src="img/sub/dears04_con02_list03.jpg" alt="원내 기공소에서 임시 보철물 제작" />
-                    <div>
-                        <h4 class="b28r"><span class="b18r">3</span>원내 기공소에서 임시 보철물 제작</h4>
-                        <img src="img/sub/next.svg" alt="다음" />
+                    <div class="swiper-slide implant04_list03">
+                        <img src="img/sub/dears04_con02_list03.jpg" alt="원내 기공소에서 임시 보철물 제작" />
+                        <div>
+                            <h4 class="b28r"><span class="b18r">3</span>원내 기공소에서 임시 보철물 제작</h4>
+                            <img src="img/sub/next.svg" alt="다음" />
+                        </div>
+                        <p class="t22r">
+                            최종 보철물과 동일한 디자인의<br />
+                            임시 보철물을 당일에 제작합니다.
+                        </p>
                     </div>
-                    <p class="t22r">
-                        최종 보철물과 동일한 디자인의<br />
-                        임시 보철물을 당일에 제작합니다.
-                    </p>
-                </div>
-                <div class="implant04_list04">
-                    <img src="img/sub/dears04_con02_list04.jpg" alt="임시 보철물 연결" />
-                    <div>
-                        <h4 class="b28r"><span class="b18r">4</span>임시 보철물 연결</h4>
+                    <div class="swiper-slide implant04_list04">
+                        <img src="img/sub/dears04_con02_list04.jpg" alt="임시 보철물 연결" />
+                        <div>
+                            <h4 class="b28r"><span class="b18r">4</span>임시 보철물 연결</h4>
+                        </div>
+                        <p class="t22r">
+                            수술부 치유에 유리하도록<br />
+                            나사 유지형 보철물로 연결합니다.
+                        </p>
                     </div>
-                    <p class="t22r">
-                        수술부 치유에 유리하도록<br />
-                        나사 유지형 보철물로 연결합니다.
-                    </p>
                 </div>
             </div>
         </section>
+        <div class="section_line m_con"></div>
         <section class="implant05">
             <div class="section-title">
                 <p class="sub subtle">Before & After</p>
@@ -889,7 +1234,7 @@
             var bnaSwiper = new Swiper('.bna_swiper', {
                 loop: true,
                 slidesPerView: 'auto',
-                spaceBetween: 60,
+                spaceBetween: window.innerWidth <= 768 ? 20 : 60,
                 speed: 1000,
                 loopAdditionalSlides: 1,
 
@@ -914,10 +1259,48 @@
                     },
                 },
             });
+
+            // 모바일 Swiper 초기화 (implant04_list)
+            let implant04ListSwiper = null;
+
+            function initImplantSwipers() {
+                if (window.innerWidth <= 768) {
+                    if (!implant04ListSwiper) {
+                        const el = document.querySelector('.implant04_list_swiper');
+                        if (el) {
+                            implant04ListSwiper = new Swiper(el, {
+                                slidesPerView: 'auto',
+                                spaceBetween: 8,
+                            });
+                        }
+                    }
+                    // bna_swiper 모바일 spaceBetween 업데이트
+                    if (bnaSwiper) {
+                        bnaSwiper.params.spaceBetween = 20;
+                        bnaSwiper.update();
+                    }
+                } else {
+                    if (implant04ListSwiper) {
+                        implant04ListSwiper.destroy(true, true);
+                        implant04ListSwiper = null;
+                    }
+                    if (bnaSwiper) {
+                        bnaSwiper.params.spaceBetween = 60;
+                        bnaSwiper.update();
+                    }
+                }
+            }
+
+            initImplantSwipers();
+            window.addEventListener('resize', function () {
+                clearTimeout(this.implantResizeTimer);
+                this.implantResizeTimer = setTimeout(initImplantSwipers, 250);
+            });
         </script>
         <section class="implant06">
+            <img src="img/m/sub/implant06.jpg" alt="어려운 것을 잘 해내는 것이 실력입니다." class="m_con" />
             <div class="content-wrap">
-                <img src="img/sub/implant06.jpg" alt="어려운 것을 잘 해내는 것이 실력입니다." />
+                <img src="img/sub/implant06.jpg" alt="어려운 것을 잘 해내는 것이 실력입니다." class="pc_con" />
                 <div>
                     <h2 class="t56r">
                         어려운 것을<br />
