@@ -1,0 +1,442 @@
+/* Footer */
+.footer {
+    display: flex;
+    width: 100%;
+    background-color: #fff;
+}
+.footer-left {
+    flex: 1;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+}
+.footer-phone {
+    margin: 30px 0px 4px;
+}
+.footer-address {
+    margin-bottom: 50px;
+}
+.footer-left > span {
+    color: var(--primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    width: fit-content;
+}
+.footer-left > div:first-of-type {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    margin-top: 12px;
+}
+.footer-left > div:first-of-type p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 143%;
+    letter-spacing: -0.5px;
+}
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--gray-700, #cdcdcd);
+    margin: 50px 0 60px;
+}
+.footer-clinics {
+    display: flex;
+    gap: 204px;
+}
+.clinic-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.clinic-hours {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.hour-row {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+.hour-row .day {
+    min-width: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.clinic-note {
+    color: var(--gray-800, #999);
+}
+.footer-caption {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: var(--gray-800, #999);
+    margin-top: 34px;
+}
+.footer-map {
+    width: 50%;
+    min-height: 800px;
+}
+.footer-map iframe,
+.footer-map #map {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* quick_menu */
+.quick_menu {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 101;
+}
+.quick_menu_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 6px;
+    gap: 8px;
+    border-top: 1px solid var(--primary, #f16924);
+    border-right: 1px solid var(--primary, #f16924);
+    border-left: 1px solid var(--primary, #f16924);
+    /* 토글 애니메이션 */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0 6px;
+    transition:
+        max-height 0.4s ease,
+        opacity 0.3s ease,
+        padding 0.3s ease;
+}
+.quick_menu_box.active {
+    max-height: 500px;
+    opacity: 1;
+    padding: 6px;
+}
+.quick_menu_btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 74px;
+    height: 74px;
+    background-color: var(--primary);
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid var(--primary, #f16924);
+    transition: transform 0.3s ease;
+}
+.quick_menu_btn:hover {
+    transform: scale(1.05);
+}
+.quick_menu_btn img {
+    transition: transform 0.3s ease;
+}
+.quick_menu_btn.active img {
+    transform: rotate(45deg);
+}
+.quick_menu_divider {
+    width: 50px;
+    height: 1px;
+    background: #cdcdcd;
+}
+
+/* 주차 약도 모달 */
+.map-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+.map-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.map-modal {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    background: var(--white, #fff);
+    padding: 60px;
+    box-sizing: border-box;
+}
+.map-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+.map-modal-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.map-modal-content img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.map-btn {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .map-modal {
+        width: 95vw;
+        height: auto;
+        padding: 56px 24px 24px;
+    }
+    .map-modal-close {
+        top: 16px;
+        right: 16px;
+    }
+}
+
+/* 의료진 모달 */
+.doctor-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+.doctor-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.doctor-modal {
+    position: relative;
+    width: 900px;
+    height: 768px;
+    max-width: 90vw;
+    max-height: 90vh;
+    background: var(--white, #fff);
+    padding: 60px;
+    box-sizing: border-box;
+}
+.doctor-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+.doctor-modal-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.doctor-modal-img {
+    flex-shrink: 0;
+}
+.doctor-modal-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.doctor-modal-info {
+    display: flex;
+    flex-direction: column;
+}
+.doctor-modal-info h5 {
+    color: var(--primary-subtle, #c6a489);
+}
+.doctor-modal-info h3 {
+    margin: 4px 0px;
+}
+.doctor-modal-info h4 {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.doctor-modal-info h4 span {
+    color: var(--gray-800, #999);
+}
+.doctor-modal-info p:first-of-type {
+    margin: 28px 0px;
+}
+.doctor-modal-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.doctor-modal-info li {
+    font-size: 18px;
+    color: var(--gray-800, #666);
+    padding-left: 20px;
+    position: relative;
+}
+.doctor-modal-info li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    background: var(--primary, #f16924);
+    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .doctor-modal {
+        width: 95vw;
+        height: auto;
+        max-height: 90vh;
+        padding: 40px 20px;
+        overflow-y: auto;
+    }
+    .doctor-modal-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .doctor-modal-info h3 {
+        font-size: 22px;
+    }
+    .doctor-modal-info li {
+        font-size: 15px;
+    }
+}
+
+/* 태블릿 (1024px 이하) */
+@media (max-width: 1024px) {
+    /* Footer */
+    .footer {
+        flex-direction: column;
+    }
+    .footer-left {
+        padding: 60px 40px;
+    }
+    .footer-clinics {
+        gap: 80px;
+    }
+    .footer-map {
+        width: 100%;
+        min-height: 400px;
+    }
+}
+
+/* 모바일 (768px 이하) */
+@media (max-width: 768px) {
+    /* Footer 모바일 */
+    .footer-left {
+        padding: 50px 24px;
+    }
+    .footer-phone {
+        font-size: 32px;
+    }
+    .footer .footer-address {
+        font-size: 18px;
+        margin-bottom: 24px;
+    }
+    .footer-left > span {
+        font-size: 18px;
+        gap: 4px;
+    }
+    .footer-left > span img {
+        width: 14px;
+    }
+    .footer-left > div:first-of-type {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+    .footer-divider {
+        margin: 50px 0;
+    }
+    .footer-clinics {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .clinic-info h3 {
+        font-size: 26px;
+    }
+    .hour-row {
+        font-size: 18px;
+        gap: 20px;
+    }
+    .footer-caption {
+        display: block;
+        margin-top: 50px;
+        font-size: 14px;
+    }
+    .footer-map {
+        min-height: 300px;
+    }
+
+    /* Quick Menu 모바일 */
+    .quick_menu {
+        right: 24px;
+        bottom: 24px;
+    }
+    .quick_menu_btn {
+        width: 72px;
+        height: 72px;
+        font-size: 16px;
+    }
+}
+
+/* 소형 모바일 (480px 이하) */
+@media (max-width: 480px) {
+    /* Footer */
+    .footer-phone {
+        font-size: 34px;
+        margin: 24px 0px 4px;
+    }
+    .hour-row {
+        gap: 24px;
+        align-items: flex-start;
+    }
+    .hour-row .day {
+        min-width: 54px;
+    }
+    .clinic-note {
+        font-size: 18px;
+    }
+    .doctor-modal-img img {
+        display: none;
+    }
+    .doctor-modal-info p {
+        font-size: 15px;
+    }
+}

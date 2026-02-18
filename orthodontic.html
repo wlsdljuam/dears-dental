@@ -5,982 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>디어스치과 - Dears Dental Clinic</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="common.css" />
+        <link rel="stylesheet" href="orthodontic.css" />
         <script src="js/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=4so8ycoa15"></script>
         <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
         <script src="js/gsap.min.js"></script>
         <script src="js/ScrollTrigger.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-        <style>
-            @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css');
-
-            :root {
-                --bg: #f5f4f1;
-                --white: #ffffff;
-                --gray-900: #333333;
-                --gray-800: #999999;
-                --gray-800: #999999;
-                --gray-700: #cdcdcd;
-                --black: #222222;
-                --primary: #f1693a;
-                --primary-subtle: #c6a489;
-                --container-full: 1920px;
-                --container-content: 1760px;
-                --container-center: 1344px;
-            }
-            .primary {
-                color: var(--primary) !important;
-            }
-            .subtle {
-                color: var(--primary-subtle) !important;
-            }
-            .primary-bg {
-                background-color: var(--primary);
-                color: #fff;
-            }
-            * {
-                box-sizing: border-box;
-                scroll-behavior: smooth;
-                letter-spacing: -0.05em;
-            }
-            body {
-                position: relative;
-                overflow-x: hidden;
-                font-family: 'Pretendard', sans-serif;
-                margin: 0;
-                -webkit-font-smoothing: antialiased;
-                word-break: keep-all;
-                color: var(--gray-900);
-                background-color: var(--bg);
-            }
-            html.lenis,
-            html.lenis body {
-                height: auto;
-            }
-            .lenis.lenis-smooth {
-                scroll-behavior: auto !important;
-            }
-            .lenis.lenis-smooth [data-lenis-prevent] {
-                overscroll-behavior: contain;
-            }
-            .lenis.lenis-stopped {
-                overflow: hidden;
-            }
-            .lenis.lenis-scrolling iframe {
-                pointer-events: none;
-            }
-
-            a {
-                color: var(--gray-900);
-                text-decoration: none;
-            }
-            ul,
-            li {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-            img {
-                vertical-align: middle;
-                max-width: 100%;
-            }
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6,
-            p,
-            span,
-            strong {
-                margin: 0;
-            }
-
-            .center {
-                max-width: var(--container-center);
-                width: 100%;
-                margin: 0 auto;
-                padding: 0 20px;
-            }
-            .content-wrap {
-                max-width: var(--container-content);
-                width: 100%;
-                margin: 0 auto;
-            }
-
-            /* Typography */
-            /* Title 80px - Figma: kor/title/80-regular */
-            .t80r {
-                font-size: 80px;
-                font-weight: 400;
-                line-height: 140%;
-                letter-spacing: -3.2px;
-            }
-            /* Title 65px - Figma: kor/title/65-regular */
-            .t65r {
-                font-size: 65px;
-                font-weight: 400;
-                line-height: 140%;
-                letter-spacing: -2.6px;
-            }
-            .t56r {
-                font-size: 56px;
-                font-weight: 400;
-                line-height: 140%;
-                letter-spacing: -2.24px;
-            }
-            .t48r {
-                font-size: 48px;
-                font-weight: 400;
-                line-height: 140%;
-                letter-spacing: -2px;
-            }
-            .t36r {
-                font-size: 36px;
-                font-weight: 400;
-                line-height: 140%;
-                letter-spacing: -2px;
-            }
-            .t28r {
-                font-size: 28px;
-                font-weight: 400;
-                line-height: 148%;
-                letter-spacing: -1.12px;
-            }
-            .t22r {
-                font-size: 22px;
-                font-weight: 400;
-                line-height: 148%;
-                letter-spacing: -0.88px;
-            }
-            .t20r {
-                font-size: 20px;
-                font-weight: 400;
-                line-height: 140%;
-                letter-spacing: -1px;
-            }
-            .b32r {
-                font-size: 32px;
-                font-weight: 400;
-                line-height: 148%; /* 47.36px */
-                letter-spacing: -1.28px;
-            }
-            .b28r {
-                font-size: 28px;
-                font-weight: 400;
-                line-height: 148%; /* 41.44px */
-                letter-spacing: -1.12px;
-            }
-            .b18r {
-                font-size: 18px;
-                font-weight: 400;
-                line-height: 148%;
-                letter-spacing: -0.72px;
-            }
-            .b16r {
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 162%;
-                letter-spacing: -0.5px;
-            }
-            .b16s {
-                font-size: 16px;
-                font-weight: 600;
-                line-height: 162%;
-                letter-spacing: -0.5px;
-            }
-            .b14r {
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 143%;
-                letter-spacing: -0.5px;
-            }
-            .b14s {
-                font-size: 14px;
-                font-weight: 600;
-                line-height: 143%;
-                letter-spacing: -1px;
-            }
-            .c16r {
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 148%; /* 23.68px */
-                letter-spacing: 2.56px;
-            }
-            .c12r {
-                font-size: 12px;
-                font-weight: 400;
-                line-height: 148%;
-                letter-spacing: -0.48px;
-            }
-            /* Section Title */
-            .section-title {
-                text-align: center;
-                margin-bottom: 60px;
-            }
-            .section-title .sub {
-                font-size: 16px;
-                font-weight: 400;
-                color: #c6a489;
-                margin-bottom: 20px;
-                line-height: 148%; /* 23.68px */
-                letter-spacing: 2.56px;
-            }
-            .section-title h2 {
-                font-size: 65px;
-                font-weight: 400;
-                line-height: 140%; /* 91px */
-                letter-spacing: -2.6px;
-            }
-
-            /* sub_head */
-            .sub_head {
-                position: relative;
-            }
-            .sub_head .content-wrap {
-                position: absolute;
-                left: 50%;
-                bottom: 40px;
-                transform: translateX(-50%);
-                z-index: 1;
-                width: 100%;
-                text-align: center;
-            }
-            .sub_head h2 {
-                margin-top: 20px;
-            }
-
-            /* orthodontic01 */
-            .orthodontic01 {
-                padding-top: 100px;
-            }
-            .orthodontic01 .orthodontic01_page {
-                display: flex;
-                align-items: center;
-                gap: 50px;
-                margin-bottom: 32px;
-            }
-            .orthodontic01 .orthodontic01_page span {
-                font-size: 28px;
-                font-weight: 400;
-                line-height: 148%;
-                letter-spacing: -1.12px;
-                color: var(--gray-800, #999);
-                border-radius: 0px;
-                background-color: transparent;
-                width: auto;
-                height: auto;
-                margin: 0 !important;
-                opacity: 1;
-            }
-            .orthodontic01 .orthodontic01_page span.swiper-pagination-bullet-active {
-                color: var(--gray-900, #333);
-            }
-            .orthodontic01_swiper {
-                width: 100%;
-                overflow: hidden;
-            }
-            .orthodontic01_swiper .swiper-slide {
-                position: relative;
-            }
-            .orthodontic01_swiper .swiper-slide > div {
-                max-width: 528px;
-                width: 100%;
-                position: absolute;
-                right: 245px;
-                bottom: 60px;
-            }
-            .orthodontic01_swiper .swiper-slide span {
-                color: var(--white, #fff);
-                border-radius: 4px;
-                background: var(--primary-subtle, #c6a489);
-                display: inline-block;
-                padding: 6px 10px;
-            }
-            .orthodontic01_swiper .swiper-slide h3 {
-                margin: 20px 0px;
-            }
-            .orthodontic01_swiper .swiper-slide p {
-                color: var(--gray-800, #999);
-            }
-            .orthodontic01_con {
-                margin-top: 32px;
-                display: flex;
-                justify-content: flex-start;
-                gap: 47px;
-                padding: 60px 40px 60px;
-                align-items: flex-end;
-                flex: 1 0 0;
-                color: #fff;
-                background: var(--gray-900, #333);
-            }
-            .orthodontic01_con h3 {
-                margin-bottom: 20px;
-            }
-
-            /* orthodontic02 */
-            .orthodontic02 {
-                padding-top: 200px;
-                border-bottom: 1px solid var(--gray-700, #cdcdcd);
-            }
-            .orthodontic02_title {
-                padding: 40px 80px;
-                border-top: 1px solid var(--gray-700, #cdcdcd);
-                background: #e9e8e6;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-            .orthodontic02 a {
-                color: var(--primary);
-                display: flex;
-                align-items: center;
-                gap: 12px;
-            }
-            .orthodontic02 .content-wrap {
-                padding: 60px 0px;
-            }
-            .orthodontic02 .content-wrap > p {
-                color: var(--gray-800, #999);
-                margin: 32px 0px;
-            }
-            .orthodontic02_con .swiper-wrapper {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-            .orthodontic02_con .swiper-slide {
-                width: auto;
-                flex-shrink: 1;
-            }
-            .orthodontic02_con h4 {
-                margin: 20px 0px;
-            }
-            .orthodontic02_con p {
-                color: var(--gray-800, #999);
-            }
-
-            /* orthodontic03 */
-            .orthodontic03 {
-                padding-top: 200px;
-            }
-            .orthodontic03 .content-wrap {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-            .orthodontic03_txt p {
-                color: var(--gray-800, #999);
-                margin-top: 20px;
-            }
-
-            .orthodontic03_con {
-                margin: 200px auto 0px;
-                position: relative;
-                max-width: 970px;
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-            .orthodontic03_con div {
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-                text-align: center;
-                width: 340px;
-                height: 340px;
-                border-radius: 100%;
-                background-color: #fff;
-            }
-            .orthodontic03_con02 {
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                z-index: 1;
-            }
-            .orthodontic03_con p {
-                color: var(--gray-800, #999);
-            }
-
-            /* orthodontic04 */
-            .orthodontic04 {
-                padding-top: 200px;
-                border-bottom: 1px solid var(--gray-700, #cdcdcd);
-            }
-            .orthodontic04_title {
-                display: flex;
-                align-items: flex-start;
-                gap: 12px;
-                flex-shrink: 0;
-                padding: 40px 60px;
-                border-top: 1px solid var(--gray-700, #cdcdcd);
-                background: #e9e8e6;
-            }
-            .orthodontic04_title span {
-                color: var(--gray-800);
-                display: inline-block;
-                margin-top: 8px;
-            }
-            .orthodontic04_con01 {
-                display: flex;
-                align-items: flex-start;
-                justify-content: space-between;
-                padding: 60px 0px;
-            }
-            .orthodontic04_list {
-                padding: 60px 0px;
-            }
-            .orthodontic04_list .swiper-wrapper {
-                display: flex;
-                align-items: flex-start;
-                justify-content: space-between;
-            }
-            .orthodontic04_list .swiper-slide {
-                width: auto;
-                flex-shrink: 1;
-            }
-            .orthodontic04_list .swiper-slide > div {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                margin: 20px 0px 4px;
-            }
-            .orthodontic04_list h4 {
-                display: flex;
-                align-items: flex-start;
-                gap: 8px;
-            }
-            .orthodontic04_list h4 span {
-                margin-top: 2px;
-                display: inline-block;
-                color: var(--gray-800, #999);
-            }
-            .orthodontic04_list p {
-                color: var(--gray-800, #999);
-                padding: 0px 18px;
-            }
-            .orthodontic04_target {
-                padding: 60px 0px;
-            }
-            .orthodontic04_target .swiper-wrapper {
-                display: flex;
-                align-items: flex-start;
-                justify-content: space-between;
-            }
-            .orthodontic04_target .swiper-slide {
-                width: auto;
-                flex-shrink: 1;
-            }
-            .orthodontic04_target h5 {
-                margin: 20px 0px;
-            }
-
-            /* orthodontic05 */
-            .orthodontic05 {
-                padding-top: 200px;
-                border-bottom: 1px solid var(--gray-700, #cdcdcd);
-            }
-            .orthodontic05_title {
-                display: flex;
-                align-items: flex-start;
-                gap: 12px;
-                flex-shrink: 0;
-                padding: 40px 60px;
-                border-top: 1px solid var(--gray-700, #cdcdcd);
-                background: #e9e8e6;
-            }
-            .orthodontic05_title span {
-                color: var(--gray-800);
-                display: inline-block;
-                margin-top: 8px;
-            }
-            .orthodontic05_list01,
-            .orthodontic05_list02 {
-                padding: 60px 0px;
-            }
-            .orthodontic05_list01 .swiper-wrapper,
-            .orthodontic05_list02 .swiper-wrapper {
-                display: flex;
-                align-items: flex-start;
-                justify-content: space-between;
-            }
-            .orthodontic05_list01 .swiper-slide,
-            .orthodontic05_list02 .swiper-slide {
-                width: auto;
-                flex-shrink: 1;
-            }
-            .orthodontic05_list01 h4,
-            .orthodontic05_list02 h4 {
-                margin: 20px 0px;
-            }
-            .orthodontic05_list01 p,
-            .orthodontic05_list02 p {
-                color: var(--gray-800);
-            }
-
-            /* orthodontic06 */
-            .orthodontic06 {
-                padding: 200px 0px;
-                overflow: hidden;
-            }
-            .bna_swiper {
-                max-width: 1278px;
-                width: 100%;
-                margin: 0 auto;
-            }
-            .bna_img {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-            .bna_swiper .swiper-slide .bna_nav {
-                opacity: 0;
-                transition: opacity 0.3s ease-in-out;
-            }
-            .bna_swiper .swiper-slide-active .bna_nav {
-                opacity: 1;
-            }
-            .bna_nav {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                margin-top: 20px;
-            }
-            .bna_nav a {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                color: var(--gray-800);
-            }
-            .bna_nav a img {
-                filter: grayscale(1);
-            }
-            .bna_navigation {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                max-width: 400px;
-                width: 100%;
-                margin: 40px auto 0px;
-            }
-            .bna_prev,
-            .bna_next {
-                cursor: pointer;
-            }
-            .orthodontic06 .bna_page {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .orthodontic06 .bna_page span {
-                width: 6px;
-                height: 6px;
-                background-color: var(--gray-700);
-                border-radius: 0px;
-                opacity: 1;
-                margin: 0px 4px !important;
-            }
-            .orthodontic06 .bna_page span.swiper-pagination-bullet-active {
-                background-color: #333;
-            }
-            .pc_con {
-                display: block;
-            }
-            .m_con {
-                display: none;
-            }
-
-            /* ==================== 모바일 (768px) ==================== */
-            @media screen and (max-width: 768px) {
-                body {
-                    padding-top: 60px;
-                }
-                .pc_con {
-                    display: none !important;
-                }
-                .m_con {
-                    display: block;
-                }
-                .content-wrap {
-                    padding: 0 24px;
-                }
-                .section-title {
-                    margin-bottom: 24px;
-                }
-                .section-title .sub {
-                    font-size: 12px;
-                    margin-bottom: 4px;
-                }
-                .section-title h2 {
-                    font-size: 30px;
-                    letter-spacing: -1.28px;
-                }
-                .t80r {
-                    font-size: 36px;
-                    letter-spacing: -1.44px;
-                }
-                .t65r {
-                    font-size: 32px;
-                    letter-spacing: -1.28px;
-                }
-                .t56r {
-                    font-size: 28px;
-                    letter-spacing: -1.12px;
-                }
-                .t48r {
-                    font-size: 24px;
-                    letter-spacing: -0.96px;
-                }
-                .t36r {
-                    font-size: 22px;
-                    letter-spacing: -0.88px;
-                }
-                .t28r {
-                    font-size: 20px;
-                    letter-spacing: -0.8px;
-                }
-                .t22r {
-                    font-size: 16px;
-                    letter-spacing: -0.64px;
-                }
-                .b32r {
-                    font-size: 22px;
-                    letter-spacing: -0.88px;
-                }
-                .b28r {
-                    font-size: 18px;
-                    letter-spacing: -0.72px;
-                }
-                .b18r {
-                    font-size: 15px;
-                    letter-spacing: -0.6px;
-                }
-
-                /* sub_head */
-                .sub_head .content-wrap {
-                    bottom: 16px;
-                }
-                .sub_head .content-wrap h3 {
-                    font-size: 12px;
-                }
-                .sub_head .content-wrap h2 {
-                    margin-top: 4px;
-                }
-                .section_line {
-                    width: 100%;
-                    height: 10px;
-                    border-top: 1px solid var(--gray-700);
-                    background-color: #fff;
-                }
-                /* orthodontic01 */
-                .orthodontic01 {
-                    padding-top: 50px;
-                    overflow: hidden;
-                }
-                .orthodontic01 .section-title .sub {
-                    font-size: 14px;
-                }
-                .orthodontic01 .content-wrap {
-                    padding: 0;
-                }
-                .orthodontic01 .orthodontic01_page {
-                    gap: 24px;
-                    padding-left: 24px;
-                    margin-bottom: 8px;
-                    flex-wrap: nowrap;
-                    overflow-x: auto;
-                    -webkit-overflow-scrolling: touch;
-                    scrollbar-width: none;
-                    -ms-overflow-style: none;
-                }
-                .orthodontic01 .orthodontic01_page::-webkit-scrollbar {
-                    display: none;
-                }
-                .orthodontic01 .orthodontic01_page span {
-                    font-size: 16px;
-                    flex-shrink: 0;
-                    white-space: nowrap;
-                }
-                .orthodontic01_swiper .swiper-slide > div {
-                    max-width: 100%;
-                    padding: 20px 0px 0px;
-                    bottom: 24px;
-                    left: 24px;
-                    right: initial;
-                }
-                .orthodontic01_con {
-                    flex-direction: column;
-                    gap: 45px;
-                    padding: 57px 24px 24px;
-                    align-items: flex-start;
-                    margin: 0;
-                }
-                .orthodontic01_con img {
-                    width: 305px;
-                    display: block;
-                    margin: 0 auto;
-                }
-                .orthodontic01_swiper .swiper-slide h3 {
-                    margin: 12px 0px;
-                    font-size: 24px;
-                }
-                .orthodontic01_con h3 {
-                    font-size: 24px;
-                    margin-bottom: 12px;
-                }
-
-                /* orthodontic02 */
-                .orthodontic02 {
-                    padding-top: 80px;
-                    overflow: hidden;
-                    border-bottom: none;
-                }
-                .orthodontic02_title {
-                    padding: 24px;
-                    flex-direction: column;
-                    gap: 12px;
-                }
-                .orthodontic02_title a img {
-                    width: 16px;
-                }
-                .orthodontic02 .content-wrap {
-                    padding: 32px 24px;
-                }
-                .orthodontic02 .content-wrap > p {
-                    margin: 12px 0px 24px;
-                    font-size: 16px;
-                }
-                .orthodontic02_con h4 {
-                    margin: 12px 0px;
-                }
-                .orthodontic02_con {
-                    display: block !important;
-                }
-                .orthodontic02_con .swiper-wrapper {
-                    display: flex !important;
-                    flex-direction: row !important;
-                    flex-wrap: nowrap !important;
-                    gap: 0 !important;
-                }
-                .orthodontic02_con .swiper-slide {
-                    width: 280px !important;
-                    flex-shrink: 0 !important;
-                    flex: none !important;
-                }
-                .orthodontic02 a {
-                    margin-top: 50px;
-                }
-
-                /* orthodontic03 */
-                .orthodontic03 {
-                    padding: 80px 0px;
-                }
-                .orthodontic03 .content-wrap {
-                    flex-direction: column;
-                    gap: 24px;
-                }
-                .orthodontic03_txt p {
-                    margin-top: 12px;
-                }
-                .orthodontic03_con {
-                    margin: 80px auto 0px;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 0px;
-                }
-                .orthodontic03_con div {
-                    width: 240px;
-                    height: 240px;
-                    gap: 12px;
-                }
-                .orthodontic03_con02 {
-                    position: relative;
-                    left: auto;
-                    top: auto;
-                    transform: none;
-                    margin: -30px 0;
-                }
-
-                /* orthodontic04 */
-                .orthodontic04 {
-                    padding-top: 80px;
-                }
-                .orthodontic04_title {
-                    padding: 24px;
-                    gap: 4px;
-                }
-                .orthodontic04_title span {
-                    margin-top: 2px;
-                }
-                .orthodontic04_con01 {
-                    flex-direction: column;
-                    gap: 12px;
-                    padding: 32px 24px;
-                }
-                .orthodontic04_list {
-                    display: block !important;
-                    padding: 32px 24px;
-                    overflow: hidden;
-                }
-                .orthodontic04_list .swiper-wrapper {
-                    display: flex !important;
-                    flex-direction: row !important;
-                    flex-wrap: nowrap !important;
-                    gap: 0 !important;
-                }
-                .orthodontic04_list .swiper-slide {
-                    width: 280px !important;
-                    flex-shrink: 0 !important;
-                    flex: none !important;
-                }
-                .orthodontic04_list .swiper-slide > div {
-                    margin-top: 12px;
-                }
-                .orthodontic04_list .swiper-slide > div img {
-                    width: 16px;
-                }
-                .orthodontic04_target {
-                    display: block !important;
-                    padding: 32px 24px;
-                    overflow: hidden;
-                }
-                .orthodontic04_target .swiper-wrapper {
-                    display: flex !important;
-                    flex-direction: row !important;
-                    flex-wrap: nowrap !important;
-                    gap: 0 !important;
-                }
-                .orthodontic04_target .swiper-slide {
-                    width: 280px !important;
-                    flex-shrink: 0 !important;
-                    flex: none !important;
-                }
-
-                /* orthodontic05 */
-                .orthodontic05 {
-                    padding-top: 80px;
-                }
-                .orthodontic05_title {
-                    padding: 24px;
-                    gap: 4px;
-                }
-                .orthodontic05_title span {
-                    margin-top: 2px;
-                }
-                .orthodontic05_list01,
-                .orthodontic05_list02 {
-                    display: block !important;
-                    padding: 32px 24px;
-                    overflow: hidden;
-                }
-                .orthodontic05_list01 .swiper-wrapper,
-                .orthodontic05_list02 .swiper-wrapper {
-                    display: flex !important;
-                    flex-direction: row !important;
-                    flex-wrap: nowrap !important;
-                    gap: 0 !important;
-                }
-                .orthodontic05_list01 .swiper-slide,
-                .orthodontic05_list02 .swiper-slide {
-                    width: 280px !important;
-                    flex-shrink: 0 !important;
-                    flex: none !important;
-                }
-
-                /* orthodontic06 */
-                .orthodontic06 {
-                    padding: 80px 0px;
-                }
-                .bna_swiper {
-                    padding: 0 24px;
-                }
-                .bna_img {
-                    flex-direction: column;
-                    gap: 8px;
-                }
-                .bna_nav {
-                    flex-direction: column;
-                    align-items: flex-start;
-                    gap: 12px;
-                    margin-top: 12px;
-                }
-                .bna_nav a {
-                    gap: 4px;
-                }
-                .bna_nav a img {
-                    width: 16px;
-                }
-                .bna_navigation {
-                    max-width: 280px;
-                    margin-top: 24px;
-                }
-            }
-
-            /* ==================== 소형 모바일 (480px) ==================== */
-            @media screen and (max-width: 480px) {
-                .section-title h2 {
-                    font-size: 30px;
-                    letter-spacing: -1.04px;
-                }
-                .t80r {
-                    font-size: 28px;
-                    letter-spacing: -1.12px;
-                }
-                .t65r {
-                    font-size: 26px;
-                    letter-spacing: -1.04px;
-                }
-                .t56r {
-                    font-size: 24px;
-                    letter-spacing: -0.88px;
-                }
-                .t48r {
-                    font-size: 18px;
-                    letter-spacing: -0.8px;
-                }
-                .t36r {
-                    font-size: 18px;
-                    letter-spacing: -0.72px;
-                }
-                .t28r {
-                    font-size: 16px;
-                    letter-spacing: -0.64px;
-                }
-                .t22r {
-                    font-size: 16px;
-                    letter-spacing: -0.56px;
-                }
-                .b32r {
-                    font-size: 20px;
-                    letter-spacing: -0.8px;
-                }
-                .b28r {
-                    font-size: 18px;
-                    letter-spacing: -0.64px;
-                }
-                .b18r {
-                    font-size: 14px;
-                    letter-spacing: -0.56px;
-                }
-                .orthodontic02_title,
-                .orthodontic04_title,
-                .orthodontic05_title {
-                    padding: 24px 24px;
-                }
-                .orthodontic02 .content-wrap,
-                .orthodontic04_con01,
-                .orthodontic04_list,
-                .orthodontic04_target,
-                .orthodontic05_list01,
-                .orthodontic05_list02 {
-                    padding: 24px 24px;
-                }
-            }
-        </style>
     </head>
     <body>
         <section class="sub_head">
@@ -1144,7 +176,7 @@
         <section class="orthodontic03">
             <div class="section-title">
                 <p class="sub subtle">Invisalign</p>
-                <h2 class="t65r">세계 1위 글로벌 투명 교정 장치<br /><img src="img/sub/orthodontic03_title.png" alt="Invisalign" /></h2>
+                <h2 class="t65r">세계 1위 글로벌 <br class="m_con" />투명 교정 장치<br /><img src="img/sub/orthodontic03_title.png" alt="Invisalign" /></h2>
             </div>
             <div class="content-wrap">
                 <div class="orthodontic03_txt">
@@ -1153,8 +185,8 @@
                         정교하게 움직입니다.
                     </h3>
                     <p class="t22r">
-                        3D 스캔을 기반으로 정밀하게 분석하여<br />
-                        치료계획을 수립합니다. 계획된 경로대로 치아를 세밀하게<br />
+                        3D 스캔을 기반으로 정밀하게 분석하여<br class="pc_con" />
+                        치료계획을 <br class="m_con" />수립합니다. 계획된 경로대로 치아를 세밀하게<br />
                         컨트롤하여 예측 가능한 결과를 제공합니다
                     </p>
                 </div>
@@ -1162,7 +194,7 @@
             </div>
             <div class="orthodontic03_con">
                 <div class="orthodontic03_con01">
-                    <h5 class="c16r subtle">Comfortable</h5>
+                    <h5 class="c16r subtle pc_con">Comfortable</h5>
                     <h4 class="t48r">편안함</h4>
                     <p class="b28r">
                         통증을 줄인<br />
@@ -1170,7 +202,7 @@
                     </p>
                 </div>
                 <div class="orthodontic03_con02">
-                    <h5 class="c16r subtle">Fast</h5>
+                    <h5 class="c16r subtle pc_con">Fast</h5>
                     <h4 class="t48r">빠른 효과</h4>
                     <p class="b28r">
                         최대 30%<br />
@@ -1178,21 +210,26 @@
                     </p>
                 </div>
                 <div class="orthodontic03_con03">
-                    <h5 class="c16r subtle">Free</h5>
+                    <h5 class="c16r subtle pc_con">Free</h5>
                     <h4 class="t48r">자유로움</h4>
-                    <p class="b28r">
+                    <p class="b28r pc_con">
                         눈에 띄지 않는 투명 장치<br />
+                        자유로운 탈착
+                    </p>
+                    <p class="b28r m_con">
+                        눈에 띄지 않는 투명함<br />
                         자유로운 탈착
                     </p>
                 </div>
             </div>
         </section>
+        <div class="section_line m_con"></div>
         <section class="orthodontic04">
             <div class="section-title">
                 <p class="sub subtle">Invisalign</p>
-                <h2 class="t65r">인비절라인, 치과마다 차이가 있나요?</h2>
+                <h2 class="t65r">인비절라인, <br class="m_con" />치과마다 차이가 있나요?</h2>
             </div>
-            <h3 class="orthodontic04_title t56r"><span class="b28r">1</span>가장 중요한 것은 ‘치료 계획 수립’입니다.</h3>
+            <h3 class="orthodontic04_title t56r"><span class="b28r">1</span>가장 중요한 것은 <br class="m_con" />‘치료 계획 수립’입니다.</h3>
             <div class="orthodontic04_con01 content-wrap">
                 <p class="b28r">
                     인비절라인은 장치가 아니라<br />
@@ -1225,7 +262,7 @@
                             <img src="img/sub/next.svg" alt="다음" />
                         </div>
                         <p class="t22r">
-                            정밀 진단 결과에 따른 치료 계획을 바탕으로<br />
+                            정밀 진단 결과에 따른 치료 계획을 바탕으<br class="m_con" />로<br class="pc_con" />
                             3D 치료 계획을 꼼꼼히 디자인합니다.
                         </p>
                     </div>
@@ -1262,6 +299,7 @@
                 </div>
             </div>
         </section>
+        <div class="section_line m_con"></div>
         <section class="orthodontic05">
             <div class="section-title">
                 <p class="sub subtle">Dears Special</p>
@@ -1275,7 +313,7 @@
                         <h4 class="b28r">2D브라켓(설측교정)</h4>
                         <p class="t22r">
                             다른 브라켓에 비해 크기가 매우 작고 납작한<br />
-                            설측 교정장치로 혀의 이물감과 발음 장애를 최소화하며<br />
+                            설측 교정장치로 혀의 이물감과 발음 장애를 <br class="m_con" />최소화하며<br class="pc_con" />
                             치아 안쪽에 브라켓을 부착합니다.
                         </p>
                     </div>
@@ -1284,7 +322,7 @@
                         <h4 class="b28r">MTA</h4>
                         <p class="t22r">
                             작은 튜브와 같은 관을 치아에 부착하여<br />
-                            치아 교정을 진행합니다. 부분적으로 치아를 이동 시켜<br />
+                            치아 교정을 진행합니다. 부분적으로 치아를 이동 <br class="m_con" />시켜<br class="pc_con" />
                             치료 속도가 빠르며 심미성이 우수합니다.
                         </p>
                     </div>
@@ -1292,8 +330,8 @@
                         <img src="img/sub/orthodontic05_list0103.jpg" alt="디지털 투명 교정 장치" />
                         <h4 class="b28r">디지털 투명 교정 장치</h4>
                         <p class="t22r">
-                            3D 프린터로 정밀하게 제작하여<br />
-                            정교하게 치아를 움직이며 탈부착이 가능하여 위생적이며<br />
+                            3D 프린터로 정밀하게 제작하여<br class="pc_con" />
+                            정교하게 <br class="m_con" />치아를 움직이며 탈부착이 가능하여 <br class="m_con" />위생적이며<br class="pc_con" />
                             교정 중 통증이 적습니다.
                         </p>
                     </div>
@@ -1306,16 +344,17 @@
                         <img src="img/sub/orthodontic05_list0201.jpg" alt="클리피씨" />
                         <h4 class="b28r">클리피씨</h4>
                         <p class="t22r">
-                            자가 결찰 브라켓을 사용해 미세 철사 없이 캡을 여닫아 고정하며<br />
-                            마찰력이 적어 통증을 줄이고 치료 기간을 단축시킵니다.
+                            자가 결찰 브라켓을 사용해 미세 철사 없이 <br class="m_con" />캡을 여닫아 고정하며<br class="pc_con" />
+                            마찰력이 적어 통증을 <br class="m_con" />줄이고 치료 기간을 단축시킵니다.
                         </p>
                     </div>
                     <div class="swiper-slide orthodontic05_list0202">
                         <img src="img/sub/orthodontic05_list0202.jpg" alt="인비절라인" />
                         <h4 class="b28r">인비절라인</h4>
                         <p class="t22r">
-                            자가 결찰 브라켓을 사용해 미세 철사 없이 캡을 여닫아 고정하며<br />
-                            마찰력이 적어 통증을 줄이고 치료 기간을 단축시킵니다.
+                            인비절라인은 유연하면서도 얇고 투명한<br class="m_con" />
+                            교정 장치를 사용해 <br class="pc_con" />심미성과 효율성을 갖춘<br class="m_con" />
+                            교정 방식입니다.
                         </p>
                     </div>
                     <div class="swiper-slide orthodontic05_list0203">
@@ -1324,6 +363,7 @@
                 </div>
             </div>
         </section>
+        <div class="section_line m_con"></div>
         <section class="orthodontic06">
             <div class="section-title">
                 <p class="sub subtle">Before & After</p>
@@ -1503,6 +543,105 @@
             window.addEventListener('resize', function () {
                 clearTimeout(this.orthoResizeTimer);
                 this.orthoResizeTimer = setTimeout(initOrthoSwipers, 250);
+            });
+        </script>
+        <script>
+            // GSAP + Lenis 초기화
+            gsap.registerPlugin(ScrollTrigger);
+            const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
+            gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+            gsap.ticker.lagSmoothing(0);
+            lenis.on('scroll', ScrollTrigger.update);
+            ScrollTrigger.addEventListener('refresh', () => lenis.resize());
+            let lenisResizeTimer;
+            window.addEventListener('resize', () => { clearTimeout(lenisResizeTimer); lenisResizeTimer = setTimeout(() => { lenis.resize(); ScrollTrigger.refresh(); }, 200); });
+            window.addEventListener('load', () => { lenis.resize(); ScrollTrigger.refresh(); });
+
+            document.addEventListener('DOMContentLoaded', function () {
+                // -- Sub Head --
+                gsap.from('.sub_head .content-wrap', {
+                    scrollTrigger: { trigger: '.sub_head', start: 'top 80%', once: true },
+                    y: 30, opacity: 0, duration: 0.8
+                });
+
+                // -- Orthodontic01 --
+                gsap.from('.orthodontic01 .section-title .sub', {
+                    scrollTrigger: { trigger: '.orthodontic01', start: 'top 80%', once: true },
+                    y: 30, opacity: 0, duration: 0.8
+                });
+                gsap.from('.orthodontic01 .section-title h2', {
+                    scrollTrigger: { trigger: '.orthodontic01', start: 'top 80%', once: true },
+                    y: 40, opacity: 0, duration: 0.8, delay: 0.15
+                });
+
+                // -- Orthodontic02 --
+                gsap.from('.orthodontic02 .section-title .sub', {
+                    scrollTrigger: { trigger: '.orthodontic02', start: 'top 80%', once: true },
+                    y: 30, opacity: 0, duration: 0.8
+                });
+                gsap.from('.orthodontic02 .section-title h2', {
+                    scrollTrigger: { trigger: '.orthodontic02', start: 'top 80%', once: true },
+                    y: 40, opacity: 0, duration: 0.8, delay: 0.15
+                });
+
+                // -- Orthodontic03 --
+                gsap.from('.orthodontic03 .section-title .sub', {
+                    scrollTrigger: { trigger: '.orthodontic03', start: 'top 80%', once: true },
+                    y: 30, opacity: 0, duration: 0.8
+                });
+                gsap.from('.orthodontic03 .section-title h2', {
+                    scrollTrigger: { trigger: '.orthodontic03', start: 'top 80%', once: true },
+                    y: 40, opacity: 0, duration: 0.8, delay: 0.15
+                });
+                gsap.from('.orthodontic03_txt', {
+                    scrollTrigger: { trigger: '.orthodontic03_txt', start: 'top 85%', once: true },
+                    y: 50, opacity: 0, duration: 0.8
+                });
+
+                // -- Orthodontic04 --
+                gsap.from('.orthodontic04 .section-title .sub', {
+                    scrollTrigger: { trigger: '.orthodontic04', start: 'top 80%', once: true },
+                    y: 30, opacity: 0, duration: 0.8
+                });
+                gsap.from('.orthodontic04 .section-title h2', {
+                    scrollTrigger: { trigger: '.orthodontic04', start: 'top 80%', once: true },
+                    y: 40, opacity: 0, duration: 0.8, delay: 0.15
+                });
+                gsap.from('.orthodontic04_title', {
+                    scrollTrigger: { trigger: '.orthodontic04_title', start: 'top 85%', once: true },
+                    y: 40, opacity: 0, duration: 0.6, stagger: 0.15
+                });
+                gsap.from('.orthodontic04_target .swiper-slide', {
+                    scrollTrigger: { trigger: '.orthodontic04_target', start: 'top 85%', once: true },
+                    y: 40, opacity: 0, duration: 0.6, stagger: 0.12
+                });
+
+                // -- Orthodontic05 --
+                gsap.from('.orthodontic05 .section-title .sub', {
+                    scrollTrigger: { trigger: '.orthodontic05', start: 'top 80%', once: true },
+                    y: 30, opacity: 0, duration: 0.8
+                });
+                gsap.from('.orthodontic05 .section-title h2', {
+                    scrollTrigger: { trigger: '.orthodontic05', start: 'top 80%', once: true },
+                    y: 40, opacity: 0, duration: 0.8, delay: 0.15
+                });
+                gsap.from('.orthodontic05_title', {
+                    scrollTrigger: { trigger: '.orthodontic05_title', start: 'top 85%', once: true },
+                    y: 40, opacity: 0, duration: 0.6, stagger: 0.15
+                });
+
+                // -- Orthodontic06 --
+                gsap.from('.orthodontic06 .section-title .sub', {
+                    scrollTrigger: { trigger: '.orthodontic06', start: 'top 80%', once: true },
+                    y: 30, opacity: 0, duration: 0.8
+                });
+                gsap.from('.orthodontic06 .section-title h2', {
+                    scrollTrigger: { trigger: '.orthodontic06', start: 'top 80%', once: true },
+                    y: 40, opacity: 0, duration: 0.8, delay: 0.15
+                });
+
+                setTimeout(() => { ScrollTrigger.refresh(true); }, 100);
+                setTimeout(() => { ScrollTrigger.refresh(true); }, 500);
             });
         </script>
     </body>

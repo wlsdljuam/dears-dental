@@ -5,948 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>디어스치과 - Dears Dental Clinic</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="common.css" />
+        <link rel="stylesheet" href="implant.css" />
         <script src="js/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=4so8ycoa15"></script>
         <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
         <script src="js/gsap.min.js"></script>
         <script src="js/ScrollTrigger.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-        <style>
-            @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css');
-
-            :root {
-                --bg: #f5f4f1;
-                --white: #ffffff;
-                --gray-900: #333333;
-                --gray-800: #999999;
-                --gray-800: #999999;
-                --gray-700: #cdcdcd;
-                --black: #222222;
-                --primary: #f1693a;
-                --primary-subtle: #c6a489;
-                --container-full: 1920px;
-                --container-content: 1760px;
-                --container-center: 1344px;
-            }
-            .primary {
-                color: var(--primary) !important;
-            }
-            .subtle {
-                color: var(--primary-subtle) !important;
-            }
-            .primary-bg {
-                background-color: var(--primary);
-                color: #fff;
-            }
-            * {
-                box-sizing: border-box;
-                scroll-behavior: smooth;
-                letter-spacing: -0.05em;
-            }
-            body {
-                position: relative;
-                overflow-x: hidden;
-                font-family: 'Pretendard', sans-serif;
-                margin: 0;
-                -webkit-font-smoothing: antialiased;
-                word-break: keep-all;
-                color: var(--gray-900);
-                background-color: var(--bg);
-            }
-            html.lenis,
-            html.lenis body {
-                height: auto;
-            }
-            .lenis.lenis-smooth {
-                scroll-behavior: auto !important;
-            }
-            .lenis.lenis-smooth [data-lenis-prevent] {
-                overscroll-behavior: contain;
-            }
-            .lenis.lenis-stopped {
-                overflow: hidden;
-            }
-            .lenis.lenis-scrolling iframe {
-                pointer-events: none;
-            }
-
-            a {
-                color: var(--gray-900);
-                text-decoration: none;
-            }
-            ul,
-            li {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-            img {
-                vertical-align: middle;
-                max-width: 100%;
-            }
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6,
-            p,
-            span,
-            strong {
-                margin: 0;
-            }
-
-            .center {
-                max-width: var(--container-center);
-                width: 100%;
-                margin: 0 auto;
-                padding: 0 20px;
-            }
-            .content-wrap {
-                max-width: var(--container-content);
-                width: 100%;
-                margin: 0 auto;
-            }
-            .m_con {
-                display: none;
-            }
-
-            /* Typography */
-            /* Title 80px - Figma: kor/title/80-regular */
-            .t80r {
-                font-size: 80px;
-                font-weight: 400;
-                line-height: 140%;
-                letter-spacing: -3.2px;
-            }
-            /* Title 65px - Figma: kor/title/65-regular */
-            .t65r {
-                font-size: 65px;
-                font-weight: 400;
-                line-height: 140%;
-                letter-spacing: -2.6px;
-            }
-            .t56r {
-                font-size: 56px;
-                font-weight: 400;
-                line-height: 140%;
-                letter-spacing: -2.24px;
-            }
-            .t48r {
-                font-size: 48px;
-                font-weight: 400;
-                line-height: 140%;
-                letter-spacing: -2px;
-            }
-            .t36r {
-                font-size: 36px;
-                font-weight: 400;
-                line-height: 140%;
-                letter-spacing: -2px;
-            }
-            .t28r {
-                font-size: 28px;
-                font-weight: 400;
-                line-height: 148%;
-                letter-spacing: -1.12px;
-            }
-            .t22r {
-                font-size: 22px;
-                font-weight: 400;
-                line-height: 148%;
-                letter-spacing: -0.88px;
-            }
-            .t20r {
-                font-size: 20px;
-                font-weight: 400;
-                line-height: 140%;
-                letter-spacing: -1px;
-            }
-            .b28r {
-                font-size: 28px;
-                font-weight: 400;
-                line-height: 148%; /* 41.44px */
-                letter-spacing: -1.12px;
-            }
-            .b18r {
-                font-size: 18px;
-                font-weight: 400;
-                line-height: 148%;
-                letter-spacing: -0.72px;
-            }
-            .b16r {
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 162%;
-                letter-spacing: -0.5px;
-            }
-            .b16s {
-                font-size: 16px;
-                font-weight: 600;
-                line-height: 162%;
-                letter-spacing: -0.5px;
-            }
-            .b14r {
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 143%;
-                letter-spacing: -0.5px;
-            }
-            .b14s {
-                font-size: 14px;
-                font-weight: 600;
-                line-height: 143%;
-                letter-spacing: -1px;
-            }
-            .c16r {
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 148%; /* 23.68px */
-                letter-spacing: 2.56px;
-            }
-            .c12r {
-                font-size: 12px;
-                font-weight: 400;
-                line-height: 148%;
-                letter-spacing: -0.48px;
-            }
-            /* Section Title */
-            .section-title {
-                text-align: center;
-                margin-bottom: 60px;
-            }
-            .section-title .sub {
-                font-size: 16px;
-                font-weight: 400;
-                color: #c6a489;
-                margin-bottom: 20px;
-                line-height: 148%; /* 23.68px */
-                letter-spacing: 2.56px;
-            }
-            .section-title h2 {
-                font-size: 65px;
-                font-weight: 400;
-                line-height: 140%; /* 91px */
-                letter-spacing: -2.6px;
-            }
-
-            /* sub_head */
-            .sub_head {
-                position: relative;
-            }
-            .sub_head .content-wrap {
-                position: absolute;
-                left: 50%;
-                bottom: 40px;
-                transform: translateX(-50%);
-                z-index: 1;
-                width: 100%;
-                text-align: center;
-            }
-            .sub_head h2 {
-                margin-top: 20px;
-            }
-
-            /* implant01 */
-            .implant01 {
-                padding-top: 100px;
-            }
-            .implant01 h2 {
-                position: relative;
-                display: inline-block;
-            }
-            .implant01 h2 span {
-                color: var(--gray-800, #999);
-            }
-            .implant01 h2 div {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                right: -100px;
-                padding: 10px 30px;
-                color: #fff;
-                border-radius: 999px;
-                box-shadow: 2px 6px 15px 0 rgba(0, 0, 0, 0.2);
-            }
-            .implant01 .content-wrap {
-                border-top: 1px solid #cdcdcd;
-                border-bottom: 1px solid #cdcdcd;
-                padding: 100px 0;
-                display: flex;
-                align-items: flex-start;
-                justify-content: space-between;
-            }
-            .implant01_txt h4 {
-                margin: 20px 0px;
-            }
-            .implant01_txt p {
-                color: var(--gray-800, #999);
-            }
-            .implant01_txt p span {
-                color: var(--gray-900, #333);
-            }
-
-            /* implant02 */
-            .implant02 {
-                padding: 200px 0px 569px;
-                text-align: center;
-                background-image: url(img/sub/implant02_bg.jpg);
-                background-size: contain;
-                background-repeat: no-repeat;
-                background-position: bottom center;
-            }
-            .implant02 h3 {
-                margin: 60px auto;
-            }
-            .implant02 h3 span {
-                color: var(--gray-800);
-            }
-            .implant02 h4 {
-                margin-top: 60px;
-            }
-
-            /* implant03 */
-            .implant03 {
-                padding-top: 200px;
-                border-bottom: 1px solid var(--gray-700, #cdcdcd);
-            }
-            .implant03_title {
-                padding: 40px 80px;
-                border-top: 1px solid var(--gray-700, #cdcdcd);
-                background: #e9e8e6;
-            }
-            .implant03 .content-wrap {
-                padding: 60px 0px;
-            }
-            .implant03_con_txt p {
-                margin: 32px 0px;
-                color: var(--gray-800);
-            }
-            .implant03_con_list {
-                display: flex;
-                align-items: flex-start;
-                justify-content: space-between;
-            }
-            .implant03_con_list > div {
-                max-width: 576px;
-                width: 100%;
-            }
-            .implant03_con > p {
-                color: var(--gray-800);
-                margin-top: 32px;
-            }
-            .implant03_con_list h5 {
-                margin: 74px 0px 4px;
-            }
-            .implant03_con_list h6 {
-                color: var(--gray-800);
-            }
-
-            /* Comparison Slider - 수정이 필요한 경우 여기 변수만 조정하세요 */
-            .comparison {
-                --slider-height: 328px; /* 슬라이더 컨테이너 높이 */
-                --handle-size: 50px; /* 핸들 크기 */
-                --handle-offset: -80px; /* 핸들 위치 조정 */
-                --slider-offset: -52px; /* 슬라이더 입력 위치 */
-                --thumb-size: 44px; /* 슬라이더 썸 크기 */
-                --divider-width: 1px; /* 구분선 두께 */
-                --track-height: 1px; /* 슬라이더 트랙 높이 */
-
-                width: 100%;
-                padding-bottom: var(--slider-height);
-                position: relative;
-            }
-
-            /* Before/After 이미지 컨테이너 */
-            .comparison figure {
-                position: absolute;
-                background-size: cover;
-                font-size: 0;
-                width: 100%;
-                height: 100%;
-                margin: 0;
-            }
-
-            /* After 이미지 (오버레이) */
-            .divisor {
-                background-size: cover;
-                position: absolute;
-                width: 50%;
-                bottom: 0;
-                height: 100%;
-            }
-
-            /* 중앙 구분선 */
-            .divisor::after {
-                content: '';
-                position: absolute;
-                right: 0;
-                width: var(--divider-width);
-                height: 100%;
-                background: var(--white);
-                z-index: 3;
-                bottom: 0;
-            }
-
-            /* 핸들 (드래그 아이콘 컨테이너) */
-            .handle {
-                position: absolute;
-                width: var(--handle-size);
-                height: var(--handle-size);
-                bottom: var(--handle-offset);
-                left: 50%;
-                transform: translateY(-50%) translateX(-50%);
-                z-index: 3;
-                pointer-events: none; /* 클릭이 슬라이더로 전달되도록 */
-            }
-
-            /* 핸들 아이콘 */
-            .handle::before {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -53%);
-                background: url(img/sub/handle.svg) no-repeat center/contain;
-                border-radius: 50%;
-            }
-
-            /* 슬라이더 입력 */
-            .comparison input[type='range'] {
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                position: absolute;
-                bottom: var(--slider-offset);
-                left: 0;
-                width: 100%;
-                background-color: transparent;
-                cursor: pointer;
-                z-index: 2;
-            }
-
-            .comparison input[type='range']:focus,
-            .comparison input[type='range']:active {
-                border: none;
-                outline: none;
-            }
-
-            /* 슬라이더 썸 (드래그 포인트) - Webkit */
-            .comparison input[type='range']::-webkit-slider-thumb {
-                -webkit-appearance: none;
-                width: var(--thumb-size);
-                height: var(--thumb-size);
-                border: none;
-                border-radius: 50%;
-            }
-
-            /* 슬라이더 트랙 - Firefox */
-            .comparison input[type='range']::-moz-range-track {
-                -moz-appearance: none;
-                width: 100%;
-                height: 15px;
-                background-color: transparent;
-                outline: none;
-            }
-
-            /* 슬라이더 트랙 라인 */
-            .comparison input[type='range']::after {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 100%;
-                height: var(--track-height);
-                background-color: var(--gray-700);
-                border-radius: 50px;
-            }
-
-            /* implant04 */
-            .implant04 {
-                padding-top: 200px;
-                border-bottom: 1px solid var(--gray-700, #cdcdcd);
-            }
-
-            .implant04_title {
-                display: flex;
-                align-items: flex-start;
-                gap: 12px;
-                flex-shrink: 0;
-                padding: 40px 60px;
-                border-top: 1px solid var(--gray-700, #cdcdcd);
-                background: #e9e8e6;
-            }
-            .implant04_title span {
-                color: var(--gray-800);
-                display: inline-block;
-                margin-top: 8px;
-            }
-            .implant04_con01,
-            .implant04_con02 {
-                display: flex;
-                align-items: flex-start;
-                justify-content: space-between;
-                padding: 60px 0px;
-            }
-            .implant04_con01 p,
-            .implant04_con02 p {
-                color: var(--gray-800);
-                margin-top: 20px;
-            }
-            .implant04_list {
-                padding: 60px 0px;
-            }
-            .implant04_list .swiper-wrapper {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-            .implant04_list .swiper-slide {
-                width: auto;
-                flex-shrink: 1;
-            }
-            .implant04_list .swiper-slide > div {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                margin: 20px 0px 4px;
-            }
-            .implant04_list h4 {
-                display: flex;
-                align-items: flex-start;
-                gap: 8px;
-            }
-            .implant04_list h4 span {
-                margin-top: 2px;
-                display: inline-block;
-                color: var(--gray-800, #999);
-            }
-            .implant04_list p {
-                color: var(--gray-800, #999);
-                padding: 0px 18px;
-            }
-
-            /* implant05 */
-            .implant05 {
-                padding-top: 200px;
-                overflow: hidden;
-            }
-            .bna_swiper {
-                max-width: 1278px;
-                width: 100%;
-                margin: 0 auto;
-            }
-            .bna_img {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-            .bna_swiper .swiper-slide .bna_nav {
-                opacity: 0;
-                transition: opacity 0.3s ease-in-out;
-            }
-            .bna_swiper .swiper-slide-active .bna_nav {
-                opacity: 1;
-            }
-            .bna_nav {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                margin-top: 20px;
-            }
-            .bna_nav a {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                color: var(--gray-800);
-            }
-            .bna_nav a img {
-                filter: grayscale(1);
-            }
-            .bna_navigation {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                max-width: 400px;
-                width: 100%;
-                margin: 40px auto 0px;
-            }
-            .bna_prev,
-            .bna_next {
-                cursor: pointer;
-            }
-            .implant05 .bna_page {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .implant05 .bna_page span {
-                width: 6px;
-                height: 6px;
-                background-color: var(--gray-700);
-                border-radius: 0px;
-                opacity: 1;
-                margin: 0px 4px !important;
-            }
-            .implant05 .bna_page span.swiper-pagination-bullet-active {
-                background-color: #333;
-            }
-
-            /* implant06 */
-            .implant06 {
-                padding: 200px 0px;
-            }
-            .implant06 .content-wrap {
-                position: relative;
-            }
-            .implant06 > div > div {
-                position: absolute;
-                left: 50%;
-                bottom: 60px;
-                transform: translateX(-50%);
-                width: 100%;
-                padding: 0px 60px;
-                color: #fff;
-                display: flex;
-                align-items: flex-end;
-                justify-content: space-between;
-            }
-            .implant06 h2 {
-                color: rgba(255, 255, 255, 0.4);
-            }
-            .implant06 h2 span {
-                color: #fff;
-            }
-
-            /* ==================== 모바일 (768px) ==================== */
-            @media screen and (max-width: 768px) {
-                body {
-                    padding-top: 60px;
-                }
-                .pc_con {
-                    display: none !important;
-                }
-                .m_con {
-                    display: block;
-                }
-                .content-wrap {
-                    padding: 0 24px;
-                }
-                .section-title {
-                    margin-bottom: 24px;
-                }
-                .section-title .sub {
-                    font-size: 12px;
-                    margin-bottom: 4px;
-                }
-                .section-title h2 {
-                    font-size: 30px;
-                    letter-spacing: -1.28px;
-                }
-                .t80r {
-                    font-size: 36px;
-                    letter-spacing: -1.44px;
-                }
-                .t65r {
-                    font-size: 32px;
-                    letter-spacing: -1.28px;
-                }
-                .t56r {
-                    font-size: 28px;
-                    letter-spacing: -1.12px;
-                }
-                .t48r {
-                    font-size: 24px;
-                    letter-spacing: -0.96px;
-                }
-                .t36r {
-                    font-size: 22px;
-                    letter-spacing: -0.88px;
-                }
-                .t28r {
-                    font-size: 20px;
-                    letter-spacing: -0.8px;
-                }
-                .t22r {
-                    font-size: 16px;
-                    letter-spacing: -0.64px;
-                }
-                .b28r {
-                    font-size: 18px;
-                    letter-spacing: -0.72px;
-                }
-                .b18r {
-                    font-size: 15px;
-                    letter-spacing: -0.6px;
-                }
-                .c16r {
-                    font-size: 12px;
-                }
-
-                /* sub_head */
-                .sub_head .content-wrap {
-                    bottom: 16px;
-                }
-                .sub_head .content-wrap .subtle {
-                    font-size: 12px;
-                }
-                .sub_head .content-wrap h2 {
-                    margin-top: 4px;
-                    font-size: 24px;
-                }
-                .section_line {
-                    width: 100%;
-                    height: 10px;
-                    border-top: 1px solid var(--gray-700);
-                    background-color: #fff;
-                }
-
-                /* implant01 */
-                .implant01 {
-                    padding-top: 50px;
-                }
-                .implant01 .section-title {
-                    margin-bottom: 50px;
-                }
-                .implant01 h2 div {
-                    position: static;
-                    display: block;
-                    transform: none;
-                    max-width: 127px;
-                    margin: 20px auto 0px;
-                    line-height: 61px;
-                    padding: 0px;
-                    font-size: 28px;
-                }
-                .implant01 .content-wrap {
-                    flex-direction: column;
-                    border: none;
-                    padding: 50px 24px;
-                    gap: 24px;
-                }
-                .implant01_txt h3 {
-                    font-size: 30px;
-                }
-                .implant01_txt h4 {
-                    margin: 12px 0px 20px;
-                }
-                .implant01_txt p {
-                    margin-top: 20px;
-                }
-
-                /* implant02 */
-                .implant02 {
-                    padding: 80px 24px 190px;
-                    background-size: 150%;
-                }
-                .implant02 h3 {
-                    margin: 0px auto 50px;
-                    font-size: 18px;
-                }
-                .implant02 h4 {
-                    margin-top: 50px;
-                    font-size: 30px;
-                }
-                .implant02 .section-title {
-                    margin-bottom: 12px;
-                }
-                .implant02 .section-title h2 {
-                    font-size: 24px;
-                }
-                .implant02 .section-title .sub {
-                    margin-bottom: 12px;
-                }
-                .implant02 img {
-                    width: 4px;
-                }
-
-                /* implant03 */
-                .implant03 {
-                    padding-top: 80px;
-                    border-bottom: none;
-                }
-                .implant03_title {
-                    padding: 24px;
-                }
-                .implant03 .content-wrap {
-                    padding: 32px 24px;
-                }
-                .implant03_con_txt p {
-                    margin: 12px 0px 24px;
-                    font-size: 16px;
-                }
-                .implant03_con_list {
-                    flex-direction: column;
-                    gap: 50px;
-                }
-                .implant03_con_list > div {
-                    max-width: 100%;
-                }
-                .implant03_con_list h5 {
-                    margin: 68px 0px 4px;
-                }
-                .implant03_con > p {
-                    margin-top: 24px;
-                }
-                .comparison {
-                    --slider-height: 194px;
-                    --handle-size: 44px;
-                    --handle-offset: -73px;
-                    max-width: 342px;
-                }
-
-                /* implant04 */
-                .implant04 {
-                    padding-top: 80px;
-                    border-bottom: none;
-                }
-                .implant04_title {
-                    padding: 24px;
-                    gap: 4px;
-                }
-                .implant04_title span {
-                    margin-top: 2px;
-                }
-                .implant04_con01,
-                .implant04_con02 {
-                    flex-direction: column-reverse;
-                    gap: 12px;
-                    padding: 32px 24px;
-                }
-                .implant04_con01 p,
-                .implant04_con02 p {
-                    margin-top: 12px;
-                }
-                .implant04_list {
-                    display: block !important;
-                    padding: 32px 24px;
-                    overflow: hidden;
-                }
-                .implant04_list p {
-                    padding: 0px 14px;
-                }
-                .implant04_list .swiper-wrapper {
-                    display: flex !important;
-                    flex-direction: row !important;
-                    flex-wrap: nowrap !important;
-                    gap: 0 !important;
-                }
-                .implant04_list .swiper-slide {
-                    width: 280px !important;
-                    flex-shrink: 0 !important;
-                    flex: none !important;
-                }
-                .implant04_list .swiper-slide > div {
-                    margin-top: 12px;
-                }
-                .implant04_list .swiper-slide > div img {
-                    width: 16px;
-                }
-
-                /* implant05 */
-                .implant05 {
-                    padding-top: 80px;
-                    padding-bottom: 24px;
-                }
-                .bna_swiper {
-                    padding: 0 24px;
-                }
-                .bna_img {
-                    flex-direction: column;
-                    gap: 8px;
-                }
-                .bna_nav {
-                    flex-direction: column;
-                    align-items: flex-start;
-                    gap: 12px;
-                    margin-top: 12px;
-                }
-                .bna_nav a {
-                    gap: 4px;
-                }
-                .bna_nav a img {
-                    width: 16px;
-                }
-                .bna_navigation {
-                    max-width: 280px;
-                    margin-top: 24px;
-                }
-
-                /* implant06 */
-                .implant06 {
-                    padding: 0px;
-                }
-                .implant06 > div > div {
-                    flex-direction: column;
-                    align-items: flex-start;
-                    gap: 12px;
-                    padding: 0 24px;
-                    bottom: 24px;
-                }
-                .implant06 p {
-                    font-size: 16px;
-                }
-            }
-
-            /* ==================== 소형 모바일 (480px) ==================== */
-            @media screen and (max-width: 480px) {
-                .section-title h2 {
-                    font-size: 30px;
-                    letter-spacing: -1.04px;
-                }
-                .t80r {
-                    font-size: 28px;
-                    letter-spacing: -1.12px;
-                }
-                .t65r {
-                    font-size: 26px;
-                    letter-spacing: -1.04px;
-                }
-                .t56r {
-                    font-size: 24px;
-                    letter-spacing: -0.88px;
-                }
-                .t48r {
-                    font-size: 18px;
-                    letter-spacing: -0.8px;
-                }
-                .t36r {
-                    font-size: 18px;
-                    letter-spacing: -0.72px;
-                }
-                .t28r {
-                    font-size: 16px;
-                    letter-spacing: -0.64px;
-                }
-                .t22r {
-                    font-size: 16px;
-                    letter-spacing: -0.56px;
-                }
-                .b28r {
-                    font-size: 18px;
-                    letter-spacing: -0.64px;
-                }
-                .b18r {
-                    font-size: 14px;
-                    letter-spacing: -0.56px;
-                }
-                .implant02 {
-                    padding: 80px 24px 200px;
-                }
-                .implant03_title,
-                .implant04_title {
-                    padding: 24px 24px;
-                }
-                .implant03 .content-wrap,
-                .implant04_con01,
-                .implant04_con02,
-                .implant04_list {
-                    padding: 24px 24px;
-                }
-            }
-        </style>
     </head>
     <body>
         <section class="sub_head">
@@ -1314,5 +380,97 @@
                 </div>
             </div>
         </section>
+        <script>
+            // GSAP + Lenis 초기화
+            gsap.registerPlugin(ScrollTrigger);
+            const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
+            gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+            gsap.ticker.lagSmoothing(0);
+            lenis.on('scroll', ScrollTrigger.update);
+            ScrollTrigger.addEventListener('refresh', () => lenis.resize());
+            let lenisResizeTimer;
+            window.addEventListener('resize', () => { clearTimeout(lenisResizeTimer); lenisResizeTimer = setTimeout(() => { lenis.resize(); ScrollTrigger.refresh(); }, 200); });
+            window.addEventListener('load', () => { lenis.resize(); ScrollTrigger.refresh(); });
+
+            document.addEventListener('DOMContentLoaded', function () {
+                // -- Sub Head --
+                gsap.from('.sub_head .content-wrap', {
+                    scrollTrigger: { trigger: '.sub_head', start: 'top 80%', once: true },
+                    y: 30, opacity: 0, duration: 0.8
+                });
+
+                // -- Implant01 --
+                gsap.from('.implant01 .section-title .sub', {
+                    scrollTrigger: { trigger: '.implant01', start: 'top 80%', once: true },
+                    y: 30, opacity: 0, duration: 0.8
+                });
+                gsap.from('.implant01 .section-title h2', {
+                    scrollTrigger: { trigger: '.implant01', start: 'top 80%', once: true },
+                    y: 40, opacity: 0, duration: 0.8, delay: 0.15
+                });
+                gsap.from('.implant01_txt', {
+                    scrollTrigger: { trigger: '.implant01_txt', start: 'top 85%', once: true },
+                    y: 50, opacity: 0, duration: 0.8
+                });
+
+                // -- Implant02 --
+                gsap.from('.implant02 .section-title .sub', {
+                    scrollTrigger: { trigger: '.implant02', start: 'top 80%', once: true },
+                    y: 30, opacity: 0, duration: 0.8
+                });
+                gsap.from('.implant02 .section-title h2', {
+                    scrollTrigger: { trigger: '.implant02', start: 'top 80%', once: true },
+                    y: 40, opacity: 0, duration: 0.8, delay: 0.15
+                });
+
+                // -- Implant03 --
+                gsap.from('.implant03 .section-title .sub', {
+                    scrollTrigger: { trigger: '.implant03', start: 'top 80%', once: true },
+                    y: 30, opacity: 0, duration: 0.8
+                });
+                gsap.from('.implant03 .section-title h2', {
+                    scrollTrigger: { trigger: '.implant03', start: 'top 80%', once: true },
+                    y: 40, opacity: 0, duration: 0.8, delay: 0.15
+                });
+                gsap.from('.implant03_con_txt', {
+                    scrollTrigger: { trigger: '.implant03_con', start: 'top 85%', once: true },
+                    y: 50, opacity: 0, duration: 0.8
+                });
+
+                // -- Implant04 --
+                gsap.from('.implant04 .section-title .sub', {
+                    scrollTrigger: { trigger: '.implant04', start: 'top 80%', once: true },
+                    y: 30, opacity: 0, duration: 0.8
+                });
+                gsap.from('.implant04 .section-title h2', {
+                    scrollTrigger: { trigger: '.implant04', start: 'top 80%', once: true },
+                    y: 40, opacity: 0, duration: 0.8, delay: 0.15
+                });
+                gsap.from('.implant04_title', {
+                    scrollTrigger: { trigger: '.implant04_title', start: 'top 85%', once: true },
+                    y: 40, opacity: 0, duration: 0.6, stagger: 0.15
+                });
+
+                // -- Implant05 --
+                gsap.from('.implant05 .section-title .sub', {
+                    scrollTrigger: { trigger: '.implant05', start: 'top 80%', once: true },
+                    y: 30, opacity: 0, duration: 0.8
+                });
+                gsap.from('.implant05 .section-title h2', {
+                    scrollTrigger: { trigger: '.implant05', start: 'top 80%', once: true },
+                    y: 40, opacity: 0, duration: 0.8, delay: 0.15
+                });
+
+                // -- Implant06 --
+                gsap.from('.implant06', {
+                    scrollTrigger: { trigger: '.implant06', start: 'top 85%', once: true },
+                    clipPath: 'inset(15% 0 0 0)', opacity: 0, duration: 1.2, ease: 'power2.out',
+                    clearProps: 'clipPath'
+                });
+
+                setTimeout(() => { ScrollTrigger.refresh(true); }, 100);
+                setTimeout(() => { ScrollTrigger.refresh(true); }, 500);
+            });
+        </script>
     </body>
 </html>

@@ -1,25 +1,20 @@
-/* 진료 칼럼 Latest 스킨 CSS */
+/* =============================================
+   디어스 치과 - 진료 칼럼 Latest 스킨 CSS
+   index.html .main_column 디자인 기반
+   ============================================= */
 
-/* PC 스타일 */
+/* 카테고리 탭 */
 .column_head {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
+    margin: 60px auto 32px;
 }
-
-.column_head > a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
 .column_category {
     display: flex;
     align-items: center;
     gap: 0;
 }
-
 .column_category span {
     cursor: pointer;
     padding: 12px 24px;
@@ -27,134 +22,171 @@
     border-bottom: 2px solid transparent;
     transition: all 0.2s;
 }
-
 .column_category span:hover {
     color: var(--gray-900);
 }
-
 .column_category span.active {
-    color: var(--primary);
-    border-bottom-color: var(--primary);
-}
-
-.column_body {
-    display: flex;
-    gap: 20px;
-}
-
-.column_body .swiper-slide {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    flex: 1;
-    text-decoration: none;
-    color: inherit;
-}
-
-.column_body .swiper-slide img {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    border-radius: 12px;
-}
-
-.column_body .swiper-slide h4 {
-    margin: 0;
     color: var(--gray-900);
 }
 
-.column_body .swiper-slide > span {
+/* 전체 보기 버튼 */
+.column_btn {
+    color: var(--primary);
     display: flex;
     align-items: center;
-    gap: 8px;
-    color: var(--gray-600);
+    gap: 12px;
+}
+.column_btn.m_con {
+    display: none;
 }
 
-/* 태블릿 (1024px 이하) */
+/* 카드 그리드 */
+.column_body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.column_body .swiper-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+.column_body .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    flex: 1 0 0;
+    text-decoration: none;
+    color: inherit;
+}
+.column_body .swiper-slide img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+.column_body .swiper-slide h4 {
+    color: var(--gray-900);
+}
+.column_body .swiper-slide span {
+    color: var(--gray-800);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.column_body .swiper-slide span img {
+    filter: grayscale(1);
+}
+
+/* ── 태블릿 (1024px) ── */
 @media screen and (max-width: 1024px) {
+    .column_head {
+        margin: 40px auto 24px;
+    }
+    .column_category span {
+        padding: 10px 20px;
+    }
+}
+
+/* ── 모바일 (768px) ── */
+@media screen and (max-width: 768px) {
+    .column_btn.m_con {
+        display: flex !important;
+        margin-left: 24px;
+        gap: 4px;
+    }
+    .column_btn.m_con img {
+        width: 16px;
+    }
+
     .column_head {
         flex-direction: column;
         align-items: flex-start;
-        gap: 20px;
+        margin: 24px auto 0;
     }
 
-    .column_category span {
-        padding: 10px 16px;
-        font-size: 14px;
+    .m_column_wrap {
+        padding: 24px;
+        background-color: #e9e8e6;
+        width: calc(100% + 48px);
+        margin-left: -24px;
+        margin-right: -24px;
     }
 
-    .column_body {
-        flex-wrap: wrap;
-    }
-
-    .column_body .swiper-slide {
-        flex: 0 0 calc(50% - 10px);
-    }
-}
-
-/* 모바일 (768px 이하) */
-@media screen and (max-width: 768px) {
-    .column_head {
-        margin-bottom: 24px;
-    }
-
-    .column_head > a {
-        display: none;
-    }
-
+    /* 탭 가로 스크롤 */
     .column_category {
         width: 100%;
+        flex-wrap: nowrap;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        justify-content: space-between;
     }
-
     .column_category::-webkit-scrollbar {
         display: none;
     }
-
     .column_category span {
-        padding: 8px 16px;
-        font-size: 14px;
-        white-space: nowrap;
         flex-shrink: 0;
+        padding: 10px 16px;
+        font-size: 14px;
     }
 
+    /* Swiper 모바일 */
     .column_body {
-        display: block;
-        overflow: hidden;
+        gap: 0;
+        margin: 24px 0 50px;
     }
-
     .column_body .swiper-wrapper {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
+        display: flex;
+        flex-direction: row;
+        gap: 0;
     }
-
     .column_body .swiper-slide {
-        width: 280px !important;
-        flex-shrink: 0 !important;
-        flex: none !important;
+        width: 80%;
+        flex-shrink: 0;
+        flex: none;
+        gap: 12px;
+    }
+    .column_body .swiper-slide > img {
+        width: 100%;
+    }
+    .column_body .swiper-slide span {
+        gap: 4px;
+    }
+    .column_body .swiper-slide span img {
+        width: 16px;
+    }
+    .column_body .swiper-slide h4 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
     }
 
-    .column_body .swiper-slide h4 {
-        font-size: 18px;
+    /* 모바일 네비 */
+    .column_nav {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .column_prev,
+    .column_next {
+        cursor: pointer;
+        position: relative;
+        z-index: 10;
     }
 }
 
-/* 소형 모바일 (480px 이하) */
+/* ── 소형 모바일 (480px) ── */
 @media screen and (max-width: 480px) {
     .column_category span {
         padding: 6px 12px;
         font-size: 13px;
     }
-
     .column_body .swiper-slide {
-        width: 240px !important;
-    }
-
-    .column_body .swiper-slide h4 {
-        font-size: 16px;
+        width: 75%;
     }
 }

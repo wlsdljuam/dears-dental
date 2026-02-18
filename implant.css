@@ -1,0 +1,455 @@
+            /* implant01 */
+            .implant01 {
+                padding-top: 100px;
+            }
+            .implant01 h2 {
+                position: relative;
+                display: inline-block;
+            }
+            .implant01 h2 span {
+                color: var(--gray-800, #999);
+            }
+            .implant01 h2 div {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: -100px;
+                padding: 10px 30px;
+                color: #fff;
+                border-radius: 999px;
+                box-shadow: 2px 6px 15px 0 rgba(0, 0, 0, 0.2);
+            }
+            .implant01 .content-wrap {
+                border-top: 1px solid #cdcdcd;
+                border-bottom: 1px solid #cdcdcd;
+                padding: 100px 0;
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+            .implant01_txt h4 {
+                margin: 20px 0px;
+            }
+            .implant01_txt p {
+                color: var(--gray-800, #999);
+            }
+            .implant01_txt p span {
+                color: var(--gray-900, #333);
+            }
+
+            /* implant02 */
+            .implant02 {
+                padding: 200px 0px 569px;
+                text-align: center;
+                background-image: url(img/sub/implant02_bg.jpg);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: bottom center;
+            }
+            .implant02 h3 {
+                margin: 60px auto;
+            }
+            .implant02 h3 span {
+                color: var(--gray-800);
+            }
+            .implant02 h4 {
+                margin-top: 60px;
+            }
+
+            /* implant03 */
+            .implant03 {
+                padding-top: 200px;
+                border-bottom: 1px solid var(--gray-700, #cdcdcd);
+            }
+            .implant03_title {
+                padding: 40px 80px;
+                border-top: 1px solid var(--gray-700, #cdcdcd);
+                background: #e9e8e6;
+            }
+            .implant03 .content-wrap {
+                padding: 60px 0px;
+            }
+            .implant03_con_txt p {
+                margin: 32px 0px;
+                color: var(--gray-800);
+            }
+            .implant03_con_list {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+            .implant03_con_list > div {
+                max-width: 576px;
+                width: 100%;
+            }
+            .implant03_con > p {
+                color: var(--gray-800);
+                margin-top: 32px;
+            }
+            .implant03_con_list h5 {
+                margin: 74px 0px 4px;
+            }
+            .implant03_con_list h6 {
+                color: var(--gray-800);
+            }
+
+            /* implant04 */
+            .implant04 {
+                padding-top: 200px;
+                border-bottom: 1px solid var(--gray-700, #cdcdcd);
+            }
+
+            .implant04_title {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                flex-shrink: 0;
+                padding: 40px 60px;
+                border-top: 1px solid var(--gray-700, #cdcdcd);
+                background: #e9e8e6;
+            }
+            .implant04_title span {
+                color: var(--gray-800);
+                display: inline-block;
+                margin-top: 8px;
+            }
+            .implant04_con01,
+            .implant04_con02 {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                padding: 60px 0px;
+            }
+            .implant04_con01 p,
+            .implant04_con02 p {
+                color: var(--gray-800);
+                margin-top: 20px;
+            }
+            .implant04_list {
+                padding: 60px 0px;
+            }
+            .implant04_list .swiper-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .implant04_list .swiper-slide {
+                width: auto;
+                flex-shrink: 1;
+            }
+            .implant04_list .swiper-slide > div {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 20px 0px 4px;
+            }
+            .implant04_list h4 {
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .implant04_list h4 span {
+                margin-top: 2px;
+                display: inline-block;
+                color: var(--gray-800, #999);
+            }
+            .implant04_list p {
+                color: var(--gray-800, #999);
+                padding: 0px 18px;
+            }
+
+            /* implant05 */
+            .implant05 {
+                padding-top: 200px;
+                overflow: hidden;
+            }
+            .bna_swiper {
+                max-width: 1278px;
+                width: 100%;
+                margin: 0 auto;
+            }
+            .bna_img {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .bna_swiper .swiper-slide .bna_nav {
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+            }
+            .bna_swiper .swiper-slide-active .bna_nav {
+                opacity: 1;
+            }
+            .bna_nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+            .bna_nav a {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: var(--gray-800);
+            }
+            .bna_nav a img {
+                filter: grayscale(1);
+            }
+            .bna_navigation {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                max-width: 400px;
+                width: 100%;
+                margin: 40px auto 0px;
+            }
+            .bna_prev,
+            .bna_next {
+                cursor: pointer;
+            }
+            .implant05 .bna_page {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .implant05 .bna_page span {
+                width: 6px;
+                height: 6px;
+                background-color: var(--gray-700);
+                border-radius: 0px;
+                opacity: 1;
+                margin: 0px 4px !important;
+            }
+            .implant05 .bna_page span.swiper-pagination-bullet-active {
+                background-color: #333;
+            }
+
+            /* implant06 */
+            .implant06 {
+                padding: 200px 0px;
+            }
+            .implant06 .content-wrap {
+                position: relative;
+            }
+            .implant06 > div > div {
+                position: absolute;
+                left: 50%;
+                bottom: 60px;
+                transform: translateX(-50%);
+                width: 100%;
+                padding: 0px 60px;
+                color: #fff;
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+            }
+            .implant06 h2 {
+                color: rgba(255, 255, 255, 0.4);
+            }
+            .implant06 h2 span {
+                color: #fff;
+            }
+
+            /* ==================== 모바일 (768px) ==================== */
+            @media screen and (max-width: 768px) {
+                .c16r {
+                    font-size: 12px;
+                }
+
+                /* implant01 */
+                .implant01 {
+                    padding-top: 50px;
+                }
+                .implant01 .section-title {
+                    margin-bottom: 50px;
+                }
+                .implant01 h2 div {
+                    position: static;
+                    display: block;
+                    transform: none;
+                    max-width: 127px;
+                    margin: 20px auto 0px;
+                    line-height: 61px;
+                    padding: 0px;
+                    font-size: 28px;
+                }
+                .implant01 .content-wrap {
+                    flex-direction: column;
+                    border: none;
+                    padding: 50px 24px;
+                    gap: 24px;
+                }
+                .implant01_txt h3 {
+                    font-size: 30px;
+                }
+                .implant01_txt h4 {
+                    margin: 12px 0px 20px;
+                }
+                .implant01_txt p {
+                    margin-top: 20px;
+                }
+
+                /* implant02 */
+                .implant02 {
+                    padding: 80px 24px 190px;
+                    background-size: 150%;
+                }
+                .implant02 h3 {
+                    margin: 0px auto 50px;
+                    font-size: 18px;
+                }
+                .implant02 h4 {
+                    margin-top: 50px;
+                    font-size: 30px;
+                }
+                .implant02 .section-title {
+                    margin-bottom: 12px;
+                }
+                .implant02 .section-title h2 {
+                    font-size: 24px;
+                }
+                .implant02 .section-title .sub {
+                    margin-bottom: 12px;
+                }
+                .implant02 img {
+                    width: 4px;
+                }
+
+                /* implant03 */
+                .implant03 {
+                    padding-top: 80px;
+                    border-bottom: none;
+                }
+                .implant03_title {
+                    padding: 24px;
+                }
+                .implant03 .content-wrap {
+                    padding: 32px 24px;
+                }
+                .implant03_con_txt p {
+                    margin: 12px 0px 24px;
+                    font-size: 16px;
+                }
+                .implant03_con_list {
+                    flex-direction: column;
+                    gap: 50px;
+                }
+                .implant03_con_list > div {
+                    max-width: 100%;
+                }
+                .implant03_con_list h5 {
+                    margin: 68px 0px 4px;
+                }
+                .implant03_con > p {
+                    margin-top: 24px;
+                }
+
+                /* implant04 */
+                .implant04 {
+                    padding-top: 80px;
+                    border-bottom: none;
+                }
+                .implant04_title {
+                    padding: 24px;
+                    gap: 4px;
+                }
+                .implant04_title span {
+                    margin-top: 2px;
+                }
+                .implant04_con01,
+                .implant04_con02 {
+                    flex-direction: column-reverse;
+                    gap: 12px;
+                    padding: 32px 24px;
+                }
+                .implant04_con01 p,
+                .implant04_con02 p {
+                    margin-top: 12px;
+                }
+                .implant04_list {
+                    display: block !important;
+                    padding: 32px 24px;
+                    overflow: hidden;
+                }
+                .implant04_list p {
+                    padding: 0px 14px;
+                }
+                .implant04_list .swiper-wrapper {
+                    display: flex !important;
+                    flex-direction: row !important;
+                    flex-wrap: nowrap !important;
+                    gap: 0 !important;
+                }
+                .implant04_list .swiper-slide {
+                    width: 280px !important;
+                    flex-shrink: 0 !important;
+                    flex: none !important;
+                }
+                .implant04_list .swiper-slide > div {
+                    margin-top: 12px;
+                }
+                .implant04_list .swiper-slide > div img {
+                    width: 16px;
+                }
+
+                /* implant05 */
+                .implant05 {
+                    padding-top: 80px;
+                    padding-bottom: 24px;
+                }
+                .bna_swiper {
+                    padding: 0 24px;
+                }
+                .bna_img {
+                    flex-direction: column;
+                    gap: 8px;
+                }
+                .bna_nav {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 12px;
+                    margin-top: 12px;
+                }
+                .bna_nav a {
+                    gap: 4px;
+                }
+                .bna_nav a img {
+                    width: 16px;
+                }
+                .bna_navigation {
+                    max-width: 280px;
+                    margin-top: 24px;
+                }
+
+                /* implant06 */
+                .implant06 {
+                    padding: 0px;
+                }
+                .implant06 > div > div {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 12px;
+                    padding: 0 24px;
+                    bottom: 24px;
+                }
+                .implant06 p {
+                    font-size: 16px;
+                }
+            }
+
+            /* ==================== 소형 모바일 (480px) ==================== */
+            @media screen and (max-width: 480px) {
+                .implant02 {
+                    padding: 80px 24px 200px;
+                }
+                .implant03_title,
+                .implant04_title {
+                    padding: 24px 24px;
+                }
+                .implant03 .content-wrap,
+                .implant04_con01,
+                .implant04_con02,
+                .implant04_list {
+                    padding: 24px 24px;
+                }
+            }
