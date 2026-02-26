@@ -1266,108 +1266,165 @@
                 // -- Main Intro --
                 gsap.from('.main_intro .section-title .sub', {
                     scrollTrigger: { trigger: '.main_intro', start: 'top 80%', once: true },
-                    y: 30, opacity: 0, duration: 0.8
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
                 });
                 gsap.from('.main_intro .section-title h2', {
                     scrollTrigger: { trigger: '.main_intro', start: 'top 80%', once: true },
-                    y: 40, opacity: 0, duration: 0.8, delay: 0.15
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: 0.15,
                 });
                 gsap.from('.main_intro_txt', {
                     scrollTrigger: { trigger: '.main_intro_con', start: 'top 85%', once: true },
-                    y: 60, opacity: 0, duration: 1
+                    y: 60,
+                    opacity: 0,
+                    duration: 1,
                 });
                 gsap.from('.main_intro_img', {
                     scrollTrigger: { trigger: '.main_intro_con', start: 'top 85%', once: true },
-                    y: 60, opacity: 0, duration: 1, delay: 0.2
+                    y: 60,
+                    opacity: 0,
+                    duration: 1,
+                    delay: 0.2,
                 });
 
                 // -- Main Care --
                 gsap.from('.main_care .section-title .sub', {
                     scrollTrigger: { trigger: '.main_care', start: 'top 80%', once: true },
-                    y: 30, opacity: 0, duration: 0.8
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
                 });
                 gsap.from('.main_care .section-title h2', {
                     scrollTrigger: { trigger: '.main_care', start: 'top 80%', once: true },
-                    y: 40, opacity: 0, duration: 0.8, delay: 0.15
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: 0.15,
                 });
                 gsap.from('.main_care_con > div', {
                     scrollTrigger: { trigger: '.main_care_con', start: 'top 85%', once: true },
-                    y: 40, opacity: 0, duration: 0.6, stagger: 0.12
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.6,
+                    stagger: 0.12,
                 });
 
                 // -- Main Column --
                 gsap.from('.main_column .section-title .sub', {
                     scrollTrigger: { trigger: '.main_column', start: 'top 80%', once: true },
-                    y: 30, opacity: 0, duration: 0.8
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
                 });
                 gsap.from('.main_column .section-title h2', {
                     scrollTrigger: { trigger: '.main_column', start: 'top 80%', once: true },
-                    y: 40, opacity: 0, duration: 0.8, delay: 0.15
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: 0.15,
                 });
                 gsap.from('.main_column .content-wrap', {
                     scrollTrigger: { trigger: '.main_column .content-wrap', start: 'top 85%', once: true },
-                    y: 50, opacity: 0, duration: 0.8
+                    y: 50,
+                    opacity: 0,
+                    duration: 0.8,
                 });
 
                 // -- Main Doctor --
                 gsap.from('.main_doctor .section-title .sub', {
                     scrollTrigger: { trigger: '.main_doctor', start: 'top 80%', once: true },
-                    y: 30, opacity: 0, duration: 0.8
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
                 });
                 gsap.from('.main_doctor .section-title h2', {
                     scrollTrigger: { trigger: '.main_doctor', start: 'top 80%', once: true },
-                    y: 40, opacity: 0, duration: 0.8, delay: 0.15
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: 0.15,
                 });
                 gsap.from('.doctor_card', {
                     scrollTrigger: { trigger: '.main_doctor_con', start: 'top 85%', once: true },
-                    y: 60, opacity: 0, duration: 0.8, stagger: 0.15
+                    y: 60,
+                    opacity: 0,
+                    duration: 0.8,
+                    stagger: 0.15,
                 });
                 gsap.from('.main_doctor_banner', {
                     scrollTrigger: { trigger: '.main_doctor_banner', start: 'top 85%', once: true },
-                    y: 40, opacity: 0, duration: 1
+                    y: 40,
+                    opacity: 0,
+                    duration: 1,
                 });
 
                 // -- Main Endding --
                 gsap.from('.main_endding .section-title .sub', {
                     scrollTrigger: { trigger: '.main_endding', start: 'top 80%', once: true },
-                    y: 30, opacity: 0, duration: 0.8
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
                 });
                 gsap.from('.main_endding .section-title h2', {
                     scrollTrigger: { trigger: '.main_endding', start: 'top 80%', once: true },
-                    y: 40, opacity: 0, duration: 0.8, delay: 0.15
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: 0.15,
                 });
                 gsap.from('.main_endding_img', {
                     scrollTrigger: { trigger: '.main_endding_img', start: 'top 85%', once: true },
-                    clipPath: 'inset(20% 0 0 0)', opacity: 0, duration: 1.2, ease: 'power2.out',
-                    clearProps: 'clipPath'
+                    clipPath: 'inset(20% 0 0 0)',
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: 'power2.out',
+                    clearProps: 'clipPath',
                 });
                 gsap.from('.endding_title', {
                     scrollTrigger: { trigger: '.endding_title', start: 'top 85%', once: true },
-                    y: 50, opacity: 0, duration: 1
+                    y: 50,
+                    opacity: 0,
+                    duration: 1,
                 });
 
                 // -- Review --
                 gsap.from('.endding_review', {
                     scrollTrigger: { trigger: '.endding_review', start: 'top 85%', once: true },
-                    y: 40, opacity: 0, duration: 0.8
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
                 });
                 gsap.from('.review_scroll_con > div', {
                     scrollTrigger: { trigger: '.review_scroll', start: 'top 60%', once: true },
-                    y: 40, opacity: 0, duration: 0.8
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
                 });
                 gsap.from('.review_scroll_con > p', {
                     scrollTrigger: { trigger: '.review_scroll', start: 'top 60%', once: true },
-                    y: 40, opacity: 0, duration: 0.8, delay: 0.2
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: 0.2,
                 });
 
                 // -- Footer --
                 gsap.from('.footer-left', {
                     scrollTrigger: { trigger: '.footer', start: 'top 85%', once: true },
-                    y: 40, opacity: 0, duration: 0.8
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
                 });
                 gsap.from('.footer-map', {
                     scrollTrigger: { trigger: '.footer', start: 'top 85%', once: true },
-                    y: 40, opacity: 0, duration: 0.8, delay: 0.2
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: 0.2,
                 });
 
                 // 모든 ScrollTrigger 생성 후 refresh (Lenis와 동기화 + 정확한 위치 계산)
@@ -1680,6 +1737,11 @@
                     },
                 },
             });
+        </script>
+        <script>
+            console.log('100vh =', document.querySelector('.main_slogan01').offsetHeight + 'px');
+            console.log('innerHeight =', window.innerHeight + 'px');
+            console.log('차이 =', document.querySelector('.main_slogan01').offsetHeight - window.innerHeight + 'px');
         </script>
     </body>
 </html>

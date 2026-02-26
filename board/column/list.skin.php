@@ -1,6 +1,8 @@
 <?php
 if (!defined('_GNUBOARD_')) exit;
-
+?>
+<link rel="stylesheet" href="<?php echo $board_skin_url; ?>/style.css">
+<?php
 // 카테고리 매핑
 $category_map = array(
     '임플란트' => 'implant',
@@ -20,21 +22,21 @@ if ($board['bo_category_list']) {
 
     <!-- 카테고리 탭 -->
     <?php if (count($categories) > 0) { ?>
-    <div class="column_head b28r">
-        <div class="column_category">
-            <span data-category="all" class="<?php echo !$sca ? 'active' : ''; ?>">
-                <a href="<?php echo get_pretty_url($bo_table); ?>">전체</a>
-            </span>
-            <?php foreach ($categories as $cat) {
-                $cat = trim($cat);
-                $data_cat = isset($category_map[$cat]) ? $category_map[$cat] : strtolower($cat);
-            ?>
-            <span data-category="<?php echo $data_cat; ?>" class="<?php echo ($sca == $cat) ? 'active' : ''; ?>">
-                <a href="<?php echo get_pretty_url($bo_table, '', 0, $cat); ?>"><?php echo $cat; ?></a>
-            </span>
-            <?php } ?>
+        <div class="column_head b28r">
+            <div class="column_category">
+                <span data-category="all" class="<?php echo !$sca ? 'active' : ''; ?>">
+                    <a href="<?php echo get_pretty_url($bo_table); ?>">전체</a>
+                </span>
+                <?php foreach ($categories as $cat) {
+                    $cat = trim($cat);
+                    $data_cat = isset($category_map[$cat]) ? $category_map[$cat] : strtolower($cat);
+                ?>
+                    <span data-category="<?php echo $data_cat; ?>" class="<?php echo ($sca == $cat) ? 'active' : ''; ?>">
+                        <a href="<?php echo get_pretty_url($bo_table, '', 0, $cat); ?>"><?php echo $cat; ?></a>
+                    </span>
+                <?php } ?>
+            </div>
         </div>
-    </div>
     <?php } ?>
 
     <!-- 검색 -->
@@ -78,84 +80,96 @@ if ($board['bo_category_list']) {
                 // 카테고리 라벨
                 $cat_label = !empty($list[$i]['ca_name']) ? $list[$i]['ca_name'] : '';
             ?>
-            <a href="<?php echo $list[$i]['href']; ?>" class="swiper-slide column_card" data-category="<?php echo $data_category; ?>">
-                <div class="column_card_img">
-                    <img src="<?php echo $thumb_url; ?>" alt="<?php echo strip_tags($list[$i]['wr_subject']); ?>" />
-                </div>
-                <?php if ($cat_label) { ?>
-                <span class="column_card_category c16r"><?php echo $cat_label; ?></span>
-                <?php } ?>
-                <h4 class="b28r"><?php echo $list[$i]['wr_subject']; ?></h4>
-                <div class="column_card_meta">
-                    <span class="column_card_date c16r"><?php echo $date; ?></span>
-                </div>
-                <span class="column_card_more b18r">자세히 보기<img src="<?php echo G5_THEME_URL; ?>/img/arrow02.svg" alt="칼럼 이동" /></span>
-            </a>
+                <a href="<?php echo $list[$i]['href']; ?>" class="swiper-slide column_card" data-category="<?php echo $data_category; ?>">
+                    <div class="column_card_img">
+                        <img src="<?php echo $thumb_url; ?>" alt="<?php echo strip_tags($list[$i]['wr_subject']); ?>" />
+                    </div>
+                    <?php if ($cat_label) { ?>
+                        <span class="column_card_category c16r"><?php echo $cat_label; ?></span>
+                    <?php } ?>
+                    <h4 class="b28r"><?php echo $list[$i]['wr_subject']; ?></h4>
+                    <div class="column_card_meta">
+                        <span class="column_card_date c16r"><?php echo $date; ?></span>
+                    </div>
+                </a>
             <?php } ?>
         </div>
     </div>
 
     <!-- 페이지네이션 -->
     <?php if ($total_page > 1) { ?>
-    <div class="column_pagination">
-        <?php echo $write_pages; ?>
-    </div>
+        <div class="column_pagination">
+            <?php echo $write_pages; ?>
+        </div>
     <?php } ?>
 
     <!-- 글쓰기 버튼 -->
     <?php if ($write_href) { ?>
-    <div class="column_write_btn">
-        <a href="<?php echo $write_href; ?>" class="btn_write b18r">글쓰기</a>
-    </div>
+        <div class="column_write_btn">
+            <a href="<?php echo $write_href; ?>" class="btn_write b18r">글쓰기</a>
+        </div>
     <?php } ?>
 
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var columnSwiper = null;
+    document.addEventListener('DOMContentLoaded', function() {
+        var columnSwiper = null;
 
-    // 모바일 Swiper 초기화
-    function initColumnSwiper() {
-        if (window.innerWidth <= 768) {
-            if (!columnSwiper) {
-                var el = document.querySelector('.column_body.column_swiper');
-                if (el) {
-                    columnSwiper = new Swiper(el, {
-                        slidesPerView: 'auto',
-                        spaceBetween: 16,
-                        freeMode: true
-                    });
+        // 모바일 Swiper 초기화
+        function initColumnSwiper() {
+            if (window.innerWidth <= 768) {
+                if (!columnSwiper) {
+                    var el = document.querySelector('.column_body.column_swiper');
+                    if (el) {
+                        columnSwiper = new Swiper(el, {
+                            slidesPerView: 'auto',
+                            spaceBetween: 16,
+                            freeMode: true
+                        });
+                    }
+                }
+            } else {
+                if (columnSwiper) {
+                    columnSwiper.destroy(true, true);
+                    columnSwiper = null;
                 }
             }
-        } else {
-            if (columnSwiper) {
-                columnSwiper.destroy(true, true);
-                columnSwiper = null;
-            }
         }
-    }
 
-    // 카드 GSAP 스크롤 애니메이션
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
+        // 카드 GSAP 스크롤 애니메이션
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
 
-        gsap.from('.column_category', {
-            scrollTrigger: { trigger: '.column_head', start: 'top 85%', once: true },
-            y: 20, opacity: 0, duration: 0.6
+            gsap.from('.column_category', {
+                scrollTrigger: {
+                    trigger: '.column_head',
+                    start: 'top 85%',
+                    once: true
+                },
+                y: 20,
+                opacity: 0,
+                duration: 0.6
+            });
+
+            gsap.from('.column_card', {
+                scrollTrigger: {
+                    trigger: '.column_body',
+                    start: 'top 85%',
+                    once: true
+                },
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15
+            });
+        }
+
+        var resizeTimer;
+        initColumnSwiper();
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(initColumnSwiper, 200);
         });
-
-        gsap.from('.column_card', {
-            scrollTrigger: { trigger: '.column_body', start: 'top 85%', once: true },
-            y: 40, opacity: 0, duration: 0.8, stagger: 0.15
-        });
-    }
-
-    var resizeTimer;
-    initColumnSwiper();
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(initColumnSwiper, 200);
     });
-});
 </script>

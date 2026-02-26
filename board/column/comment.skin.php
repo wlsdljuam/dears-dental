@@ -1,6 +1,7 @@
 <?php
 if (!defined('_GNUBOARD_')) exit;
 ?>
+<link rel="stylesheet" href="<?php echo $board_skin_url; ?>/style.css">
 
 <div id="bo_comment" class="column-comment">
 
